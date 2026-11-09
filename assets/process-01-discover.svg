@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="deskWarm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6F3EC"/>
+      <stop offset="100%" stop-color="#E7E2D8"/>
+    </linearGradient>
+    <pattern id="dotMatrix" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.4" fill="#121318" fill-opacity="0.16"/>
+    </pattern>
+    <filter id="paperShadow" x="-15%" y="-15%" width="140%" height="140%">
+      <feDropShadow dx="8" dy="16" stdDeviation="14" flood-color="#121318" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Studio paper tabletop -->
+  <rect width="600" height="750" fill="url(#deskWarm)"/>
+  <!-- Soft afternoon window light strip -->
+  <polygon points="0,80 600,0 600,260 0,340" fill="#FFFFFF" opacity="0.4"/>
+
+  <!-- Open Wireframe Sketchbook -->
+  <g transform="translate(68, 120) rotate(-3)" filter="url(#paperShadow)">
+    <rect width="460" height="510" rx="20" fill="#121318"/>
+    <rect x="14" y="14" width="432" height="482" rx="12" fill="#FFFDF9"/>
+    <rect x="14" y="14" width="432" height="482" rx="12" fill="url(#dotMatrix)"/>
+
+    <!-- Step label header inside sketchbook -->
+    <text x="42" y="58" font-family="monospace" font-size="14" font-weight="700" fill="#FF5A1F">STEP 01 / DISCOVERY</text>
+    <line x1="42" y1="74" x2="418" y2="74" stroke="#121318" stroke-opacity="0.18" stroke-width="1.5"/>
+
+    <!-- Conceptual Flow Nodes & Research Connections -->
+    <rect x="44" y="106" width="150" height="74" rx="10" fill="#FFE8DD" stroke="#FF5A1F" stroke-width="2"/>
+    <rect x="60" y="126" width="84" height="10" rx="5" fill="#121318"/>
+    <rect x="60" y="144" width="110" height="8" rx="4" fill="#C83705" fill-opacity="0.65"/>
+
+    <rect x="264" y="106" width="150" height="74" rx="10" fill="#F6F5F2" stroke="#121318" stroke-width="2"/>
+    <rect x="280" y="126" width="76" height="10" rx="5" fill="#121318"/>
+    <rect x="280" y="144" width="108" height="8" rx="4" fill="#94A3B8"/>
+
+    <!-- Connecting flow lines -->
+    <path d="M 194 143 C 224 143, 234 143, 264 143" fill="none" stroke="#121318" stroke-width="2" stroke-dasharray="4 4"/>
+    <path d="M 119 180 C 119 220, 229 210, 229 250" fill="none" stroke="#FF5A1F" stroke-width="2.5"/>
+    <path d="M 339 180 C 339 220, 229 210, 229 250" fill="none" stroke="#121318" stroke-width="2"/>
+
+    <!-- Low-fi wireframe sketch inside notebook -->
+    <rect x="74" y="250" width="312" height="196" rx="12" fill="#FFFFFF" stroke="#121318" stroke-width="2"/>
+    <rect x="94" y="272" width="176" height="68" rx="8" fill="#F1F5F9" stroke="#121318" stroke-dasharray="4 3"/>
+    <line x1="94" y1="272" x2="270" y2="340" stroke="#94A3B8" stroke-width="1"/>
+    <line x1="270" y1="272" x2="94" y2="340" stroke="#94A3B8" stroke-width="1"/>
+    <rect x="286" y="272" width="80" height="68" rx="8" fill="#FF5A1F" fill-opacity="0.22" stroke="#FF5A1F"/>
+    <rect x="94" y="356" width="120" height="12" rx="6" fill="#121318"/>
+    <rect x="94" y="378" width="248" height="9" rx="4.5" fill="#94A3B8"/>
+    <rect x="94" y="396" width="198" height="9" rx="4.5" fill="#CBD5E1"/>
+  </g>
+
+  <!-- Minimalist Sticky Insight Card Overlap -->
+  <g transform="translate(362, 502) rotate(5)" filter="url(#paperShadow)">
+    <rect width="166" height="162" rx="10" fill="#FF5A1F"/>
+    <rect x="20" y="28" width="90" height="10" rx="5" fill="#FFFFFF"/>
+    <rect x="20" y="50" width="124" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.78"/>
+    <rect x="20" y="68" width="102" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.78"/>
+    <circle cx="128" cy="126" r="14" fill="#121318"/>
+  </g>
+
+  <!-- Sleek Dark Stylus Resting Diagonal -->
+  <g transform="translate(110, 588) rotate(-22)" filter="url(#paperShadow)">
+    <rect width="230" height="18" rx="9" fill="#121318"/>
+    <polygon points="230,2 252,9 230,16" fill="#FF5A1F"/>
+  </g>
+</svg>

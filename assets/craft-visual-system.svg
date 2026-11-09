@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="studioMat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B1D26"/>
+      <stop offset="100%" stop-color="#0E1016"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF5A1F"/>
+      <stop offset="50%" stop-color="#FF9B66"/>
+      <stop offset="100%" stop-color="#93C5FD"/>
+    </linearGradient>
+    <filter id="cardDrop" x="-15%" y="-15%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Studio matte slate canvas -->
+  <rect width="800" height="600" fill="url(#studioMat)"/>
+  <!-- Ambient tangerine glow -->
+  <circle cx="650" cy="120" r="220" fill="#FF5A1F" opacity="0.14"/>
+  <circle cx="150" cy="480" r="210" fill="#93C5FD" opacity="0.1"/>
+
+  <!-- Crop marks -->
+  <path d="M 38 64 L 38 38 L 64 38 M 736 38 L 762 38 L 762 64 M 38 536 L 38 562 L 64 562 M 736 562 L 762 562 L 762 536" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Sheet 1 (Back angled sheet): Color & Token Strip -->
+  <g transform="translate(88, 72) rotate(-3)" filter="url(#cardDrop)">
+    <rect width="340" height="420" rx="18" fill="#F6F5F2"/>
+    <text x="28" y="42" font-family="monospace" font-size="11" font-weight="700" fill="#575B66" letter-spacing="1.5">COLOR TOKENS</text>
+    <rect x="28" y="62" width="284" height="72" rx="12" fill="url(#accentGrad)"/>
+
+    <!-- Swatch chips -->
+    <rect x="28" y="154" width="84" height="92" rx="10" fill="#FF5A1F"/>
+    <text x="36" y="232" font-family="monospace" font-size="10" fill="#FFFFFF">#FF5A1F</text>
+
+    <rect x="128" y="154" width="84" height="92" rx="10" fill="#121318"/>
+    <text x="136" y="232" font-family="monospace" font-size="10" fill="#FFFFFF">#121318</text>
+
+    <rect x="228" y="154" width="84" height="92" rx="10" fill="#DBEAFE"/>
+    <text x="236" y="232" font-family="monospace" font-size="10" fill="#121318">#DBEAFE</text>
+
+    <!-- Typography scale lines -->
+    <text x="28" y="294" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#121318">Aa Bb Cc</text>
+    <rect x="28" y="314" width="220" height="10" rx="5" fill="#121318" fill-opacity="0.16"/>
+    <rect x="28" y="334" width="164" height="10" rx="5" fill="#121318" fill-opacity="0.1"/>
+    <rect x="28" y="366" width="120" height="28" rx="14" fill="#FF5A1F"/>
+    <circle cx="290" cy="380" r="14" fill="#121318"/>
+  </g>
+
+  <!-- Sheet 2 (Foreground right card): Emblem & Grid Spec Sheet -->
+  <g transform="translate(384, 118) rotate(3)" filter="url(#cardDrop)">
+    <rect width="330" height="400" rx="18" fill="#FFFFFF"/>
+    <rect x="24" y="24" width="282" height="196" rx="14" fill="#121318"/>
+
+    <!-- Emblem ADT geometric crest inside dark box -->
+    <circle cx="165" cy="122" r="64" fill="none" stroke="#FF5A1F" stroke-width="2" stroke-dasharray="4 4"/>
+    <circle cx="165" cy="122" r="46" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="1.5"/>
+    <g transform="translate(115, 72) scale(0.2)" fill="#FFFFFF">
+      <polygon points="241,63 250,63 216,177 241,177"/>
+      <rect x="214" y="177" width="53" height="4"/>
+      <polygon points="241,63 278,63 320,244 282,244"/>
+      <polygon points="208,206 214,181 268,181 282,244 200,244"/>
+      <rect x="195" y="244" width="126" height="20" rx="2"/>
+      <path d="M 187,264 C 187,330 216,365 250,365 C 284,365 327,330 327,264 L 314,264 C 314,318 280,349 250,349 C 220,349 199,318 199,264 Z"/>
+      <rect x="238" y="264" width="38" height="175"/>
+      <rect x="195" y="439" width="125" height="5"/>
+    </g>
+
+    <text x="24" y="256" font-family="monospace" font-size="11" font-weight="700" fill="#FF5A1F">BRAND SYSTEM · 2.0</text>
+    <text x="24" y="286" font-family="Arial Black, sans-serif" font-size="22" font-weight="800" fill="#121318">Identity Spec</text>
+
+    <!-- Grid cards bottom -->
+    <rect x="24" y="308" width="134" height="66" rx="10" fill="#F6F5F2" stroke="#E5E2DA"/>
+    <rect x="38" y="324" width="44" height="8" rx="4" fill="#121318"/>
+    <rect x="38" y="340" width="90" height="8" rx="4" fill="#FF5A1F"/>
+    <rect x="38" y="354" width="62" height="6" rx="3" fill="#9CA3AF"/>
+
+    <rect x="172" y="308" width="134" height="66" rx="10" fill="#F6F5F2" stroke="#E5E2DA"/>
+    <circle cx="204" cy="341" r="16" fill="#3B82F6"/>
+    <rect x="230" y="330" width="60" height="8" rx="4" fill="#121318"/>
+    <rect x="230" y="344" width="42" height="6" rx="3" fill="#9CA3AF"/>
+  </g>
+</svg>

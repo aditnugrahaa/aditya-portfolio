@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="mintBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#A7F3D0"/>
+    </linearGradient>
+    <filter id="phoneShadow" x="-18%" y="-18%" width="140%" height="140%">
+      <feDropShadow dx="10" dy="20" stdDeviation="18" flood-color="#065F46" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#mintBg)"/>
+  <!-- Decorative floating wellness aura circles -->
+  <circle cx="170" cy="140" r="90" fill="#FFFFFF" opacity="0.45"/>
+  <circle cx="640" cy="360" r="110" fill="#34D399" opacity="0.22"/>
+
+  <!-- Side floating floating notification card Left -->
+  <g filter="url(#phoneShadow)" transform="translate(88, 178)">
+    <rect width="196" height="114" rx="16" fill="#FFFFFF"/>
+    <circle cx="38" cy="40" r="16" fill="#D1FAE5"/>
+    <path d="M 32 40 L 44 40 M 38 34 L 38 46" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+    <rect x="66" y="28" width="96" height="10" rx="5" fill="#0F172A"/>
+    <rect x="66" y="46" width="68" height="8" rx="4" fill="#64748B"/>
+    <rect x="22" y="74" width="152" height="22" rx="11" fill="#10B981"/>
+  </g>
+
+  <!-- Center Sleek Smartphone Mockup -->
+  <g filter="url(#phoneShadow)" transform="translate(292, 34)">
+    <rect width="216" height="432" rx="34" fill="#0F172A"/>
+    <rect x="9" y="9" width="198" height="414" rx="26" fill="#FFFFFF"/>
+    <!-- Dynamic Notch -->
+    <rect x="74" y="18" width="68" height="14" rx="7" fill="#0F172A"/>
+
+    <!-- Wellness Score Ring -->
+    <circle cx="108" cy="108" r="46" fill="none" stroke="#E2E8F0" stroke-width="10"/>
+    <circle cx="108" cy="108" r="46" fill="none" stroke="#10B981" stroke-width="10" stroke-dasharray="220 290" stroke-linecap="round" transform="rotate(-90 108 108)"/>
+    <text x="108" y="114" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="22" font-weight="800" fill="#0F172A">94%</text>
+
+    <!-- Pulse Waveform Box -->
+    <rect x="24" y="176" width="168" height="82" rx="14" fill="#ECFDF5"/>
+    <polyline points="38,224 62,224 72,202 84,242 96,194 108,232 122,218 148,218 162,204 176,218" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Appointment Card Pills -->
+    <rect x="24" y="274" width="168" height="58" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <circle cx="50" cy="303" r="14" fill="#A7F3D0"/>
+    <rect x="74" y="292" width="84" height="9" rx="4.5" fill="#0F172A"/>
+    <rect x="74" y="308" width="56" height="7" rx="3.5" fill="#94A3B8"/>
+
+    <rect x="24" y="346" width="168" height="52" rx="14" fill="#0F172A"/>
+    <rect x="64" y="368" width="88" height="8" rx="4" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Floating Telehealth Video Status Card Right -->
+  <g filter="url(#phoneShadow)" transform="translate(534, 134)">
+    <rect width="186" height="196" rx="18" fill="#FFFFFF"/>
+    <rect x="16" y="16" width="154" height="106" rx="12" fill="#10B981" opacity="0.16"/>
+    <circle cx="93" cy="69" r="24" fill="#059669"/>
+    <polygon points="87,59 105,69 87,79" fill="#FFFFFF"/>
+    <rect x="24" y="138" width="110" height="10" rx="5" fill="#0F172A"/>
+    <rect x="24" y="156" width="80" height="8" rx="4" fill="#94A3B8"/>
+  </g>
+</svg>

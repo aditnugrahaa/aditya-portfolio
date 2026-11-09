@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgSky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#BFDBFE"/>
+    </linearGradient>
+    <filter id="winShadow" x="-12%" y="-12%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#1E3A8A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgSky)"/>
+
+  <!-- Floating No-Code Builder Window -->
+  <g filter="url(#winShadow)">
+    <rect x="56" y="42" width="688" height="416" rx="18" fill="#FFFFFF" stroke="#DBEAFE" stroke-width="2"/>
+    <!-- Browser Top Bar -->
+    <rect x="56" y="42" width="688" height="44" rx="18" fill="#0F172A"/>
+    <rect x="56" y="66" width="688" height="20" fill="#0F172A"/>
+    <circle cx="84" cy="64" r="5.5" fill="#F87171"/>
+    <circle cx="102" cy="64" r="5.5" fill="#FBBF24"/>
+    <circle cx="120" cy="64" r="5.5" fill="#34D399"/>
+    <rect x="290" y="54" width="220" height="20" rx="10" fill="#1E293B"/>
+    <rect x="646" y="53" width="76" height="22" rx="11" fill="#2563EB"/>
+
+    <!-- Left Blocks Sidebar -->
+    <rect x="74" y="102" width="136" height="338" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <rect x="88" y="120" width="108" height="32" rx="8" fill="#EFF6FF" stroke="#93C5FD"/>
+    <rect x="88" y="164" width="108" height="32" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <rect x="88" y="208" width="108" height="32" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <rect x="88" y="252" width="108" height="32" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <rect x="88" y="388" width="108" height="34" rx="17" fill="#0F172A"/>
+
+    <!-- Center Website Canvas Preview -->
+    <rect x="228" y="102" width="496" height="338" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <!-- Hero Block on Canvas -->
+    <rect x="248" y="120" width="456" height="156" rx="12" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.5"/>
+    <rect x="272" y="146" width="74" height="16" rx="8" fill="#DBEAFE"/>
+    <rect x="272" y="174" width="196" height="22" rx="6" fill="#0F172A"/>
+    <rect x="272" y="204" width="150" height="12" rx="6" fill="#94A3B8"/>
+    <rect x="272" y="228" width="96" height="28" rx="14" fill="#2563EB"/>
+    <!-- Right mini illustration inside canvas hero -->
+    <rect x="514" y="138" width="166" height="118" rx="10" fill="#EFF6FF"/>
+    <circle cx="597" cy="197" r="36" fill="#60A5FA" opacity="0.65"/>
+    <rect x="556" y="174" width="82" height="46" rx="8" fill="#2563EB"/>
+
+    <!-- Drag Selection Handles -->
+    <rect x="244" y="116" width="8" height="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <rect x="700" y="116" width="8" height="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <rect x="244" y="272" width="8" height="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <rect x="700" y="272" width="8" height="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+
+    <!-- Bottom 3 Feature Tiles -->
+    <rect x="248" y="294" width="142" height="124" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <circle cx="278" cy="324" r="14" fill="#DBEAFE"/>
+    <rect x="264" y="352" width="86" height="10" rx="5" fill="#0F172A"/>
+    <rect x="264" y="370" width="106" height="8" rx="4" fill="#CBD5E1"/>
+
+    <rect x="405" y="294" width="142" height="124" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <circle cx="435" cy="324" r="14" fill="#DBEAFE"/>
+    <rect x="421" y="352" width="86" height="10" rx="5" fill="#0F172A"/>
+    <rect x="421" y="370" width="106" height="8" rx="4" fill="#CBD5E1"/>
+
+    <rect x="562" y="294" width="142" height="124" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <circle cx="592" cy="324" r="14" fill="#DBEAFE"/>
+    <rect x="578" y="352" width="86" height="10" rx="5" fill="#0F172A"/>
+    <rect x="578" y="370" width="106" height="8" rx="4" fill="#CBD5E1"/>
+  </g>
+</svg>

@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Nugraha | Graphic Design &amp; Visual Gallery</title>
+  <meta name="description" content="Galeri Graphic Design & Visual Experiences oleh Aditya Nugraha. Sony Campaigns, Brand Systems, Visual Design, dan Creative Playground.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Syne (Expressive Creative Display), Plus Jakarta Sans (Body), Space Mono (Gallery Metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Three.js (3D Creative Immersion Hero Canvas) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+          },
+          colors: {
+            gallery: '#F6F5F2',
+            paper: '#FFFFFF',
+            ink: '#121318',
+            inkMuted: '#575B66',
+            tangerine: '#FF5A1F',
+            tangerineDeep: '#C83705',
+            peachWash: '#FFE8DD',
+            mistBlue: '#E7EEFA',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-gallery: #F6F5F2;
+      --surface-paper: #FFFFFF;
+      --ink-main: #121318;
+      --ink-muted: #575B66;
+      --accent: #FF5A1F;
+      --accent-dark: #C83705;
+      --border-hairline: rgba(18, 19, 24, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-gallery);
+      color: var(--ink-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Geometric Studio Texture */
+    .bg-studio-dots {
+      background-image: radial-gradient(rgba(18, 19, 24, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Frosted Light Gallery Glass (Web Approximation) */
+    .gallery-glass {
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(18, 19, 24, 0.09);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 14px 34px -16px rgba(18, 19, 24, 0.12);
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .gallery-glass {
+        background: #FFFFFF;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+    }
+
+    /* Splash Intro Overlay */
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background-color: #050507;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+      will-change: transform, opacity;
+    }
+    #splash-screen.is-leaving {
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+      pointer-events: none;
+    }
+    #splash-screen.is-gone {
+      display: none;
+    }
+
+    /* Tactile Cards & Spotlight */
+    .studio-card {
+      background-color: var(--surface-paper);
+      border: 1px solid var(--border-hairline);
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.38s ease;
+    }
+    .studio-card:hover {
+      border-color: rgba(255, 90, 31, 0.45);
+      box-shadow: 0 24px 48px -20px rgba(18, 19, 24, 0.14);
+      transform: translate3d(0, -4px, 0);
+    }
+
+    /* Tactile Buttons */
+    .btn-push {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn-push:active {
+      transform: scale(0.97) translateY(1px);
+    }
+
+    /* Scroll Reveal via IntersectionObserver */
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 26px, 0);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    /* Top Architectural Scroll-Progress Bar (CSS timeline only, zero scroll JS) */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #FF5A1F 0%, #C83705 100%);
+      transform-origin: left center;
+      transform: scaleX(0);
+      z-index: 60;
+      pointer-events: none;
+    }
+
+    /* CSS Scroll-Driven Parallax & Scrubbing (Zero scroll JS listeners) */
+    @keyframes scrollProgressGrow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    @keyframes scrollFloatUp {
+      from { transform: translate3d(0, 26px, 0); }
+      to { transform: translate3d(0, -34px, 0); }
+    }
+    @keyframes scrollFloatDown {
+      from { transform: translate3d(0, -24px, 0); }
+      to { transform: translate3d(0, 30px, 0); }
+    }
+    @keyframes scrollScaleGentle {
+      from { transform: scale(0.97); }
+      to { transform: scale(1.015); }
+    }
+    @keyframes scrollDriftXLeft {
+      from { transform: translate3d(18px, 0, 0); }
+      to { transform: translate3d(-18px, 0, 0); }
+    }
+    @supports (animation-timeline: scroll()) {
+      @media (prefers-reduced-motion: no-preference) {
+        #scroll-progress {
+          animation: scrollProgressGrow linear both;
+          animation-timeline: scroll(root);
+        }
+      }
+    }
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .parallax-up {
+          animation: scrollFloatUp linear both;
+          animation-timeline: view();
+          animation-range: entry 0% exit 100%;
+          will-change: transform;
+        }
+        .parallax-down {
+          animation: scrollFloatDown linear both;
+          animation-timeline: view();
+          animation-range: entry 0% exit 100%;
+          will-change: transform;
+        }
+        .parallax-zoom {
+          animation: scrollScaleGentle linear both;
+          animation-timeline: view();
+          animation-range: entry 0% cover 45%;
+        }
+        .parallax-drift-x {
+          animation: scrollDriftXLeft linear both;
+          animation-timeline: view();
+          animation-range: entry 0% exit 100%;
+        }
+      }
+    }
+
+    /* 3D Frame Pointer Parallax */
+    .hero-3d-tilt {
+      will-change: transform;
+      transition: box-shadow 0.35s ease;
+    }
+    .frame-depth-layer {
+      will-change: transform;
+    }
+
+    /* Interactive Lightbox */
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .lightbox-pop {
+      animation: modalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* FAQ Accordion smooth toggle */
+    .faq-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-item[data-open="true"] .faq-body {
+      grid-template-rows: 1fr;
+    }
+    .faq-inner {
+      overflow: hidden;
+    }
+    .faq-icon {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-item[data-open="true"] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Horizontal Showcase Strip Scrollbar Hide */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Sneak Peek Smooth Parallax Items */
+    .sneak-item {
+      will-change: transform;
+      transition: opacity 0.25s ease;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-gallery); }
+    ::-webkit-scrollbar-thumb { background: #CFCBC2; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #FF5A1F; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      #splash-screen { display: none !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-gallery text-ink antialiased selection:bg-tangerine selection:text-white bg-studio-dots">
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ==========================================
+       VIDEO SPLASH SCREEN (ADT_LOGO.mp4)
+       Plays on entry / page transition with Skip Intro
+       ========================================== -->
+  <div id="splash-screen" role="dialog" aria-label="ADT Intro Animation">
+    <video
+      id="splash-video"
+      src="./assets/ADT_LOGO.mp4"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      class="w-full max-w-2xl h-auto max-h-[82dvh] object-contain px-6"
+    ></video>
+
+    <div class="fixed bottom-8 inset-x-0 flex items-center justify-center gap-4 px-6 z-10">
+      <button type="button" id="skip-intro-btn" onclick="dismissSplash()" class="btn-push px-5 py-2.5 rounded-full bg-white/15 hover:bg-tangerine text-white border border-white/25 hover:border-tangerine font-mono text-xs uppercase tracking-wider backdrop-blur-md inline-flex items-center gap-2 transition-colors">
+        <span>Skip Intro</span>
+        <i class="ph-bold ph-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SINGLE-LINE NAVIGATION (Bridge back to UI/UX Portfolio)
+       ========================================== -->
+  <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-10">
+    <nav class="max-w-7xl mx-auto h-16 gallery-glass rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity -->
+      <a href="#top" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none shrink-0">
+        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-black/15 group-hover:ring-tangerine transition-transform duration-300 group-hover:scale-105 bg-ink">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
+            <circle cx="250" cy="250" r="236" fill="#121318" stroke="#FF5A1F" stroke-width="14"/>
+            <g fill="#FFFFFF">
+              <polygon points="241,63 250,63 216,177 241,177" />
+              <rect x="214" y="177" width="53" height="4" />
+              <polygon points="241,63 278,63 320,244 282,244" />
+              <polygon points="208,206 214,181 268,181 282,244 200,244" />
+              <rect x="195" y="244" width="126" height="20" rx="2" />
+              <path d="M 187,264 C 187,330 216,365 250,365 C 284,365 327,330 327,264 L 314,264 C 314,318 280,349 250,349 C 220,349 199,318 199,264 Z" />
+              <rect x="238" y="264" width="38" height="175" />
+              <rect x="195" y="439" width="125" height="5" />
+            </g>
+          </svg>
+        </div>
+        <span class="font-display font-bold text-sm sm:text-base tracking-tight whitespace-nowrap">
+          <span class="min-[400px]:hidden">ADT</span>
+          <span class="hidden min-[400px]:inline">ADITYA NUGRAHA</span>
+        </span>
+      </a>
+
+      <!-- Center Nav Links -->
+      <ul class="hidden lg:flex items-center gap-6 text-xs font-semibold text-inkMuted">
+        <li><a href="#sneak-peek" class="hover:text-tangerineDeep transition-colors whitespace-nowrap">Gallery</a></li>
+        <li><a href="#sony-campaigns" class="hover:text-tangerineDeep transition-colors whitespace-nowrap">Sony</a></li>
+        <li><a href="#works" class="hover:text-tangerineDeep transition-colors whitespace-nowrap">Works</a></li>
+        <li><a href="#playground" class="hover:text-tangerineDeep transition-colors whitespace-nowrap">Playground</a></li>
+        <li><a href="#design-process" class="hover:text-tangerineDeep transition-colors whitespace-nowrap">Process</a></li>
+      </ul>
+
+      <!-- Right Controls: Switch to UI/UX Portfolio + Primary CTA + Mobile Toggle -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="./index.html" class="btn-push px-3 sm:px-4 py-2 rounded-full bg-black/[0.05] hover:bg-ink hover:text-white border border-black/10 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-1.5 transition-colors">
+          <i class="ph-bold ph-arrow-left"></i>
+          <span class="hidden sm:inline">UI/UX Portfolio</span>
+          <span class="sm:hidden">UI/UX</span>
+        </a>
+
+        <a href="#contact" class="btn-push px-3.5 sm:px-5 py-2 rounded-full bg-tangerineDeep hover:bg-ink text-white text-xs font-bold whitespace-nowrap inline-flex items-center gap-1.5 shadow-sm transition-colors">
+          <span class="hidden sm:inline">Hubungi Saya</span>
+          <span class="sm:hidden">Contact</span>
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </a>
+
+        <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden w-9 h-9 rounded-full border border-black/10 bg-black/[0.04] hover:bg-ink hover:text-white flex items-center justify-center text-sm transition-colors" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i id="mobile-menu-icon" class="ph-bold ph-list"></i>
+        </button>
+      </div>
+
+    </nav>
+
+    <!-- Mobile / Tablet Compact Nav Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 gallery-glass rounded-3xl px-5 py-4 shadow-xl">
+      <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-ink">
+        <li><a href="#sneak-peek" onclick="toggleMobileMenu(false)" class="hover:text-tangerineDeep py-1 inline-block">Gallery</a></li>
+        <li><a href="#sony-campaigns" onclick="toggleMobileMenu(false)" class="hover:text-tangerineDeep py-1 inline-block">Sony Campaigns</a></li>
+        <li><a href="#works" onclick="toggleMobileMenu(false)" class="hover:text-tangerineDeep py-1 inline-block">Works</a></li>
+        <li><a href="#playground" onclick="toggleMobileMenu(false)" class="hover:text-tangerineDeep py-1 inline-block">Playground</a></li>
+        <li><a href="#design-process" onclick="toggleMobileMenu(false)" class="hover:text-tangerineDeep py-1 inline-block">Process</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top" class="relative z-10">
+
+    <!-- ==========================================
+         SECTION 1: CREATIVE HERO + 3D IMMERSIVE DESIGN CANVAS + PARALLAX GALLERY
+         (Inspired by Reference Agency Layout: Warm paper, orange badge, 3D chrome rings)
+         ========================================== -->
+    <section class="min-h-[100dvh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-24 pb-16 flex flex-col justify-center">
+      
+      <!-- Top Split: Editorial Copy + 3D Immersive Creativity Canvas -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left 6 Columns: Strict Stack (Eyebrow, Headline, Subtext, CTAs) -->
+        <div class="lg:col-span-6 space-y-6 reveal">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tangerine/10 border border-tangerine/25 text-tangerineDeep font-mono text-[11px] uppercase tracking-[0.16em] font-bold">
+            <i class="ph-fill ph-palette text-sm"></i>
+            <span>GRAPHIC DESIGNER PORTFOLIO</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl xl:text-[62px] tracking-tighter leading-[1.05] pb-1">
+            Crafting Visual <br class="hidden sm:inline" />
+            Experiences That <span class="inline-block px-3.5 py-0.5 rounded-2xl bg-tangerine text-white italic shadow-[0_12px_28px_-8px_rgba(255,90,31,0.55)] leading-[1.1]">Connect.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-inkMuted leading-relaxed max-w-[48ch]">
+            Digital experiences that engage users and help your startup stand out from day one.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-3.5">
+            <a href="#sony-campaigns" class="btn-push px-7 py-3.5 rounded-full bg-ink hover:bg-tangerine text-white font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
+              <span>Get Started</span>
+              <i class="ph-bold ph-arrow-down-right"></i>
+            </a>
+
+            <a href="./index.html" class="btn-push px-6 py-3.5 rounded-full bg-white hover:bg-ink hover:text-white border border-black/15 font-sans font-semibold text-sm whitespace-nowrap inline-flex items-center gap-2">
+              <i class="ph-bold ph-cube text-tangerine"></i>
+              <span>Go to UI/UX Web</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right 6 Columns: 3D Immersive Design Creativity Stage (Three.js Chrome Rings, Vector Ribbon, Swatch Plaques & Prism) -->
+        <div class="lg:col-span-6 reveal delay-1">
+          <div id="creative-3d-frame" class="hero-3d-tilt relative rounded-[28px] overflow-hidden bg-gradient-to-br from-[#EFECE6] via-[#FBF9F6] to-[#FFE8DD] border border-black/10 aspect-[4/3] sm:aspect-[5/4] shadow-xl">
+            <canvas id="creative-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
+
+            <!-- Interactive Floating Controls Inside 3D Stage -->
+            <div data-frame-depth="8" class="frame-depth-layer absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+              <span class="px-3 py-1 rounded-full bg-white/85 backdrop-blur-md border border-black/10 font-mono text-[11px] font-bold text-ink shadow-sm">
+                3D CREATIVE PRISM
+              </span>
+              <button type="button" onclick="replaySplash()" class="pointer-events-auto px-3 py-1 rounded-full bg-ink/85 hover:bg-tangerineDeep text-white font-mono text-[11px] inline-flex items-center gap-1.5 backdrop-blur-md transition-colors">
+                <i class="ph-bold ph-play"></i>
+                <span>Intro Video</span>
+              </button>
+            </div>
+
+            <div data-frame-depth="10" class="frame-depth-layer absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
+              <div class="px-3.5 py-2 rounded-2xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-medium text-ink shadow-sm">
+                Drag 3D studio prism &amp; vector ribbon
+              </div>
+              <div class="flex gap-1.5 pointer-events-auto">
+                <button type="button" onclick="setCreativeMood(0)" class="w-7 h-7 rounded-full bg-tangerine border-2 border-white shadow-md hover:scale-110 transition-transform" aria-label="Tangerine studio palette"></button>
+                <button type="button" onclick="setCreativeMood(1)" class="w-7 h-7 rounded-full bg-[#2563EB] border-2 border-white shadow-md hover:scale-110 transition-transform" aria-label="Cobalt studio palette"></button>
+                <button type="button" onclick="setCreativeMood(2)" class="w-7 h-7 rounded-full bg-[#121318] border-2 border-white shadow-md hover:scale-110 transition-transform" aria-label="Monochrome studio palette"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Showcase Banner (Visual Craft For Bold Brands + 4 Generated Visual Artworks) -->
+      <div class="mt-12 rounded-[32px] p-6 sm:p-10 bg-gradient-to-br from-[#DCE8FA] via-[#F2F0EC] to-[#FFE0CE] border border-black/10 relative overflow-hidden reveal delay-2">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          
+          <!-- Left Pair of Parallax Artwork Cards -->
+          <div class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4">
+            <div class="parallax-up">
+              <div data-parallax-card="14" class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-white shadow-lg aspect-[4/3] group" onclick="openLightbox('image', './assets/craft-brand-identity.jpg', 'Brand Identity System &amp; Tactile Materiality')">
+                <img src="./assets/craft-brand-identity.jpg" alt="Brand Identity System and Pantone Tangerine Materiality" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+            </div>
+            <div class="parallax-down lg:ml-8">
+              <div data-parallax-card="-10" class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-white shadow-lg aspect-[4/3] group" onclick="openLightbox('image', './assets/craft-editorial-poster.svg', 'Editorial Typography &amp; Swiss Poster Grid')">
+                <img src="./assets/craft-editorial-poster.svg" alt="Editorial Poster Direction and Form Contrast Composition" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Editorial Statement -->
+          <div class="lg:col-span-4 text-center space-y-4 py-4">
+            <p class="font-mono text-xs text-tangerineDeep font-bold">
+              Visual Direction · Brand Systems
+            </p>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight leading-tight text-ink">
+              Visual Craft <br />For Bold Brands
+            </h2>
+            <p class="text-sm text-inkMuted max-w-xs mx-auto">
+              Eksplorasi identitas visual, key visual kampanye, dan desain grafis komersial.
+            </p>
+            <div class="pt-1 flex justify-center gap-2">
+              <a href="#sneak-peek" class="btn-push px-4 py-2 rounded-full bg-white text-ink border border-black/10 text-xs font-bold shadow-sm hover:bg-tangerineDeep hover:text-white hover:border-tangerineDeep transition-colors">
+                Sneak Peek
+              </a>
+              <a href="./index.html" class="btn-push px-4 py-2 rounded-full bg-ink text-white text-xs font-bold shadow-sm hover:bg-tangerineDeep transition-colors">
+                UI/UX Mode
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Pair of Parallax Artwork Cards -->
+          <div class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4">
+            <div class="parallax-down lg:mr-8">
+              <div data-parallax-card="-14" class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-white shadow-lg aspect-[4/3] group" onclick="openLightbox('image', './assets/craft-3d-keyvisual.jpg', '3D Dimensional Key Visual &amp; Sculptural Rings')">
+                <img src="./assets/craft-3d-keyvisual.jpg" alt="3D Dimensional Key Visual Tangerine Prism with Chrome Rings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+            </div>
+            <div class="parallax-up">
+              <div data-parallax-card="12" class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-white shadow-lg aspect-[4/3] group" onclick="openLightbox('image', './assets/craft-visual-system.svg', 'Monogram System Architecture &amp; Color Tokens')">
+                <img src="./assets/craft-visual-system.svg" alt="Brand Visual System Specification and Monogram Blueprint" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: SNEAK PEAK OF MY WORKS (Uncropped Uniform-Height Auto-Gliding Parallax Reel)
+         ========================================== -->
+    <section id="sneak-peek" class="py-20 border-t border-black/10 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
+        <div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+            Sneak peak of my works.
+          </h2>
+          <p class="text-sm sm:text-base text-inkMuted mt-3 max-w-xl">
+            Kurasi visual kampanye, grafis gerak, dan eksplorasi desain komersial tampil utuh tanpa terpotong. Arahkan kursor untuk pause, klik untuk melihat ukuran penuh.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="scrollReel('sneak-reel', -380)" class="btn-push w-11 h-11 rounded-full border border-black/15 hover:bg-ink hover:text-white flex items-center justify-center transition-colors" aria-label="Scroll left">
+            <i class="ph-bold ph-arrow-left"></i>
+          </button>
+          <button type="button" onclick="scrollReel('sneak-reel', 380)" class="btn-push w-11 h-11 rounded-full border border-black/15 hover:bg-ink hover:text-white flex items-center justify-center transition-colors" aria-label="Scroll right">
+            <i class="ph-bold ph-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Uncropped Auto-Scrolling Art Strip with Parallax Depth -->
+      <div class="-mx-6 parallax-drift-x">
+        <div id="sneak-reel" class="flex items-start gap-6 sm:gap-8 overflow-x-auto no-scrollbar px-8 sm:px-12 lg:px-16 py-8">
+          
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/PtbeygkBTYwu88UfhBhecJjr7kE.jpg', 'Sony Days Promotional Poster')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/PtbeygkBTYwu88UfhBhecJjr7kE.jpg" alt="Sony Days Visual" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">01 - Sony Days Visual</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('video', 'https://framerusercontent.com/assets/obOWrVZdbxnDBbelegbrFmirbc.webm', 'Motion Visual Reel I')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-ink shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <video src="https://framerusercontent.com/assets/obOWrVZdbxnDBbelegbrFmirbc.webm" autoplay loop muted playsinline class="h-full w-auto max-w-none block min-w-[200px] sm:min-w-[250px]"></video>
+            </div>
+            <p class="font-mono text-xs text-inkMuted">02 - Motion Graphic Reel</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/E6VkDzhOEmin0Dyt5Pp5XY3RZw0.jpg', 'REON POCKET 5 Campaign')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/E6VkDzhOEmin0Dyt5Pp5XY3RZw0.jpg" alt="REON POCKET 5" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">03 - REON POCKET 5 Key Visual</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/3SilbuQP494449MW0JFVMT2ekr0.gif', 'Animated Graphic Artwork')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/3SilbuQP494449MW0JFVMT2ekr0.gif" alt="Animated Graphic Artwork" loading="eager" class="h-full w-auto max-w-none block object-contain" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">04 - Kinetic Visual Loop</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/NOOZBLfDpRhUAVH08RdMXt3K0g.jpg', 'Editorial Campaign Visual')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/NOOZBLfDpRhUAVH08RdMXt3K0g.jpg" alt="Editorial Campaign Visual" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">05 - Editorial Key Visual</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('video', 'https://framerusercontent.com/assets/jfF4nLBJI1KTV6Hqn8LElGOSBMw.mp4', 'Brand Motion Sequence')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-ink shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <video src="https://framerusercontent.com/assets/jfF4nLBJI1KTV6Hqn8LElGOSBMw.mp4" autoplay loop muted playsinline class="h-full w-auto max-w-none block min-w-[200px] sm:min-w-[250px]"></video>
+            </div>
+            <p class="font-mono text-xs text-inkMuted">06 - Brand Motion Sequence</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/V2X3tK9w9dUQMWscXIJOW0BCpc.jpg', 'Product Graphic Composition')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/V2X3tK9w9dUQMWscXIJOW0BCpc.jpg" alt="Product Graphic Composition" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">07 - Product Composition</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/LYgeXEOMkTjay0MIs6JG7VgMw.jpg', 'Campaign Poster Design')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/LYgeXEOMkTjay0MIs6JG7VgMw.jpg" alt="Campaign Poster Design" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">08 - Campaign Poster</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('video', 'https://framerusercontent.com/assets/clRrVCTToXY4RUqegfpKweb3E4.mp4', 'Interactive Motion Study')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-ink shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <video src="https://framerusercontent.com/assets/clRrVCTToXY4RUqegfpKweb3E4.mp4" autoplay loop muted playsinline class="h-full w-auto max-w-none block min-w-[200px] sm:min-w-[250px]"></video>
+            </div>
+            <p class="font-mono text-xs text-inkMuted">09 - Motion Study</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/NFbujMV1yMeZRBUBc8QyxT0nZ6c.jpg', 'Retail Key Artwork')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/NFbujMV1yMeZRBUBc8QyxT0nZ6c.jpg" alt="Retail Key Artwork" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">10 - Retail Key Artwork</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('image', 'https://framerusercontent.com/images/gu7HdoI7z55WRDg2leviFOCqmw.png', 'Brand Identity Layout')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-gallery shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <img src="https://framerusercontent.com/images/gu7HdoI7z55WRDg2leviFOCqmw.png" alt="Brand Identity Layout" loading="eager" class="h-full w-auto max-w-none block object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <p class="font-mono text-xs text-inkMuted">11 - Visual Identity</p>
+          </div>
+
+          <div class="sneak-item shrink-0 w-auto space-y-2.5 cursor-pointer group" onclick="openLightbox('video', 'https://framerusercontent.com/assets/qMXljhkcPfPnT2usUuN9acpoQ.mp4', 'Dynamic Promo Reel')">
+            <div class="rounded-2xl overflow-hidden border border-black/10 h-[250px] sm:h-[320px] lg:h-[360px] w-fit bg-ink shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+              <video src="https://framerusercontent.com/assets/qMXljhkcPfPnT2usUuN9acpoQ.mp4" autoplay loop muted playsinline class="h-full w-auto max-w-none block min-w-[200px] sm:min-w-[250px]"></video>
+            </div>
+            <p class="font-mono text-xs text-inkMuted">12 - Dynamic Promo Reel</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: SONY CAMPAIGNS (Asymmetric Editorial Exhibition)
+         ========================================== -->
+    <section id="sony-campaigns" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-24">
+      
+      <div class="max-w-2xl mb-14 space-y-3 reveal">
+        <span class="font-mono text-xs uppercase tracking-[0.16em] text-tangerineDeep font-bold block">
+          FEATURED EXHIBITION
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+          Sony Campaigns
+        </h2>
+        <p class="text-sm sm:text-base text-inkMuted leading-relaxed">
+          Selected Sony campaigns across products and seasonal promotions.
+        </p>
+      </div>
+
+      <!-- 2x2 Asymmetric Offset Gallery Grid with Parallax Drift -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+        
+        <!-- Campaign 1: Sony Days -->
+        <article class="studio-card rounded-3xl p-5 sm:p-7 space-y-5 reveal">
+          <div class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 aspect-[3/4] bg-gallery group" onclick="openLightbox('image', 'https://framerusercontent.com/images/PtbeygkBTYwu88UfhBhecJjr7kE.jpg', 'Sony Days - 2025 Seasonal Campaign')">
+            <img src="https://framerusercontent.com/images/PtbeygkBTYwu88UfhBhecJjr7kE.jpg" alt="Sony Days campaign" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div class="space-y-2">
+            <div class="font-mono text-xs text-tangerineDeep font-bold">2025 · Seasonal campaign · Sony</div>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">Sony Days</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              Year-end promotional key visual highlighting Sony cameras, audio products, and seasonal offers.
+            </p>
+          </div>
+        </article>
+
+        <!-- Campaign 2: REON POCKET 5 (Offset Downward Parallax) -->
+        <div class="md:mt-16 parallax-up">
+          <article class="studio-card rounded-3xl p-5 sm:p-7 space-y-5 reveal delay-1">
+            <div class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 aspect-[3/4] bg-gallery group" onclick="openLightbox('image', 'https://framerusercontent.com/images/E6VkDzhOEmin0Dyt5Pp5XY3RZw0.jpg', 'REON POCKET 5 - 2025 Product Marketing')">
+              <img src="https://framerusercontent.com/images/E6VkDzhOEmin0Dyt5Pp5XY3RZw0.jpg" alt="REON POCKET 5 campaign" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div class="space-y-2">
+              <div class="font-mono text-xs text-tangerineDeep font-bold">2025 · Product marketing · Sony</div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">REON POCKET 5</h3>
+              <p class="text-sm text-inkMuted leading-relaxed">
+                Product campaign for the wearable cooling and warming device, presenting its key features and use cases.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Campaign 3: March Holiday Deals -->
+        <article class="studio-card rounded-3xl p-5 sm:p-7 space-y-5 reveal">
+          <div class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 aspect-[4/3] bg-gallery group" onclick="openLightbox('image', 'https://framerusercontent.com/images/atr4z4VyZZp8IFgTQNaXgwJUFU.jpg', 'March Holiday Deals - 2023 Seasonal Promotion')">
+            <img src="https://framerusercontent.com/images/atr4z4VyZZp8IFgTQNaXgwJUFU.jpg" alt="March Holiday Deals campaign" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          </div>
+          <div class="space-y-2">
+            <div class="font-mono text-xs text-tangerineDeep font-bold">2023 · Seasonal promotion · Sony</div>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">March Holiday Deals</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              Promotional artwork for noise-cancelling headphones and earbuds during the March Holidays sale.
+            </p>
+          </div>
+        </article>
+
+        <!-- Campaign 4: Xperia (Offset Parallax) -->
+        <div class="md:mt-14 parallax-up">
+          <article class="studio-card rounded-3xl p-5 sm:p-7 space-y-5 reveal delay-1">
+            <div class="cursor-pointer rounded-2xl overflow-hidden border border-black/10 aspect-[4/3] bg-gallery group" onclick="openLightbox('image', 'https://framerusercontent.com/images/ZrEEarXzRjnLFCvwVNbXGEjAGnQ.jpg', 'Xperia - 2023 Product Campaign')">
+              <img src="https://framerusercontent.com/images/ZrEEarXzRjnLFCvwVNbXGEjAGnQ.jpg" alt="Sony Xperia campaign" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div class="space-y-2">
+              <div class="font-mono text-xs text-tangerineDeep font-bold">2023 · Product campaign · Sony Xperia</div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">Xperia</h3>
+              <p class="text-sm text-inkMuted leading-relaxed">
+                Retail campaign showcasing the Xperia phone lineup, product photography, and key features.
+              </p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: STARTUP WORKS & PRODUCT CASE STUDIES
+         (Reference-style Horizontal Slider with Prev/Next + Vibrant Preview Boxes)
+         ========================================== -->
+    <section id="works" class="py-24 border-t border-black/10 bg-[#EDEBE6]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 reveal">
+        <div class="max-w-2xl space-y-3">
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+            Works from concept to launch.
+          </h2>
+          <p class="text-sm sm:text-base text-inkMuted leading-relaxed">
+            Projects that helped startups grow, scale, and succeed across product design, visual branding, and marketing.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button type="button" onclick="scrollReel('works-reel', -460)" class="btn-push px-4 py-2.5 rounded-full bg-white border border-black/10 hover:bg-ink hover:text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+            <i class="ph-bold ph-arrow-left"></i>
+            <span>Prev</span>
+          </button>
+          <button type="button" onclick="scrollReel('works-reel', 460)" class="btn-push px-4 py-2.5 rounded-full bg-white border border-black/10 hover:bg-ink hover:text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+            <span>Next</span>
+            <i class="ph-bold ph-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="works-reel" class="flex gap-6 overflow-x-auto no-scrollbar px-4 sm:px-6 lg:px-10 pb-4 snap-x snap-mandatory scroll-smooth">
+        
+        <!-- Work 1: FinFlow -->
+        <article class="snap-start shrink-0 w-[86vw] sm:w-[460px] studio-card rounded-3xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#FFE0CE] to-[#FF9B66] p-3 aspect-[16/10]" onclick="openLightbox('image', './assets/work-finflow.jpg', 'FinFlow - Product Design (8 weeks, 2024)')">
+              <img src="./assets/work-finflow.jpg" alt="FinFlow Fintech Dashboard Mockup" loading="lazy" class="w-full h-full object-cover rounded-xl shadow-md" />
+            </div>
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-tangerine/15 text-tangerineDeep font-bold">Product Design</span>
+              <span class="text-inkMuted">SaaS · Fintech · 8 Weeks</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl">FinFlow</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              FinFlow needed an expense tracking platform for startup teams with tight budgets. Existing tools were too complex, so I designed an MVP to provide real-time spending insights for growth and fundraising.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-black/10 flex items-center justify-end">
+            <button type="button" onclick="openLightbox('image', './assets/work-finflow.jpg', 'FinFlow - Product Design (8 weeks, 2024)')" class="btn-push px-4 py-2 rounded-full bg-ink hover:bg-tangerine text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+              <span>Inspect</span>
+              <i class="ph-bold ph-magnifying-glass-plus"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Work 2: LaunchPad -->
+        <article class="snap-start shrink-0 w-[86vw] sm:w-[460px] studio-card rounded-3xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#DBEAFE] to-[#93C5FD] p-3 aspect-[16/10]" onclick="openLightbox('image', './assets/work-launchpad.svg', 'LaunchPad - Visual Design (8 weeks, 2024)')">
+              <img src="./assets/work-launchpad.svg" alt="LaunchPad No-Code Builder Mockup" loading="lazy" class="w-full h-full object-cover rounded-xl shadow-md" />
+            </div>
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-tangerine/15 text-tangerineDeep font-bold">Visual Design</span>
+              <span class="text-inkMuted">No-Code Builder · 8 Weeks</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl">LaunchPad</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              LaunchPad wanted a website builder for founders without coding skills. I designed an intuitive platform for creating MVP landing pages and marketing sites to establish online presence quickly.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-black/10 flex items-center justify-end">
+            <button type="button" onclick="openLightbox('image', './assets/work-launchpad.svg', 'LaunchPad - Visual Design (8 weeks, 2024)')" class="btn-push px-4 py-2 rounded-full bg-ink hover:bg-tangerine text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+              <span>Inspect</span>
+              <i class="ph-bold ph-magnifying-glass-plus"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Work 3: HealthSync -->
+        <article class="snap-start shrink-0 w-[86vw] sm:w-[460px] studio-card rounded-3xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#D1FAE5] to-[#6EE7B7] p-3 aspect-[16/10]" onclick="openLightbox('image', './assets/work-healthsync.svg', 'HealthSync - UI & UX (8 weeks, 2024)')">
+              <img src="./assets/work-healthsync.svg" alt="HealthSync Telehealth Mobile UI Mockup" loading="lazy" class="w-full h-full object-cover rounded-xl shadow-md" />
+            </div>
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-tangerine/15 text-tangerineDeep font-bold">UI &amp; UX</span>
+              <span class="text-inkMuted">Telehealth · 8 Weeks</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl">HealthSync</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              HealthSync aimed to provide startup teams accessible telehealth for overwhelmed employees. Traditional healthcare was slow and inaccessible, so I designed an app connecting teams to virtual care.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-black/10 flex items-center justify-end">
+            <button type="button" onclick="openLightbox('image', './assets/work-healthsync.svg', 'HealthSync - UI & UX (8 weeks, 2024)')" class="btn-push px-4 py-2 rounded-full bg-ink hover:bg-tangerine text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+              <span>Inspect</span>
+              <i class="ph-bold ph-magnifying-glass-plus"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Work 4: TalentBridge -->
+        <article class="snap-start shrink-0 w-[86vw] sm:w-[460px] studio-card rounded-3xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#FDE68A] to-[#F59E0B] p-3 aspect-[16/10]" onclick="openLightbox('image', './assets/work-talentbridge.svg', 'TalentBridge - Visual Design (8 weeks, 2024)')">
+              <img src="./assets/work-talentbridge.svg" alt="TalentBridge Recruitment Platform Mockup" loading="lazy" class="w-full h-full object-cover rounded-xl shadow-md" />
+            </div>
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-tangerine/15 text-tangerineDeep font-bold">Visual Design</span>
+              <span class="text-inkMuted">HR Tech · 8 Weeks</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl">TalentBridge</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              TalentBridge aimed to create a hiring platform for startups scaling from 5 to 50 employees. Designed to simplify recruitment while ensuring quality hires for fast-growing teams.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-black/10 flex items-center justify-end">
+            <button type="button" onclick="openLightbox('image', './assets/work-talentbridge.svg', 'TalentBridge - Visual Design (8 weeks, 2024)')" class="btn-push px-4 py-2 rounded-full bg-ink hover:bg-tangerine text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+              <span>Inspect</span>
+              <i class="ph-bold ph-magnifying-glass-plus"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Work 5: MarketMingle -->
+        <article class="snap-start shrink-0 w-[86vw] sm:w-[460px] studio-card rounded-3xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#E2E8F0] to-[#94A3B8] p-3 aspect-[16/10]" onclick="openLightbox('image', './assets/work-marketmingle.svg', 'MarketMingle - Marketing & Product (8 weeks, 2024)')">
+              <img src="./assets/work-marketmingle.svg" alt="MarketMingle Marketplace Mockup" loading="lazy" class="w-full h-full object-cover rounded-xl shadow-md" />
+            </div>
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-tangerine/15 text-tangerineDeep font-bold">Marketing</span>
+              <span class="text-inkMuted">Marketplace · 8 Weeks</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl">MarketMingle</h3>
+            <p class="text-sm text-inkMuted leading-relaxed">
+              MarketMingle sought to build a marketplace for startup ecosystems, connecting founders with local services and peers to foster collaboration and resource-sharing.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-black/10 flex items-center justify-end">
+            <button type="button" onclick="openLightbox('image', './assets/work-marketmingle.svg', 'MarketMingle - Marketing & Product (8 weeks, 2024)')" class="btn-push px-4 py-2 rounded-full bg-ink hover:bg-tangerine text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors">
+              <span>Inspect</span>
+              <i class="ph-bold ph-magnifying-glass-plus"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: PLAYGROUND (Generative Motion Design & Kinetic Studies)
+         ========================================== -->
+    <section id="playground" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-24">
+      <div class="max-w-2xl mb-12 space-y-3 reveal">
+        <p class="font-mono text-xs text-tangerineDeep font-bold">
+          Generative Motion Lab
+        </p>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+          Experimental visual craft.
+        </h2>
+        <p class="text-sm sm:text-base text-inkMuted leading-relaxed">
+          Eksplorasi animasi gerak (motion graphics), kinetika tipografi, dan studi interaktif 60fps yang di-generate secara real-time. Arahkan kursor atau klik untuk mode layar penuh.
+        </p>
+      </div>
+
+      <!-- Asymmetric 4-Col Procedural Motion Grid with Scroll Parallax Columns -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-start">
+        
+        <!-- Column 1 -->
+        <div class="space-y-4 sm:space-y-6 parallax-down">
+          <div class="reveal cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#121318] relative aspect-[4/5] group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 0, '01 · Kinetic Type Matrix')">
+            <canvas data-motion-study="0" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/80 via-black/35 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FF8A5C] uppercase tracking-wider">Motion 01</span>
+                <span class="block font-display font-bold text-sm text-white">Kinetic Type Matrix</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="reveal delay-1 cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#FBF9F5] relative aspect-square group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 1, '02 · Bezier Silk Waveforms')">
+            <canvas data-motion-study="1" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#121318]/80 via-[#121318]/25 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FFD1B8] uppercase tracking-wider">Motion 02</span>
+                <span class="block font-display font-bold text-sm text-white">Bezier Silk Wave</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2 (Offset Top Parallax Up) -->
+        <div class="space-y-4 sm:space-y-6 md:mt-10 parallax-up">
+          <div class="reveal cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#0E1015] relative aspect-[5/4] group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 2, '03 · ADT Monogram Sonic Pulse')">
+            <canvas data-motion-study="2" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/80 via-black/35 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FF8A5C] uppercase tracking-wider">Motion 03</span>
+                <span class="block font-display font-bold text-sm text-white">Monogram Sonic Pulse</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="reveal delay-1 cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#EFECE6] relative aspect-[4/5] group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 3, '04 · Morphing Brutalist Grid')">
+            <canvas data-motion-study="3" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#121318]/80 via-[#121318]/25 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FFD1B8] uppercase tracking-wider">Motion 04</span>
+                <span class="block font-display font-bold text-sm text-white">Morphing Swiss Grid</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="space-y-4 sm:space-y-6 parallax-down">
+          <div class="reveal cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#F2F4F8] relative aspect-[4/5] group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 4, '05 · Interactive UI Capsule Lab')">
+            <canvas data-motion-study="4" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#121318]/80 via-[#121318]/25 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FFD1B8] uppercase tracking-wider">Motion 05</span>
+                <span class="block font-display font-bold text-sm text-white">UI Micro-Interaction</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="reveal delay-1 cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#121318] relative aspect-[5/4] group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 5, '06 · Chroma Orbit & Glass Refraction')">
+            <canvas data-motion-study="5" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/80 via-black/35 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FF8A5C] uppercase tracking-wider">Motion 06</span>
+                <span class="block font-display font-bold text-sm text-white">Chroma Glass Orbit</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4 (Offset Top Parallax Up) -->
+        <div class="space-y-4 sm:space-y-6 md:mt-14 parallax-up">
+          <div class="reveal cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#161822] relative aspect-square group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 6, '07 · Isometric 2.5D Extrusion Wave')">
+            <canvas data-motion-study="6" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/80 via-black/35 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FF8A5C] uppercase tracking-wider">Motion 07</span>
+                <span class="block font-display font-bold text-sm text-white">Isometric Depth Wave</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="reveal delay-1 cursor-pointer rounded-2xl overflow-hidden border border-black/10 bg-[#14151B] relative aspect-[4/5] group shadow-md hover:shadow-xl transition-shadow" onclick="openLightbox('motion', 7, '08 · After Effects Keyframe Easing Graph')">
+            <canvas data-motion-study="7" class="w-full h-full block"></canvas>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/80 via-black/35 to-transparent flex items-end justify-between">
+              <div>
+                <span class="block font-mono text-[10px] text-[#FF8A5C] uppercase tracking-wider">Motion 08</span>
+                <span class="block font-display font-bold text-sm text-white">Keyframe Easing Curve</span>
+              </div>
+              <span class="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md text-white flex items-center justify-center text-xs group-hover:bg-tangerine transition-colors">
+                <i class="ph-bold ph-arrows-out-simple"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: WHAT I BRING TO THE TABLE (Dark Contrast Studio Showcase Card)
+         ========================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 reveal">
+      <div class="rounded-[32px] bg-[#14151B] text-white p-8 sm:p-12 lg:p-14 border border-black/15 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-5 space-y-4">
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight leading-tight">
+            What I bring to the table.
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Digital experiences that engage users and help your startup stand out from day one.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-paint-brush-broad text-tangerine text-base"></i>
+            <span>Branding</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-sparkle text-tangerine text-base"></i>
+            <span>Visual Design</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-layout text-tangerine text-base"></i>
+            <span>User Interface Design</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-cube text-tangerine text-base"></i>
+            <span>Product Design</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-compass text-tangerine text-base"></i>
+            <span>User Experience Design</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-magnifying-glass text-tangerine text-base"></i>
+            <span>User Research</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-presentation-chart text-tangerine text-base"></i>
+            <span>Pitch Deck Design</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-squares-four text-tangerine text-base"></i>
+            <span>Design Systems</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center gap-2.5 hover:border-tangerine transition-colors">
+            <i class="ph-bold ph-frame-corners text-tangerine text-base"></i>
+            <span>Framer Development</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 7: DESIGN PROCESS (How I Build Design)
+         ========================================== -->
+    <section id="design-process" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left 5 Columns: Aditya's Authentic Design Process -->
+        <div class="lg:col-span-5 space-y-5 reveal">
+          <p class="font-mono text-xs text-tangerineDeep font-bold">
+            Workflow · How I Build Design
+          </p>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+            Design Process.
+          </h2>
+          <p class="text-base font-semibold text-ink">
+            Dari ide mentah hingga eksekusi visual presisi, setiap desain dibangun dengan strategi yang terstruktur dan karakter yang kuat.
+          </p>
+
+          <div class="space-y-3 pt-1">
+            <div class="p-4 rounded-2xl bg-white border border-black/10 shadow-sm">
+              <div class="font-mono text-xs text-tangerineDeep font-bold">01 · Discover &amp; Direction</div>
+              <p class="text-sm text-inkMuted mt-1 leading-relaxed">
+                Membedah objektif brand, karakter audiens, serta menyusun arah visual dan hierarki pesan sebelum menyentuh kanvas.
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-black/10 shadow-sm">
+              <div class="font-mono text-xs text-tangerineDeep font-bold">02 · Visual Exploration</div>
+              <p class="text-sm text-inkMuted mt-1 leading-relaxed">
+                Mengeksplorasi sistem grid, tipografi ekspresif, palet warna, dan komposisi key visual agar konsisten di berbagai medium.
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-black/10 shadow-sm">
+              <div class="font-mono text-xs text-tangerineDeep font-bold">03 · Craft &amp; Delivery</div>
+              <p class="text-sm text-inkMuted mt-1 leading-relaxed">
+                Menyempurnakan detail eksekusi, elemen motion/3D jika dibutuhkan, hingga finalisasi aset siap produksi dan peluncuran.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-wrap gap-3">
+            <a href="#contact" class="btn-push px-6 py-3 rounded-full bg-ink hover:bg-tangerine text-white text-xs font-bold inline-flex items-center gap-2 transition-colors">
+              <span>Hubungi Saya</span>
+              <i class="ph-bold ph-arrow-right"></i>
+            </a>
+            <a href="./index.html" class="btn-push px-5 py-3 rounded-full bg-white hover:bg-ink hover:text-white border border-black/15 text-ink text-xs font-semibold inline-flex items-center gap-2 transition-colors">
+              <i class="ph-bold ph-cube text-tangerine"></i>
+              <span>UI/UX Web</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right 7 Columns: 3-Step Visual Process Parallax Collage -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
+          
+          <div class="parallax-up">
+            <figure class="studio-card rounded-2xl p-3 bg-white reveal cursor-pointer group" onclick="openLightbox('image', './assets/process-01-discover.svg', 'Stage 01 · Discover &amp; Brand Direction')">
+              <div class="rounded-xl overflow-hidden aspect-[4/5] bg-gallery">
+                <img src="./assets/process-01-discover.svg" alt="Stage 01 Discovery Sketchbook and Wireframe Notes" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <figcaption class="pt-3 pb-1 text-center font-mono text-xs font-bold text-ink">01 · Discover &amp; Brief</figcaption>
+            </figure>
+          </div>
+
+          <div class="sm:mt-10 parallax-down">
+            <figure class="studio-card rounded-2xl p-3 bg-white reveal delay-1 cursor-pointer group" onclick="openLightbox('image', './assets/process-02-explore.svg', 'Stage 02 · Visual System &amp; Typography Exploration')">
+              <div class="rounded-xl overflow-hidden aspect-[4/5] bg-gallery">
+                <img src="./assets/process-02-explore.svg" alt="Stage 02 Visual Exploration Swatches and Bezier Curves" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <figcaption class="pt-3 pb-1 text-center font-mono text-xs font-bold text-ink">02 · Visual System</figcaption>
+            </figure>
+          </div>
+
+          <div class="sm:mt-4 parallax-up">
+            <figure class="studio-card rounded-2xl p-3 bg-white reveal delay-2 cursor-pointer group" onclick="openLightbox('image', './assets/process-03-deliver.svg', 'Stage 03 · Craft, Motion &amp; Final Delivery')">
+              <div class="rounded-xl overflow-hidden aspect-[4/5] bg-gallery">
+                <img src="./assets/process-03-deliver.svg" alt="Stage 03 Final Craft and Motion Timeline Delivery" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <figcaption class="pt-3 pb-1 text-center font-mono text-xs font-bold text-ink">03 · Craft &amp; Deliver</figcaption>
+            </figure>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 8: CERITA DARI CLIENTS (3 Testimonials)
+         ========================================== -->
+    <section class="py-20 border-t border-black/10 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        
+        <div class="max-w-xl mb-12 space-y-2 reveal">
+          <p class="font-mono text-xs text-tangerineDeep font-bold">
+            Client Stories · Testimonials
+          </p>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight leading-none">
+            Cerita dari Clients.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Testimonial 1 -->
+          <blockquote class="rounded-3xl p-7 bg-gallery border border-black/10 flex flex-col justify-between gap-6 reveal">
+            <p class="text-sm sm:text-base text-ink leading-relaxed">
+              "Proses redesign-nya bikin value bisnis kami jauh <strong class="text-tangerineDeep">lebih jelas</strong>. Hasilnya bukan cuma terlihat great, tapi juga membantu kami lebih percaya diri saat pitching ke investor."
+            </p>
+            <footer class="flex items-center gap-3 pt-4 border-t border-black/10">
+              <img src="https://framerusercontent.com/images/C0KvfmTftD3so0Yz3V52LgidE.png" alt="Michelle Tan" class="w-11 h-11 rounded-full object-cover border border-black/10" />
+              <div>
+                <div class="font-display font-bold text-sm text-ink">Michelle Tan</div>
+                <div class="text-xs text-inkMuted">Founder, Finflow</div>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 2 -->
+          <blockquote class="rounded-3xl p-7 bg-gallery border border-black/10 flex flex-col justify-between gap-6 reveal delay-1">
+            <p class="text-sm sm:text-base text-ink leading-relaxed">
+              "Kerja bareng Aditya terasa seperti punya co-founder yang paham design. Prosesnya cepat, <strong class="text-tangerineDeep">komunikasinya clear</strong>, dan hasilnya siap langsung kami pakai."
+            </p>
+            <footer class="flex items-center gap-3 pt-4 border-t border-black/10">
+              <img src="https://framerusercontent.com/images/24wf1lN9csJw6nffAAi9rf4QFHM.jpg" alt="Arif Pratama" class="w-11 h-11 rounded-full object-cover border border-black/10" />
+              <div>
+                <div class="font-display font-bold text-sm text-ink">Arif Pratama</div>
+                <div class="text-xs text-inkMuted">CEO, Talent Bridge</div>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 3 -->
+          <blockquote class="rounded-3xl p-7 bg-gallery border border-black/10 flex flex-col justify-between gap-6 reveal delay-2">
+            <p class="text-sm sm:text-base text-ink leading-relaxed">
+              "Setelah landing page kami di-redesign, informasi produk jadi <strong class="text-tangerineDeep">lebih gampang dipahami</strong>. The new look feels professional dan lebih connect dengan target audience kami."
+            </p>
+            <footer class="flex items-center gap-3 pt-4 border-t border-black/10">
+              <img src="https://framerusercontent.com/images/e2kWTtL12IMp57QHHPh7cxc2MT4.png" alt="Nadia Putri" class="w-11 h-11 rounded-full object-cover border border-black/10" />
+              <div>
+                <div class="font-display font-bold text-sm text-ink">Nadia Putri</div>
+                <div class="text-xs text-inkMuted">Head of Growth, Launchpad</div>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 9: FAQs (Interactive Accordion)
+         ========================================== -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-24">
+      <div class="text-center mb-12 space-y-2 reveal">
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">FAQs</h2>
+        <p class="text-sm sm:text-base text-inkMuted">Got questions? I've got answers.</p>
+      </div>
+
+      <div class="space-y-3 reveal delay-1">
+        
+        <div class="faq-item rounded-2xl bg-white border border-black/10 p-5 sm:p-6" data-open="true">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left font-display font-bold text-base sm:text-lg text-ink">
+            <span>What is your typical design process?</span>
+            <i class="ph-bold ph-plus faq-icon text-tangerine shrink-0"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-inner pt-3 text-sm text-inkMuted leading-relaxed">
+              I follow a results-oriented approach that prioritizes speed and clarity. It starts with a Discovery phase to understand your business goals, followed by Rapid Prototyping and Iterative Testing. I don't believe in "design for design's sake", every pixel is mapped back to a specific user problem or business objective.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl bg-white border border-black/10 p-5 sm:p-6" data-open="false">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left font-display font-bold text-base sm:text-lg text-ink">
+            <span>How long does a project usually take?</span>
+            <i class="ph-bold ph-plus faq-icon text-tangerine shrink-0"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-inner pt-3 text-sm text-inkMuted leading-relaxed">
+              Timeline varies by scope, but a standard MVP or high-fidelity landing page typically takes 2 to 4 weeks. For larger product design systems or end-to-end platform redesigns, we usually look at a 2 to 3-month engagement. I work in "sprints" to ensure you see progress every week.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl bg-white border border-black/10 p-5 sm:p-6" data-open="false">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left font-display font-bold text-base sm:text-lg text-ink">
+            <span>Do you handle development as well?</span>
+            <i class="ph-bold ph-plus faq-icon text-tangerine shrink-0"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-inner pt-3 text-sm text-inkMuted leading-relaxed">
+              I specialize in Product &amp; Visual Design, and I am highly proficient in Framer and Webflow for front-end development. For complex web or mobile apps, I provide developer-ready Figma files with full documentation, ensuring a seamless handoff to your engineering team.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl bg-white border border-black/10 p-5 sm:p-6" data-open="false">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left font-display font-bold text-base sm:text-lg text-ink">
+            <span>Can you help us with our pitch deck?</span>
+            <i class="ph-bold ph-plus faq-icon text-tangerine shrink-0"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-inner pt-3 text-sm text-inkMuted leading-relaxed">
+              Absolutely. I often work with founders to translate their product vision into a compelling visual narrative for investors. Beyond just "making it pretty," I help structure the story to highlight your product's unique value proposition and user impact.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl bg-white border border-black/10 p-5 sm:p-6" data-open="false">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left font-display font-bold text-base sm:text-lg text-ink">
+            <span>How do we get started?</span>
+            <i class="ph-bold ph-plus faq-icon text-tangerine shrink-0"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-inner pt-3 text-sm text-inkMuted leading-relaxed">
+              Simply email me at adityanugraha555@gmail.com or connect via LinkedIn. We'll hop on a 30-minute call to discuss your ideas with no strings attached. From there, I'll send a proposal outlining next steps to turn your vision into a high-converting reality.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 10: VIBRANT CTA & DIRECT BRIDGE BACK TO UI/UX PORTFOLIO
+         (Inspired by Reference Vibrant Orange CTA Banner)
+         ========================================== -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pb-20 reveal">
+      <div class="rounded-[32px] p-8 sm:p-14 bg-gradient-to-br from-[#FF6D33] via-[#FF5A1F] to-[#E0420B] text-white relative overflow-hidden shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
+              Ready to build something amazing?
+            </h2>
+            <p class="text-white/90 text-sm sm:text-lg max-w-xl">
+              I'd love to connect with you! Hubungi langsung via email atau jejaring sosial, atau jelajahi portofolio UI/UX &amp; Motion saya.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a href="mailto:adityanugraha555@gmail.com" class="btn-push px-6 py-3.5 rounded-full bg-white text-ink font-display font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-lg hover:bg-ink hover:text-white transition-colors">
+                <i class="ph-bold ph-envelope-simple text-base"></i>
+                <span>adityanugraha555@gmail.com</span>
+              </a>
+
+              <a href="./index.html" class="btn-push px-6 py-3.5 rounded-full bg-ink/90 hover:bg-ink text-white font-display font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-lg transition-colors">
+                <i class="ph-bold ph-arrow-left"></i>
+                <span>Switch to UI/UX Portfolio</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+            <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 transition-colors flex items-center justify-between">
+              <div>
+                <div class="text-white/75 text-[10px] uppercase">LinkedIn</div>
+                <div class="font-bold text-white mt-0.5">aditya-nugraha</div>
+              </div>
+              <i class="ph-bold ph-arrow-up-right text-lg"></i>
+            </a>
+
+            <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 transition-colors flex items-center justify-between">
+              <div>
+                <div class="text-white/75 text-[10px] uppercase">Instagram</div>
+                <div class="font-bold text-white mt-0.5">@aditt.yya</div>
+              </div>
+              <i class="ph-bold ph-arrow-up-right text-lg"></i>
+            </a>
+
+            <a href="./index.html" class="sm:col-span-2 p-4 rounded-2xl bg-black/20 hover:bg-black/35 backdrop-blur-md border border-white/25 transition-colors flex items-center justify-between">
+              <div>
+                <div class="text-white/75 text-[10px] uppercase">UI/UX &amp; Motion Portfolio</div>
+                <div class="font-bold text-white mt-0.5">Lihat Studi Kasus Interaktif 3D</div>
+              </div>
+              <i class="ph-bold ph-arrow-up-right text-lg"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-inkMuted">
+      <div>
+        <strong class="text-ink font-display">ADITYA NUGRAHA</strong> · 2026 · Designed by ADT
+      </div>
+      <div class="flex flex-wrap items-center gap-6 font-medium">
+        <a href="./index.html" class="text-tangerineDeep font-bold hover:underline">UI/UX Portfolio</a>
+        <a href="mailto:adityanugraha555@gmail.com" class="hover:text-ink transition-colors">Email</a>
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-ink transition-colors">LinkedIn</a>
+        <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="hover:text-ink transition-colors">Instagram</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==========================================
+       HIGH-RES GALLERY LIGHTBOX MODAL (Images & Video)
+       ========================================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-8" onclick="closeLightbox(event)">
+    <div class="lightbox-pop relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-white/20" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-black/10">
+        <span id="lightbox-caption" class="font-display font-bold text-sm sm:text-base text-ink">Artwork Preview</span>
+        <button type="button" onclick="forceCloseLightbox()" class="w-9 h-9 rounded-full bg-black/5 hover:bg-tangerine hover:text-white flex items-center justify-center transition-colors" aria-label="Close lightbox">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+      <div id="lightbox-stage" class="bg-[#0E0F13] flex items-center justify-center max-h-[76dvh] overflow-hidden p-2 sm:p-4"></div>
+    </div>
+  </div>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1. Video Splash Intro Controller (ADT_LOGO.mp4)
+    const splashEl = document.getElementById('splash-screen');
+    const splashVideo = document.getElementById('splash-video');
+    let splashDismissed = false;
+    let splashFailsafe = null;
+
+    function dismissSplash() {
+      if (splashDismissed || !splashEl) return;
+      splashDismissed = true;
+      if (splashFailsafe) {
+        clearTimeout(splashFailsafe);
+        splashFailsafe = null;
+      }
+      splashEl.classList.add('is-leaving');
+      setTimeout(() => {
+        splashEl.classList.add('is-gone');
+        if (splashVideo) splashVideo.pause();
+      }, 850);
+    }
+
+    function replaySplash() {
+      if (!splashEl || !splashVideo || prefersReducedMotion) return;
+      splashDismissed = false;
+      if (splashFailsafe) clearTimeout(splashFailsafe);
+      splashEl.classList.remove('is-gone', 'is-leaving');
+      splashVideo.currentTime = 0;
+      splashVideo.play().catch(() => {});
+      splashFailsafe = setTimeout(dismissSplash, 6500);
+    }
+
+    if (splashEl && splashVideo && !prefersReducedMotion) {
+      splashVideo.addEventListener('ended', dismissSplash);
+      splashVideo.addEventListener('error', dismissSplash);
+      // Failsafe: auto-dismiss if video takes longer than 6.5s or autoplay is blocked
+      const playPromise = splashVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          setTimeout(dismissSplash, 1400);
+        });
+      }
+      splashFailsafe = setTimeout(dismissSplash, 6500);
+    } else if (splashEl) {
+      splashEl.classList.add('is-gone');
+    }
+
+    // 1b. Mobile / Tablet Navigation Menu Drawer
+    function toggleMobileMenu(forceState) {
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (!menu || !btn || !icon) return;
+      const shouldOpen = forceState !== undefined ? forceState : menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !shouldOpen);
+      btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      icon.className = shouldOpen ? 'ph-bold ph-x' : 'ph-bold ph-list';
+    }
+
+    // 2. Horizontal Reel Smooth Scrub + Infinite Gliding Parallax Controller
+    let sneakScrollImpulse = null;
+
+    function scrollReel(id, offset) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (id === 'sneak-reel' && sneakScrollImpulse) {
+        sneakScrollImpulse(offset);
+      } else {
+        el.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
+
+    (function initSneakParallaxReel() {
+      const reel = document.getElementById('sneak-reel');
+      if (!reel) return;
+
+      const origItems = Array.from(reel.querySelectorAll('.sneak-item'));
+      const origCount = origItems.length;
+      if (!origCount) return;
+
+      // Clone items once for seamless horizontal auto-scrolling loop
+      origItems.forEach((node) => {
+        const clone = node.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute('data-clone', 'true');
+        reel.appendChild(clone);
+      });
+
+      const allItems = Array.from(reel.querySelectorAll('.sneak-item'));
+      let reelPos = 0;
+      let lastAppliedLeft = 0;
+      let hovered = false;
+      let dragging = false;
+      let inView = true;
+      let tweenDelta = 0;
+      let lastTime = performance.now();
+
+      function getLoopWidth() {
+        const firstOrig = allItems[0];
+        const firstClone = allItems[origCount];
+        if (!firstOrig || !firstClone) return 0;
+        const diff = firstClone.offsetLeft - firstOrig.offsetLeft;
+        return diff > 120 ? diff : 0;
+      }
+
+      sneakScrollImpulse = function (delta) {
+        tweenDelta += delta;
+      };
+
+      reel.addEventListener('pointerenter', () => { hovered = true; });
+      reel.addEventListener('pointerleave', () => { hovered = false; });
+      reel.addEventListener('focusin', () => { hovered = true; });
+      reel.addEventListener('focusout', () => { hovered = false; });
+      reel.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+      reel.addEventListener('touchend', () => { dragging = false; }, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        const reelObs = new IntersectionObserver((entries) => {
+          inView = !!entries[0] && entries[0].isIntersecting;
+        }, { threshold: 0.02 });
+        reelObs.observe(reel);
+      }
+
+      function applyDepthParallax() {
+        const vpW = reel.clientWidth || window.innerWidth || 1000;
+        const halfVp = vpW * 0.5;
+        const curScroll = reel.scrollLeft;
+
+        for (let i = 0; i < allItems.length; i++) {
+          const item = allItems[i];
+          const w = item.offsetWidth || 260;
+          const center = item.offsetLeft + w * 0.5 - curScroll;
+
+          if (center < -w - 140 || center > vpW + w + 140) {
+            if (item.style.transform) item.style.transform = '';
+            continue;
+          }
+
+          const normX = Math.max(-1.15, Math.min(1.15, (center - halfVp) / (halfVp || 1)));
+          const phase = (i % 2 === 0) ? 1 : -1;
+          const yShift = phase * normX * 14;
+          const focusScale = 1.015 - Math.min(1, Math.abs(normX)) * 0.042;
+          item.style.transform = 'translate3d(0,' + yShift.toFixed(2) + 'px,0) scale(' + focusScale.toFixed(4) + ')';
+        }
+      }
+
+      function tickReel(now) {
+        requestAnimationFrame(tickReel);
+        const dt = Math.min(48, now - lastTime);
+        lastTime = now;
+
+        const loopW = getLoopWidth();
+        const modal = document.getElementById('lightbox-modal');
+        const lightboxOpen = modal && !modal.classList.contains('hidden');
+
+        // Keep synced if user dragged scrollbar or used mouse wheel manually
+        if (Math.abs(reel.scrollLeft - lastAppliedLeft) > 2.5) {
+          reelPos = reel.scrollLeft;
+        }
+
+        if (tweenDelta !== 0) {
+          const step = tweenDelta * Math.min(1, 0.16 * (dt / 16.67));
+          reelPos += step;
+          tweenDelta -= step;
+          if (Math.abs(tweenDelta) < 0.5) tweenDelta = 0;
+        } else if (!prefersReducedMotion && inView && !hovered && !dragging && !lightboxOpen && loopW > 0) {
+          reelPos += 0.62 * (dt / 16.67);
+        }
+
+        if (loopW > 0) {
+          while (reelPos >= loopW) reelPos -= loopW;
+          while (reelPos < 0) reelPos += loopW;
+        }
+
+        if (Math.abs(reelPos - reel.scrollLeft) > 0.15) {
+          reel.scrollLeft = reelPos;
+        }
+        lastAppliedLeft = reel.scrollLeft;
+
+        if (!prefersReducedMotion && inView) {
+          applyDepthParallax();
+        }
+      }
+
+      requestAnimationFrame(tickReel);
+    })();
+
+    // 3. FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.getAttribute('data-open') === 'true';
+      document.querySelectorAll('.faq-item').forEach(el => el.setAttribute('data-open', 'false'));
+      item.setAttribute('data-open', isOpen ? 'false' : 'true');
+    }
+
+    // 4. Generative Playground Motion Renderer + Interactive Lightbox Controller
+    let activeLightboxMotion = null;
+
+    function roundedRectPath(ctx, x, y, w, h, r) {
+      const radius = Math.min(r, Math.abs(w) * 0.5, Math.abs(h) * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.arcTo(x + w, y, x + w, y + h, radius);
+      ctx.arcTo(x + w, y + h, x, y + h, radius);
+      ctx.arcTo(x, y + h, x, y, radius);
+      ctx.arcTo(x, y, x + w, y, radius);
+      ctx.closePath();
+    }
+
+    function renderMotionStudy(idx, ctx, w, h, t, mx, my) {
+      const cx = w * 0.5;
+      const cy = h * 0.5;
+      const minD = Math.min(w, h);
+      const px = (mx - 0.5);
+      const py = (my - 0.5);
+
+      if (idx === 0) {
+        // 01: Kinetic Type Matrix
+        ctx.fillStyle = '#111217';
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.fillStyle = 'rgba(255,255,255,0.06)';
+        for (let gx = 16; gx < w; gx += 24) {
+          for (let gy = 16; gy < h; gy += 24) {
+            ctx.fillRect(gx, gy, 1.5, 1.5);
+          }
+        }
+
+        const words = ['CRAFT', 'VISUAL', 'MOTION', 'SYSTEM', 'BRAND'];
+        const rows = 5;
+        const rowH = h * 0.68 / rows;
+        ctx.font = '800 ' + Math.round(rowH * 0.66) + 'px Syne, sans-serif';
+        ctx.textBaseline = 'middle';
+
+        for (let r = 0; r < rows; r++) {
+          const y = h * 0.16 + (r + 0.5) * rowH;
+          const dir = r % 2 === 0 ? 1 : -1;
+          const shift = Math.sin(t * 1.15 + r * 0.7) * (w * 0.14) * dir + px * 26 * dir;
+          const word = words[r];
+
+          if (r === 2) {
+            const pillW = Math.min(w * 0.74, ctx.measureText(word).width + 36);
+            roundedRectPath(ctx, cx - pillW * 0.5 + shift * 0.35, y - rowH * 0.42, pillW, rowH * 0.84, rowH * 0.42);
+            ctx.fillStyle = '#FF5A1F';
+            ctx.fill();
+            ctx.fillStyle = '#FFFFFF';
+          } else {
+            ctx.fillStyle = (r === 1 || r === 3) ? 'rgba(255,255,255,0.88)' : 'rgba(255,255,255,0.28)';
+          }
+          ctx.textAlign = 'center';
+          ctx.fillText(word, cx + shift, y);
+        }
+
+        // Crosshair reticle reactive to cursor
+        const rx = cx + px * w * 0.4;
+        const ry = cy + py * h * 0.4;
+        ctx.strokeStyle = 'rgba(255, 90, 31, 0.75)';
+        ctx.lineWidth = 1.25;
+        ctx.beginPath();
+        ctx.arc(rx, ry, 14, 0, Math.PI * 2);
+        ctx.moveTo(rx - 22, ry); ctx.lineTo(rx - 9, ry);
+        ctx.moveTo(rx + 9, ry); ctx.lineTo(rx + 22, ry);
+        ctx.moveTo(rx, ry - 22); ctx.lineTo(rx, ry - 9);
+        ctx.moveTo(rx, ry + 9); ctx.lineTo(rx, ry + 22);
+        ctx.stroke();
+
+      } else if (idx === 1) {
+        // 02: Bezier Silk Waveforms
+        ctx.fillStyle = '#FBF9F5';
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.strokeStyle = 'rgba(18,19,24,0.06)';
+        ctx.lineWidth = 1;
+        for (let g = 24; g < w; g += 28) {
+          ctx.beginPath(); ctx.moveTo(g, 0); ctx.lineTo(g, h); ctx.stroke();
+        }
+        for (let g = 24; g < h; g += 28) {
+          ctx.beginPath(); ctx.moveTo(0, g); ctx.lineTo(w, g); ctx.stroke();
+        }
+
+        const palette = ['#2563EB', '#121318', '#F59E0B', '#FF5A1F'];
+        for (let l = 0; l < 4; l++) {
+          const yBase = h * 0.34 + l * (h * 0.085);
+          const cp1x = w * 0.32 + Math.sin(t * 1.1 + l) * (w * 0.09) + px * 28;
+          const cp1y = yBase - h * 0.24 + Math.cos(t * 1.4 + l * 0.8) * (h * 0.14) + py * 28;
+          const cp2x = w * 0.68 + Math.cos(t * 0.95 + l) * (w * 0.09) - px * 24;
+          const cp2y = yBase + h * 0.24 + Math.sin(t * 1.3 + l * 0.7) * (h * 0.14) - py * 24;
+
+          ctx.strokeStyle = palette[l];
+          ctx.lineWidth = l === 3 ? 4 : 2.4;
+          ctx.beginPath();
+          ctx.moveTo(w * 0.08, yBase + Math.sin(t + l) * 10);
+          ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, w * 0.92, yBase + Math.cos(t + l) * 10);
+          ctx.stroke();
+
+          if (l === 3) {
+            // Tangent handles
+            ctx.strokeStyle = 'rgba(18,19,24,0.35)';
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(w * 0.08, yBase + Math.sin(t + l) * 10);
+            ctx.lineTo(cp1x, cp1y);
+            ctx.moveTo(w * 0.92, yBase + Math.cos(t + l) * 10);
+            ctx.lineTo(cp2x, cp2y);
+            ctx.stroke();
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.strokeStyle = '#121318';
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.arc(cp1x, cp1y, 5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+            ctx.beginPath(); ctx.arc(cp2x, cp2y, 5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+          }
+        }
+
+      } else if (idx === 2) {
+        // 03: ADT Monogram Sonic Pulse
+        ctx.fillStyle = '#0E1015';
+        ctx.fillRect(0, 0, w, h);
+
+        // Warm core glow
+        const grad = ctx.createRadialGradient(cx, cy, 4, cx, cy, minD * 0.48);
+        grad.addColorStop(0, 'rgba(255, 90, 31, 0.28)');
+        grad.addColorStop(1, 'rgba(255, 90, 31, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        // Expanding pulse circles
+        for (let r = 0; r < 4; r++) {
+          const prog = ((t * 0.45 + r * 0.25) % 1);
+          const rad = minD * (0.14 + prog * 0.34);
+          ctx.strokeStyle = 'rgba(255, 90, 31, ' + ((1 - prog) * 0.72).toFixed(2) + ')';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+
+        // Orbiting ring
+        ctx.save();
+        ctx.translate(cx + px * 12, cy + py * 12);
+        ctx.rotate(t * 0.55);
+        ctx.strokeStyle = 'rgba(255,255,255,0.22)';
+        ctx.setLineDash([6, 8]);
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(0, 0, minD * 0.32, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#FF5A1F';
+        ctx.beginPath(); ctx.arc(minD * 0.32, 0, 5, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+
+        // Geometric ADT Crest Centerpiece
+        const s = minD * (0.28 + Math.sin(t * 2.2) * 0.015);
+        ctx.save();
+        ctx.translate(cx + px * 10, cy + py * 10);
+        ctx.fillStyle = '#FFFFFF';
+        // Crisp stylized emblem
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.72);
+        ctx.lineTo(s * 0.58, s * 0.12);
+        ctx.lineTo(-s * 0.58, s * 0.12);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = '#FF5A1F';
+        roundedRectPath(ctx, -s * 0.62, s * 0.18, s * 1.24, s * 0.16, 4);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFFFF';
+        roundedRectPath(ctx, -s * 0.14, s * 0.38, s * 0.28, s * 0.42, 4);
+        ctx.fill();
+        ctx.restore();
+
+      } else if (idx === 3) {
+        // 04: Morphing Brutalist Grid
+        ctx.fillStyle = '#EFECE6';
+        ctx.fillRect(0, 0, w, h);
+
+        const cols = 4;
+        const rows = 4;
+        const pad = minD * 0.12;
+        const gap = minD * 0.032;
+        const cellW = (w - pad * 2 - gap * (cols - 1)) / cols;
+        const cellH = (h - pad * 2 - gap * (rows - 1)) / rows;
+        const cell = Math.min(cellW, cellH);
+        const startX = cx - (cell * cols + gap * (cols - 1)) * 0.5;
+        const startY = cy - (cell * rows + gap * (rows - 1)) * 0.5;
+        const colors = ['#121318', '#FF5A1F', '#2563EB', '#F59E0B'];
+
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const wave = Math.sin(t * 1.8 - (r + c) * 0.55 + px * 2);
+            const norm = wave * 0.5 + 0.5;
+            const x = startX + c * (cell + gap);
+            const y = startY + r * (cell + gap);
+            const rad = 4 + norm * (cell * 0.48);
+
+            ctx.save();
+            ctx.translate(x + cell * 0.5, y + cell * 0.5);
+            ctx.scale(0.84 + norm * 0.16, 0.84 + norm * 0.16);
+            ctx.rotate(((r + c) % 2 === 0 ? 1 : -1) * Math.max(0, wave) * 0.35);
+            roundedRectPath(ctx, -cell * 0.5, -cell * 0.5, cell, cell, rad);
+            ctx.fillStyle = colors[(r + c + (norm > 0.72 ? 1 : 0)) % colors.length];
+            ctx.fill();
+
+            if ((r + c) % 3 === 0) {
+              ctx.fillStyle = '#EFECE6';
+              ctx.beginPath(); ctx.arc(0, 0, cell * 0.18, 0, Math.PI * 2); ctx.fill();
+            }
+            ctx.restore();
+          }
+        }
+
+      } else if (idx === 4) {
+        // 05: Interactive UI Capsule Lab
+        ctx.fillStyle = '#F2F4F8';
+        ctx.fillRect(0, 0, w, h);
+
+        const stackW = Math.min(w * 0.76, 360);
+        const startX = cx - stackW * 0.5 + px * 12;
+        const startY = h * 0.18 + py * 12;
+
+        // Animated card frame
+        roundedRectPath(ctx, startX, startY, stackW, h * 0.58, 22);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(18,19,24,0.08)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Row of colorful icon toggles pulsing
+        const chipPalette = ['#22C55E', '#8B5CF6', '#FF5A1F', '#EC4899'];
+        const chipCount = 4;
+        const chipR = Math.min(18, stackW * 0.082);
+        const spacing = (stackW - 44) / chipCount;
+        for (let i = 0; i < chipCount; i++) {
+          const bx = startX + 22 + spacing * (i + 0.5);
+          const by = startY + h * 0.14 + Math.sin(t * 2.4 + i * 1.1) * 5;
+          ctx.fillStyle = chipPalette[i];
+          ctx.beginPath(); ctx.arc(bx, by, chipR, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#FFFFFF';
+          ctx.beginPath(); ctx.arc(bx, by, chipR * 0.34, 0, Math.PI * 2); ctx.fill();
+        }
+
+        // Sliding Switch Control
+        const swProg = Math.sin(t * 1.9) * 0.5 + 0.5;
+        const swW = stackW * 0.42;
+        const swH = Math.max(28, h * 0.10);
+        const swX = startX + stackW - swW - 22;
+        const swY = startY + h * 0.30;
+        roundedRectPath(ctx, swX, swY, swW, swH, swH * 0.5);
+        ctx.fillStyle = swProg > 0.5 ? '#FF5A1F' : '#121318';
+        ctx.fill();
+        ctx.fillStyle = '#FFFFFF';
+        const knobX = swX + swH * 0.5 + swProg * (swW - swH);
+        ctx.beginPath(); ctx.arc(knobX, swY + swH * 0.5, swH * 0.37, 0, Math.PI * 2); ctx.fill();
+
+        // Equalizer audio capsule bars
+        const eqX = startX + 22;
+        for (let b = 0; b < 5; b++) {
+          const barH = (0.3 + (Math.sin(t * 3.5 + b * 0.85) * 0.5 + 0.5) * 0.7) * (swH * 1.1);
+          roundedRectPath(ctx, eqX + b * 14, swY + swH - barH, 8, barH, 4);
+          ctx.fillStyle = b === 2 ? '#FF5A1F' : '#2563EB';
+          ctx.fill();
+        }
+
+        // Animated progress slider
+        const barY = startY + h * 0.47;
+        roundedRectPath(ctx, startX + 22, barY, stackW - 44, 10, 5);
+        ctx.fillStyle = '#E2E8F0';
+        ctx.fill();
+        roundedRectPath(ctx, startX + 22, barY, (stackW - 44) * (0.25 + 0.65 * (Math.sin(t * 1.4) * 0.5 + 0.5)), 10, 5);
+        ctx.fillStyle = '#FF5A1F';
+        ctx.fill();
+
+      } else if (idx === 5) {
+        // 06: Chroma Orbit & Glass Refraction
+        ctx.fillStyle = '#121318';
+        ctx.fillRect(0, 0, w, h);
+
+        const orbs = [
+          { col: '#FF5A1F', rx: w * 0.24, ry: h * 0.18, sp: 1.0, ph: 0 },
+          { col: '#3B82F6', rx: w * 0.28, ry: h * 0.22, sp: -0.8, ph: 2.1 },
+          { col: '#FCD34D', rx: w * 0.18, ry: h * 0.26, sp: 1.3, ph: 4.2 }
+        ];
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'screen';
+        for (let i = 0; i < orbs.length; i++) {
+          const o = orbs[i];
+          const ox = cx + Math.cos(t * o.sp + o.ph) * o.rx + px * 32;
+          const oy = cy + Math.sin(t * o.sp * 1.2 + o.ph) * o.ry + py * 32;
+          const r = minD * 0.30;
+          const g = ctx.createRadialGradient(ox, oy, 2, ox, oy, r);
+          g.addColorStop(0, o.col);
+          g.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = g;
+          ctx.beginPath(); ctx.arc(ox, oy, r, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.restore();
+
+        // Crisp fluted vertical glass refraction strips
+        const strips = 14;
+        const stripW = w / strips;
+        for (let s = 0; s < strips; s++) {
+          const sx = s * stripW;
+          const g = ctx.createLinearGradient(sx, 0, sx + stripW, 0);
+          g.addColorStop(0, 'rgba(255,255,255,0.14)');
+          g.addColorStop(0.5, 'rgba(18,19,24,0.10)');
+          g.addColorStop(1, 'rgba(255,255,255,0.04)');
+          ctx.fillStyle = g;
+          ctx.fillRect(sx, 0, stripW - 1, h);
+        }
+
+      } else if (idx === 6) {
+        // 07: Isometric 2.5D Extrusion Wave
+        ctx.fillStyle = '#161822';
+        ctx.fillRect(0, 0, w, h);
+
+        const count = 4;
+        const tileW = minD * 0.125;
+        const tileH = tileW * 0.56;
+        const originY = cy - tileH * 0.6 + py * 12;
+        const originX = cx + px * 14;
+
+        for (let row = 0; row < count; row++) {
+          for (let col = 0; col < count; col++) {
+            const isoX = originX + (col - row) * tileW;
+            const isoY = originY + (col + row - (count - 1)) * tileH;
+            const wave = Math.sin(t * 2.2 - (row + col) * 0.72) * 0.5 + 0.5;
+            const colHeight = 14 + wave * (minD * 0.18);
+            const topY = isoY - colHeight;
+
+            // Left face
+            ctx.beginPath();
+            ctx.moveTo(isoX - tileW, topY);
+            ctx.lineTo(isoX, topY + tileH);
+            ctx.lineTo(isoX, isoY + tileH);
+            ctx.lineTo(isoX - tileW, isoY);
+            ctx.closePath();
+            ctx.fillStyle = wave > 0.62 ? '#C83705' : '#25293A';
+            ctx.fill();
+
+            // Right face
+            ctx.beginPath();
+            ctx.moveTo(isoX, topY + tileH);
+            ctx.lineTo(isoX + tileW, topY);
+            ctx.lineTo(isoX + tileW, isoY);
+            ctx.lineTo(isoX, isoY + tileH);
+            ctx.closePath();
+            ctx.fillStyle = wave > 0.62 ? '#9A2A04' : '#1B1E2B';
+            ctx.fill();
+
+            // Top illuminated face
+            ctx.beginPath();
+            ctx.moveTo(isoX, topY - tileH);
+            ctx.lineTo(isoX + tileW, topY);
+            ctx.lineTo(isoX, topY + tileH);
+            ctx.lineTo(isoX - tileW, topY);
+            ctx.closePath();
+            ctx.fillStyle = wave > 0.62 ? '#FF5A1F' : (wave > 0.35 ? '#FF8C5A' : '#3E4660');
+            ctx.fill();
+          }
+        }
+
+      } else {
+        // 08: After Effects Keyframe Easing Graph
+        ctx.fillStyle = '#14151B';
+        ctx.fillRect(0, 0, w, h);
+
+        const padX = w * 0.14;
+        const graphY = h * 0.16;
+        const graphW = w - padX * 2;
+        const graphH = h * 0.44;
+
+        // Subtle graph grid
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 4; i++) {
+          const y = graphY + (graphH / 4) * i;
+          ctx.beginPath(); ctx.moveTo(padX, y); ctx.lineTo(padX + graphW, y); ctx.stroke();
+        }
+
+        const c1x = padX + graphW * (0.28 + px * 0.12);
+        const c1y = graphY + graphH;
+        const c2x = padX + graphW * (0.35 - px * 0.12);
+        const c2y = graphY;
+
+        // Curve tangent handles
+        ctx.strokeStyle = '#60A5FA';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(padX, graphY + graphH); ctx.lineTo(c1x, c1y); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(padX + graphW, graphY); ctx.lineTo(c2x, c2y); ctx.stroke();
+
+        // Glowing easing curve
+        ctx.strokeStyle = '#FF5A1F';
+        ctx.lineWidth = 3.5;
+        ctx.beginPath();
+        ctx.moveTo(padX, graphY + graphH);
+        ctx.bezierCurveTo(c1x, c1y, c2x, c2y, padX + graphW, graphY);
+        ctx.stroke();
+
+        // Scrubbing playhead cycle u in [0..1]
+        const raw = (t * 0.45) % 1;
+        const ease = raw < 0.5 ? 4 * raw * raw * raw : 1 - Math.pow(-2 * raw + 2, 3) / 2;
+        const playX = padX + raw * graphW;
+
+        ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(playX, graphY - 8); ctx.lineTo(playX, graphY + graphH + 8); ctx.stroke();
+
+        // Control handle dots
+        ctx.fillStyle = '#60A5FA';
+        ctx.beginPath(); ctx.arc(c1x, c1y, 5, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(c2x, c2y, 5, 0, Math.PI * 2); ctx.fill();
+
+        // Lower synchronized motion rail
+        const railY = h * 0.71;
+        roundedRectPath(ctx, padX, railY - 4, graphW, 8, 4);
+        ctx.fillStyle = 'rgba(255,255,255,0.12)';
+        ctx.fill();
+
+        const objX = padX + ease * graphW;
+        ctx.fillStyle = '#FF5A1F';
+        ctx.beginPath(); ctx.arc(objX, railY, 13, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath(); ctx.arc(objX, railY, 5, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    (function initPlaygroundMotionGallery() {
+      const canvases = Array.from(document.querySelectorAll('canvas[data-motion-study]'));
+      if (!canvases.length) return;
+
+      const items = canvases.map((canvas) => {
+        return {
+          canvas: canvas,
+          ctx: canvas.getContext('2d'),
+          idx: parseInt(canvas.getAttribute('data-motion-study') || '0', 10),
+          visible: true,
+          mx: 0.5,
+          my: 0.5
+        };
+      });
+
+      function syncCanvasSize(canvas, ctx) {
+        const rect = canvas.getBoundingClientRect();
+        const w = Math.max(120, Math.round(rect.width));
+        const h = Math.max(120, Math.round(rect.height));
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const tw = Math.round(w * dpr);
+        const th = Math.round(h * dpr);
+        if (canvas.width !== tw || canvas.height !== th) {
+          canvas.width = tw;
+          canvas.height = th;
+        }
+        return { w, h, dpr };
+      }
+
+      items.forEach((item) => {
+        item.canvas.addEventListener('pointermove', (e) => {
+          const rect = item.canvas.getBoundingClientRect();
+          if (rect.width > 0 && rect.height > 0) {
+            item.mx = (e.clientX - rect.left) / rect.width;
+            item.my = (e.clientY - rect.top) / rect.height;
+          }
+        }, { passive: true });
+        item.canvas.addEventListener('pointerleave', () => {
+          item.mx = 0.5;
+          item.my = 0.5;
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const visObs = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const match = items.find(it => it.canvas === entry.target);
+            if (match) match.visible = entry.isIntersecting;
+          });
+        }, { threshold: 0.02 });
+        items.forEach(it => visObs.observe(it.canvas));
+      }
+
+      let startMs = performance.now();
+
+      function tickMotion(now) {
+        const t = (now - startMs) * 0.001;
+
+        for (let i = 0; i < items.length; i++) {
+          const it = items[i];
+          if (!it.ctx || !it.visible) continue;
+          const dim = syncCanvasSize(it.canvas, it.ctx);
+          it.ctx.setTransform(dim.dpr, 0, 0, dim.dpr, 0, 0);
+          renderMotionStudy(it.idx, it.ctx, dim.w, dim.h, prefersReducedMotion ? 1.25 : t, it.mx, it.my);
+        }
+
+        if (activeLightboxMotion && activeLightboxMotion.ctx) {
+          const dim = syncCanvasSize(activeLightboxMotion.canvas, activeLightboxMotion.ctx);
+          activeLightboxMotion.ctx.setTransform(dim.dpr, 0, 0, dim.dpr, 0, 0);
+          renderMotionStudy(
+            activeLightboxMotion.idx,
+            activeLightboxMotion.ctx,
+            dim.w,
+            dim.h,
+            prefersReducedMotion ? 1.25 : t,
+            activeLightboxMotion.mx,
+            activeLightboxMotion.my
+          );
+        }
+
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(tickMotion);
+        }
+      }
+
+      requestAnimationFrame(tickMotion);
+    })();
+
+    function openLightbox(type, src, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const stage = document.getElementById('lightbox-stage');
+      const cap = document.getElementById('lightbox-caption');
+      if (!modal || !stage || !cap) return;
+
+      activeLightboxMotion = null;
+      cap.textContent = caption || 'Artwork Preview';
+      stage.innerHTML = '';
+
+      if (type === 'motion') {
+        const cvs = document.createElement('canvas');
+        cvs.className = 'w-[min(780px,86vw)] h-[min(520px,64dvh)] rounded-2xl block cursor-crosshair';
+        stage.appendChild(cvs);
+        const ctx = cvs.getContext('2d');
+        const state = { idx: parseInt(src, 10) || 0, canvas: cvs, ctx: ctx, mx: 0.5, my: 0.5 };
+        cvs.addEventListener('pointermove', (e) => {
+          const rect = cvs.getBoundingClientRect();
+          if (rect.width > 0 && rect.height > 0) {
+            state.mx = (e.clientX - rect.left) / rect.width;
+            state.my = (e.clientY - rect.top) / rect.height;
+          }
+        }, { passive: true });
+        activeLightboxMotion = state;
+      } else if (type === 'video') {
+        const vid = document.createElement('video');
+        vid.src = src;
+        vid.autoplay = true;
+        vid.loop = true;
+        vid.controls = true;
+        vid.playsInline = true;
+        vid.className = 'max-h-[70dvh] w-auto rounded-xl';
+        stage.appendChild(vid);
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = caption || 'Artwork';
+        img.className = 'max-h-[70dvh] w-auto object-contain rounded-xl';
+        stage.appendChild(img);
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      if (type === 'motion' && activeLightboxMotion && activeLightboxMotion.ctx) {
+        requestAnimationFrame(() => {
+          if (!activeLightboxMotion || !activeLightboxMotion.ctx) return;
+          const rect = activeLightboxMotion.canvas.getBoundingClientRect();
+          const w = Math.max(240, Math.round(rect.width));
+          const h = Math.max(180, Math.round(rect.height));
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          activeLightboxMotion.canvas.width = Math.round(w * dpr);
+          activeLightboxMotion.canvas.height = Math.round(h * dpr);
+          activeLightboxMotion.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          renderMotionStudy(activeLightboxMotion.idx, activeLightboxMotion.ctx, w, h, 1.25, activeLightboxMotion.mx, activeLightboxMotion.my);
+        });
+      }
+    }
+
+    function forceCloseLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      const stage = document.getElementById('lightbox-stage');
+      activeLightboxMotion = null;
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      if (stage) stage.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    function closeLightbox(e) {
+      if (e.target.id === 'lightbox-modal') forceCloseLightbox();
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        forceCloseLightbox();
+        dismissSplash();
+      }
+    });
+
+    // 5. Scroll Reveal via IntersectionObserver (Zero scroll event listeners)
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      const revealObs = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    // 6. Pointer Parallax for Hero Artwork Cards & 3D Frame Tilt
+    (function initCardParallax() {
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (prefersReducedMotion || !canHover) return;
+      const cards = document.querySelectorAll('[data-parallax-card]');
+      const frame3d = document.getElementById('creative-3d-frame');
+      const frameDepthLayers = frame3d ? frame3d.querySelectorAll('[data-frame-depth]') : [];
+      if (!cards.length && !frame3d) return;
+
+      let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+
+      function tick() {
+        cx += (tx - cx) * 0.08;
+        cy += (ty - cy) * 0.08;
+        cards.forEach(card => {
+          const depth = parseFloat(card.getAttribute('data-parallax-card') || '0');
+          card.style.translate = (cx * depth).toFixed(2) + 'px ' + (cy * depth).toFixed(2) + 'px';
+        });
+        if (frame3d) {
+          frame3d.style.transform = 'perspective(1100px) rotateX(' + (-cy * 5.5).toFixed(2) + 'deg) rotateY(' + (cx * 7.5).toFixed(2) + 'deg)';
+          frameDepthLayers.forEach(layer => {
+            const d = parseFloat(layer.getAttribute('data-frame-depth') || '0');
+            layer.style.translate = (cx * d).toFixed(2) + 'px ' + (cy * d).toFixed(2) + 'px';
+          });
+        }
+        if (Math.abs(tx - cx) > 0.002 || Math.abs(ty - cy) > 0.002) {
+          raf = requestAnimationFrame(tick);
+        } else {
+          raf = null;
+        }
+      }
+
+      window.addEventListener('pointermove', (e) => {
+        tx = (e.clientX / window.innerWidth) - 0.5;
+        ty = (e.clientY / window.innerHeight) - 0.5;
+        if (!raf) raf = requestAnimationFrame(tick);
+      }, { passive: true });
+    })();
+
+    // 7. Three.js 3D Immersive Design Creativity Stage
+    // Chrome Rings + Faceted Prism + Sweeping Bezier Ribbon + Floating Pantone Color Plaques + Pen Tool
+    let setMoodFn = null;
+    function setCreativeMood(idx) {
+      if (setMoodFn) setMoodFn(idx);
+    }
+
+    (function initCreative3D() {
+      const canvas = document.getElementById('creative-3d-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+      camera.position.z = 5.6;
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      function resize() {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        const w = parent.clientWidth || 500;
+        const h = parent.clientHeight || 400;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const studioGroup = new THREE.Group();
+      scene.add(studioGroup);
+
+      // Materials
+      const prismMat = new THREE.MeshPhysicalMaterial({
+        color: 0xFF5A1F,
+        roughness: 0.15,
+        metalness: 0.15,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.08,
+        flatShading: true
+      });
+
+      const chromeMat = new THREE.MeshStandardMaterial({
+        color: 0xE2E8F0,
+        roughness: 0.12,
+        metalness: 0.92
+      });
+
+      const darkAccentMat = new THREE.MeshStandardMaterial({
+        color: 0x121318,
+        roughness: 0.3,
+        metalness: 0.65
+      });
+
+      const warmPastelMat = new THREE.MeshStandardMaterial({
+        color: 0xFCD34D,
+        roughness: 0.35,
+        metalness: 0.25
+      });
+
+      const wireMat = new THREE.MeshBasicMaterial({
+        color: 0x121318,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.16
+      });
+
+      // 1. Central Faceted Design Creativity Gem / Prism
+      const gemGeo = new THREE.OctahedronGeometry(0.88, 0);
+      const gemMesh = new THREE.Mesh(gemGeo, prismMat);
+      const gemWire = new THREE.Mesh(new THREE.OctahedronGeometry(1.08, 1), wireMat);
+      studioGroup.add(gemMesh);
+      studioGroup.add(gemWire);
+
+      // 2. Sculptural Chrome Creative Rings (matching metallic rings aesthetic)
+      const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.52, 0.082, 24, 96), chromeMat);
+      ring1.rotation.x = Math.PI / 3;
+      ring1.rotation.y = Math.PI / 5;
+      studioGroup.add(ring1);
+
+      const ring2 = new THREE.Mesh(new THREE.TorusGeometry(1.88, 0.042, 20, 96), prismMat);
+      ring2.rotation.x = -Math.PI / 2.6;
+      ring2.rotation.z = Math.PI / 4;
+      studioGroup.add(ring2);
+
+      // 3. Sweeping 3D Bezier Creativity Ribbon + Glowing Anchor Nodes
+      const bezierPath = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.05, -0.75, 0.2),
+        new THREE.Vector3(-1.1, 1.45, 0.85),
+        new THREE.Vector3(1.1, -1.35, -0.65),
+        new THREE.Vector3(2.05, 0.72, 0.3)
+      );
+      const ribbonTube = new THREE.Mesh(new THREE.TubeGeometry(bezierPath, 64, 0.042, 12, false), prismMat);
+      studioGroup.add(ribbonTube);
+
+      const anchorA = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 0.16), darkAccentMat);
+      anchorA.position.set(-2.05, -0.75, 0.2);
+      const anchorB = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 0.16), darkAccentMat);
+      anchorB.position.set(2.05, 0.72, 0.3);
+      studioGroup.add(anchorA, anchorB);
+
+      // 4. Orbiting Design Artboard Plaques, Color Swatch Chip & Pen Nib
+      const artboardGroup = new THREE.Group();
+      const boardGeo = new THREE.BoxGeometry(0.66, 0.9, 0.035);
+      const board1 = new THREE.Mesh(boardGeo, darkAccentMat);
+      board1.position.set(-1.72, 0.56, 0.42);
+      board1.rotation.y = 0.45;
+      board1.rotation.z = 0.14;
+
+      const board2 = new THREE.Mesh(new THREE.BoxGeometry(0.74, 0.54, 0.035), prismMat);
+      board2.position.set(1.72, -0.46, 0.36);
+      board2.rotation.y = -0.45;
+      board2.rotation.z = -0.12;
+
+      const swatchCard = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.52, 0.03), warmPastelMat);
+      swatchCard.position.set(-1.35, 1.05, -0.2);
+      swatchCard.rotation.y = 0.25;
+      swatchCard.rotation.z = -0.2;
+
+      const vectorNib = new THREE.Mesh(new THREE.ConeGeometry(0.24, 0.56, 4), chromeMat);
+      vectorNib.position.set(1.32, 0.96, 0.65);
+      vectorNib.rotation.z = -Math.PI / 4;
+
+      const sphereSwatch = new THREE.Mesh(new THREE.SphereGeometry(0.21, 24, 24), prismMat);
+      sphereSwatch.position.set(-1.32, -0.86, 0.62);
+
+      artboardGroup.add(board1, board2, swatchCard, vectorNib, sphereSwatch);
+      studioGroup.add(artboardGroup);
+
+      // Lighting (Bright Studio Key + Warm Fill + Rim Light)
+      const ambient = new THREE.AmbientLight(0xffffff, 0.92);
+      scene.add(ambient);
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
+      keyLight.position.set(4, 6, 5);
+      scene.add(keyLight);
+
+      const warmLight = new THREE.PointLight(0xFF5A1F, 2.2, 12);
+      warmLight.position.set(-3, -2, 4);
+      scene.add(warmLight);
+
+      const rimLight = new THREE.PointLight(0x93C5FD, 1.6, 12);
+      rimLight.position.set(3, -3, -2);
+      scene.add(rimLight);
+
+      // Mood Color Switcher
+      const moods = [
+        { primary: 0xFF5A1F, accent: 0xFCD34D },
+        { primary: 0x2563EB, accent: 0x38BDF8 },
+        { primary: 0x121318, accent: 0xA3A3A3 }
+      ];
+      setMoodFn = function (idx) {
+        const cfg = moods[idx] || moods[0];
+        prismMat.color.setHex(cfg.primary);
+        warmLight.color.setHex(cfg.primary);
+        warmPastelMat.color.setHex(cfg.accent);
+      };
+
+      // Interactive Pointer & Drag
+      let targetX = 0.15, targetY = -0.25, dragging = false, px = 0, py = 0, t = 0;
+
+      canvas.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        px = e.clientX;
+        py = e.clientY;
+      });
+      window.addEventListener('pointerup', () => { dragging = false; });
+
+      canvas.addEventListener('pointermove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const nx = (e.clientX - rect.left) / rect.width - 0.5;
+        const ny = (e.clientY - rect.top) / rect.height - 0.5;
+        if (dragging) {
+          targetY += (e.clientX - px) * 0.012;
+          targetX += (e.clientY - py) * 0.012;
+          px = e.clientX;
+          py = e.clientY;
+        } else {
+          targetY += nx * 0.028;
+          targetX += ny * 0.028;
+        }
+      });
+
+      function renderLoop() {
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(renderLoop);
+          t += 0.02;
+          if (!dragging) {
+            targetY += 0.004;
+          }
+          studioGroup.rotation.y += (targetY - studioGroup.rotation.y) * 0.08;
+          studioGroup.rotation.x += (targetX - studioGroup.rotation.x) * 0.08;
+
+          gemMesh.rotation.y = t * 0.8;
+          gemMesh.rotation.x = Math.sin(t * 0.6) * 0.35;
+          gemWire.rotation.y = -t * 0.45;
+          ring1.rotation.z = t * 0.4;
+          ring2.rotation.z = -t * 0.5;
+
+          board1.position.y = 0.56 + Math.sin(t * 1.4) * 0.12;
+          board2.position.y = -0.46 + Math.cos(t * 1.4) * 0.12;
+          swatchCard.position.y = 1.05 + Math.sin(t * 1.6 + 1.0) * 0.1;
+          vectorNib.rotation.y = t * 1.5;
+          sphereSwatch.position.y = -0.86 + Math.sin(t * 1.8) * 0.1;
+        }
+        renderer.render(scene, camera);
+      }
+
+      renderLoop();
+    })();
+  </script>
+</body>
+</html>

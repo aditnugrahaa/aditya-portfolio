@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Nugraha | UI/UX &amp; Motion Designer</title>
+  <meta name="description" content="Portofolio Aditya Nugraha, UI/UX Designer & Motion Designer dengan 4 tahun pengalaman merancang antarmuka interaktif dan microsite kampanye untuk brand global.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Outfit (Display) & Plus Jakarta Sans (Body) & JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Three.js (WebGL 3D Engine for Interactive Hero Stage) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#0A0B0E',
+            surface: '#12141C',
+            surfaceElevated: '#181B26',
+            alabaster: '#F5F6F8',
+            acid: '#C4F500',
+            acidDark: '#3F6212',
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translate3d(0%, 0, 0)' },
+              '100%': { transform: 'translate3d(-50%, 0, 0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-page: #F5F6F8;
+      --bg-surface: #FFFFFF;
+      --bg-elevated: #ECEEF2;
+      --text-main: #0F1117;
+      --text-muted: #475569;
+      --border-subtle: rgba(15, 17, 23, 0.1);
+      --accent: #4D7C0F;
+      --accent-fg: #FFFFFF;
+      --spotlight: rgba(77, 124, 15, 0.08);
+    }
+
+    html.dark {
+      --bg-page: #0A0B0E;
+      --bg-surface: #12141C;
+      --bg-elevated: #181B26;
+      --text-main: #F5F6F8;
+      --text-muted: #94A3B8;
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --accent: #C4F500;
+      --accent-fg: #0A0B0E;
+      --spotlight: rgba(196, 245, 0, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Subtle Architectural Grid Overlay */
+    .bg-grid-pattern {
+      background-size: 64px 64px;
+      background-image:
+        linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+    }
+
+    /* Web Frosted Glass Approximation (see Apple HIG Materials / Web Glassmorphism) */
+    .glass-surface {
+      background: rgba(18, 20, 28, 0.78);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    html:not(.dark) .glass-surface {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(15, 17, 23, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 12px 32px rgba(15, 17, 23, 0.06);
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .glass-surface {
+        background: var(--bg-surface);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+    }
+
+    /* Spotlight Surface Card */
+    .bento-card {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--spotlight),
+        transparent 70%
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bento-card:hover::before {
+      opacity: 1;
+    }
+
+    html.dark .bento-card:hover {
+      border-color: rgba(196, 245, 0, 0.38);
+      box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.75);
+    }
+
+    html:not(.dark) .bento-card:hover {
+      border-color: rgba(77, 124, 15, 0.45);
+      box-shadow: 0 20px 40px -15px rgba(15, 17, 23, 0.1);
+    }
+
+    /* Interactive Nav Pill Button (Graphic Design) */
+    .nav-pill {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-subtle);
+      background: color-mix(in srgb, var(--text-main) 5%, transparent);
+      color: var(--text-main);
+      font-weight: 600;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover,
+    .nav-pill:focus-visible {
+      color: var(--accent-fg);
+      border-color: var(--accent);
+      outline: none;
+    }
+    .nav-pill:hover::before,
+    .nav-pill:focus-visible::before {
+      transform: scaleX(1);
+    }
+    .nav-pill:active {
+      transform: scale(0.97);
+    }
+    .nav-pill-label {
+      display: flex;
+      flex-direction: column;
+      height: 1.3em;
+      line-height: 1.3em;
+      overflow: hidden;
+    }
+    .nav-pill-text {
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover .nav-pill-text,
+    .nav-pill:focus-visible .nav-pill-text {
+      transform: translate3d(0, -100%, 0);
+    }
+    .nav-pill-icon {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover .nav-pill-icon {
+      transform: rotate(-18deg) scale(1.1);
+    }
+    .nav-pill-arrow {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover .nav-pill-arrow {
+      transform: translate3d(2px, -2px, 0);
+    }
+
+    /* Hero Parallax: mouse-driven card tilt + inner depth layers */
+    .parallax-card {
+      transform-style: flat;
+      will-change: transform;
+      transition: border-color 0.3s ease, box-shadow 0.35s ease;
+    }
+    .parallax-layer {
+      will-change: transform;
+    }
+
+    /* Scroll-driven parallax (CSS only, no scroll listeners). Progressive enhancement. */
+    @keyframes scrollDriftSlow {
+      from { translate: 0 0; }
+      to { translate: 0 -56px; }
+    }
+    @keyframes scrollDriftFast {
+      from { translate: 0 0; }
+      to { translate: 0 36px; }
+    }
+    @supports (animation-timeline: scroll()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .scroll-drift-slow {
+          animation: scrollDriftSlow linear both;
+          animation-timeline: scroll(root);
+          animation-range: 0 100vh;
+        }
+        .scroll-drift-fast {
+          animation: scrollDriftFast linear both;
+          animation-timeline: scroll(root);
+          animation-range: 0 100vh;
+        }
+      }
+    }
+
+    /* Kinetic Crossing Marquee: two counter-moving tilted bands, wave bobbing items, scroll-linked drift */
+    .marquee-stage {
+      position: relative;
+      height: 11rem;
+      overflow: hidden;
+      border-top: 1px solid var(--border-subtle);
+      view-timeline: --marquee-view block;
+    }
+    .marquee-band {
+      position: absolute;
+      left: -6%;
+      width: 112%;
+      display: flex;
+      overflow: hidden;
+      padding: 0.75rem 0;
+      white-space: nowrap;
+    }
+    .marquee-band--accent {
+      top: calc(50% - 2.5rem);
+      transform: rotate(-2.4deg);
+      background: var(--accent);
+      color: var(--accent-fg);
+      z-index: 2;
+      box-shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.55);
+    }
+    .marquee-band--ghost {
+      top: calc(50% - 0.1rem);
+      transform: rotate(2deg);
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      border-block: 1px solid var(--border-subtle);
+      z-index: 1;
+    }
+    .marquee-track {
+      display: flex;
+      flex-shrink: 0;
+      margin-left: -160px;
+      animation: marqueeSlide 40s linear infinite;
+      will-change: transform;
+    }
+    .marquee-band--ghost .marquee-track {
+      animation-direction: reverse;
+      animation-duration: 52s;
+    }
+    .marquee-group {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 2.25rem;
+      padding-right: 2.25rem;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      animation: marqueeBob 2.8s ease-in-out infinite;
+      animation-delay: calc(var(--i) * -0.4s);
+      will-change: transform;
+    }
+    .marquee-item--alt .marquee-text {
+      font-style: italic;
+    }
+    .marquee-item--outline .marquee-text {
+      color: transparent;
+      -webkit-text-stroke: 1.2px var(--text-main);
+    }
+    .marquee-star {
+      font-size: 1.1rem;
+      animation: marqueeSpin 6s linear infinite;
+    }
+    .marquee-stage:hover .marquee-track,
+    .marquee-stage:hover .marquee-item {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeSlide {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-50%, 0, 0); }
+    }
+    @keyframes marqueeBob {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(-1.2deg); }
+      50% { transform: translate3d(0, -7px, 0) rotate(1.2deg); }
+    }
+    @keyframes marqueeSpin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes marqueeDriftLeft {
+      from { translate: 0 0; }
+      to { translate: -140px 0; }
+    }
+    @keyframes marqueeDriftRight {
+      from { translate: 0 0; }
+      to { translate: 140px 0; }
+    }
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .marquee-band--accent .marquee-track {
+          animation: marqueeSlide 40s linear infinite, marqueeDriftLeft linear both;
+          animation-timeline: auto, --marquee-view;
+        }
+        .marquee-band--ghost .marquee-track {
+          animation: marqueeSlide 52s linear infinite reverse, marqueeDriftRight linear both;
+          animation-timeline: auto, --marquee-view;
+        }
+      }
+    }
+    @media (max-width: 640px) {
+      .marquee-stage { height: 9.5rem; }
+      .marquee-item { font-size: 1.05rem; gap: 1.5rem; padding-right: 1.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track,
+      .marquee-item,
+      .marquee-star {
+        animation: none !important;
+      }
+    }
+
+    /* Tactile Button Feedback */
+    .btn-tactile {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+    .btn-tactile:active {
+      transform: scale(0.98) translateY(1px);
+    }
+
+    /* Scroll Reveal via IntersectionObserver */
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 24px, 0);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+
+    /* Modal Slide-in */
+    @keyframes drawerIn {
+      from { transform: translate3d(100%, 0, 0); }
+      to { transform: translate3d(0, 0, 0); }
+    }
+    .drawer-panel {
+      animation: drawerIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-page);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262A38;
+      border-radius: 9999px;
+    }
+
+    /* Reduced Motion Compliance */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E] bg-grid-pattern">
+
+  <!-- Fixed Ambient Glow (GPU-friendly fixed layer) -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+    <div class="orb-glow absolute -top-36 left-1/4 w-[500px] h-[500px] rounded-full bg-[#C4F500]/[0.07] blur-[140px]" data-orb-depth="-36"></div>
+    <div class="orb-glow absolute bottom-0 right-1/4 w-[460px] h-[460px] rounded-full bg-[#C4F500]/[0.05] blur-[150px]" data-orb-depth="42"></div>
+  </div>
+
+  <!-- ==========================================
+       NAVIGATION (Single-Line, Height <= 72px)
+       ========================================== -->
+  <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-10">
+    <nav class="max-w-7xl mx-auto h-16 glass-surface rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity + Original ADT Sword Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#C4F500] transition-transform duration-300 group-hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
+            <circle cx="250" cy="250" r="236" fill="#0A0B0E" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
+            <g fill="#F5F6F8">
+              <polygon points="241,63 250,63 216,177 241,177" />
+              <rect x="214" y="177" width="53" height="4" />
+              <polygon points="241,63 278,63 320,244 282,244" />
+              <polygon points="208,206 214,181 268,181 282,244 200,244" />
+              <rect x="195" y="244" width="126" height="20" rx="2" />
+              <path d="M 187,264 C 187,330 216,365 250,365 C 284,365 327,330 327,264 L 314,264 C 314,318 280,349 250,349 C 220,349 199,318 199,264 Z" />
+              <rect x="238" y="264" width="38" height="175" />
+              <rect x="195" y="439" width="125" height="5" />
+            </g>
+          </svg>
+        </div>
+        <span class="font-display font-bold text-sm sm:text-base tracking-tight whitespace-nowrap">
+          ADITYA NUGRAHA
+        </span>
+      </a>
+
+      <!-- Primary Links -->
+      <ul class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-500 dark:text-slate-300">
+        <li><a href="#work" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Selected Work</a></li>
+        <li><a href="#capabilities" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Capabilities</a></li>
+        <li><a href="#contact" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Contact</a></li>
+        <li>
+          <a href="./graphic-design.html" class="nav-pill magnetic-btn whitespace-nowrap" aria-label="Graphic Design portfolio">
+            <i class="ph-bold ph-pen-nib nav-pill-icon"></i>
+            <span class="nav-pill-label">
+              <span class="nav-pill-text">Graphic Design</span>
+              <span class="nav-pill-text" aria-hidden="true">Open Gallery</span>
+            </span>
+            <i class="ph-bold ph-arrow-up-right nav-pill-arrow"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right Controls: Theme Switcher + Single Primary Contact CTA -->
+      <div class="flex items-center gap-2.5">
+        <button id="theme-toggle" type="button" class="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors" aria-label="Toggle color theme">
+          <i id="theme-icon" class="ph-bold ph-sun"></i>
+        </button>
+
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-4 sm:px-5 py-2 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap">
+          Start a Conversation
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ==========================================
+         SECTION 1: ASYMMETRIC SPLIT HERO + INTERACTIVE 3D STAGE
+         (Max 4 text elements, pt-24 cap, min-h-[100dvh])
+         ========================================== -->
+    <section id="hero" class="min-h-[100dvh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-24 pb-12 flex items-center">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left 7 Columns: Strict 4-Element Hero Stack -->
+        <div class="lg:col-span-7 space-y-6 reveal scroll-drift-fast">
+          
+          <!-- 1. Eyebrow (1 of 2 allowed on whole page) -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10 border border-[#4D7C0F]/30 dark:border-[#C4F500]/30">
+            <span class="w-2 h-2 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] animate-ping"></span>
+            <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              UI/UX &amp; MOTION DESIGNER
+            </span>
+          </div>
+
+          <!-- 2. Headline (2 lines max on desktop, italic descender clearance) -->
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl xl:text-[64px] tracking-tighter leading-[1.08] pb-1">
+            Interfaces that move <br class="hidden sm:inline" />
+            with <em class="italic text-[#4D7C0F] dark:text-[#C4F500] pr-1">clarity.</em>
+          </h1>
+
+          <!-- 3. Subtext (<= 20 words, <= 3 lines) -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-[54ch]">
+            I design and build thoughtful websites that help businesses communicate clearly, earn trust, and turn visitors into customers.
+          </p>
+
+          <!-- 4. CTAs (1 Primary + 1 Secondary, no wrap) -->
+          <div class="pt-2 flex flex-wrap items-center gap-3.5">
+            <a href="#work" class="btn-tactile magnetic-btn px-7 py-3.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
+              <span>Selected Work</span>
+              <i class="ph-bold ph-arrow-down-right"></i>
+            </a>
+
+            <a href="./graphic-design.html" class="btn-tactile magnetic-btn px-6 py-3.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 font-sans font-semibold text-sm whitespace-nowrap inline-flex items-center gap-2">
+              <span>Graphic Design</span>
+              <i class="ph-bold ph-arrow-up-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right 5 Columns: Interactive 3D WebGL & Portrait Spatial Stage -->
+        <div class="lg:col-span-5 reveal delay-1 scroll-drift-slow">
+          <div id="hero-stage-card" class="bento-card parallax-card rounded-2xl p-4 sm:p-5 shadow-2xl">
+            
+            <!-- Stage Mode Switcher Header -->
+            <div data-depth="4" class="parallax-layer flex items-center justify-between pb-3 mb-3 border-b border-black/10 dark:border-white/10 relative z-20 gap-2">
+              <div class="flex items-center gap-1 bg-black/5 dark:bg-obsidian p-1 rounded-full border border-black/10 dark:border-white/10">
+                <button type="button" id="tab-3d" onclick="switchStageView('3d')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+                  3D Interactive
+                </button>
+                <button type="button" id="tab-portrait" onclick="switchStageView('portrait')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white">
+                  Portrait
+                </button>
+              </div>
+
+              <span id="mesh-badge" class="font-mono text-[11px] px-2.5 py-1 rounded-xl bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+                UI/UX Stack
+              </span>
+            </div>
+
+            <!-- 4 Discipline 3D Selector Pills (UI/UX, Motion, Graphic, AI) -->
+            <div id="discipline-3d-tabs" data-depth="8" class="parallax-layer grid grid-cols-4 gap-1.5 mb-3 relative z-20">
+              <button type="button" onclick="select3DMode(0)" data-mode-btn="0" class="mode-3d-btn px-2 py-1.5 rounded-xl font-mono text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+                <i class="ph-bold ph-layout"></i>
+                <span>UI/UX</span>
+              </button>
+              <button type="button" onclick="select3DMode(1)" data-mode-btn="1" class="mode-3d-btn px-2 py-1.5 rounded-xl font-mono text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent">
+                <i class="ph-bold ph-waveform"></i>
+                <span>Motion</span>
+              </button>
+              <button type="button" onclick="select3DMode(2)" data-mode-btn="2" class="mode-3d-btn px-2 py-1.5 rounded-xl font-mono text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent">
+                <i class="ph-bold ph-pen-nib"></i>
+                <span>Graphic</span>
+              </button>
+              <button type="button" onclick="select3DMode(3)" data-mode-btn="3" class="mode-3d-btn px-2 py-1.5 rounded-xl font-mono text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent">
+                <i class="ph-bold ph-cpu"></i>
+                <span>AI Core</span>
+              </button>
+            </div>
+
+            <!-- Interactive Viewport Container -->
+            <div data-depth="-12" class="parallax-layer relative rounded-2xl overflow-hidden aspect-square bg-[#E6EAF0] dark:bg-[#08090C] border border-black/10 dark:border-white/10 transition-colors duration-300">
+              
+              <!-- View A: Interactive Three.js 3D WebGL Canvas + Mini Portrait Badge -->
+              <div id="view-3d" class="absolute inset-0 w-full h-full">
+                <canvas id="hero-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
+
+                <!-- Floating Identity Pill inside 3D Stage (adapts to light / dark) -->
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-2.5 rounded-xl bg-white/85 dark:bg-[#0A0B0E]/85 backdrop-blur-md border border-black/10 dark:border-white/15 pointer-events-auto transition-colors duration-300">
+                  <div class="flex items-center gap-2.5">
+                    <img 
+                      src="https://framerusercontent.com/images/1K6YtJ414tV2qsi5uTsk86s.jpeg?width=1254&height=1254" 
+                      alt="Aditya Nugraha" 
+                      class="w-10 h-10 rounded-xl object-cover border border-[#4D7C0F]/50 dark:border-[#C4F500]/50 cursor-pointer"
+                      onclick="switchStageView('portrait')"
+                    />
+                    <div>
+                      <div class="font-display font-bold text-slate-900 dark:text-white text-sm leading-tight">Aditya Nugraha</div>
+                      <div class="font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">Drag or hover 3D mesh</div>
+                    </div>
+                  </div>
+                  <button type="button" onclick="switchStageView('portrait')" class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] text-slate-900 dark:text-white text-xs font-semibold transition-colors whitespace-nowrap">
+                    Photo
+                  </button>
+                </div>
+              </div>
+
+              <!-- View B: Full High-Res Designer Portrait -->
+              <div id="view-portrait" class="absolute inset-0 w-full h-full hidden">
+                <img 
+                  src="https://framerusercontent.com/images/1K6YtJ414tV2qsi5uTsk86s.jpeg?width=1254&height=1254" 
+                  alt="Aditya Nugraha, UI/UX & Motion Designer" 
+                  class="w-full h-full object-cover object-center"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0A0B0E]/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-3 rounded-xl bg-[#0A0B0E]/85 backdrop-blur-md border border-white/15">
+                  <div>
+                    <div class="font-display font-bold text-white text-sm">Aditya Nugraha</div>
+                    <div class="text-xs text-[#C4F500]">@aditt.yya</div>
+                  </div>
+                  <button type="button" onclick="switchStageView('3d')" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#C4F500] hover:text-[#0A0B0E] text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i class="ph-bold ph-cube"></i>
+                    <span>3D Interactive</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Stage Bottom Social Bar -->
+            <div data-depth="5" class="parallax-layer mt-3 pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 relative z-20">
+              <span class="font-mono">Jakarta / Remote</span>
+              <div class="flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="LinkedIn">
+                  <i class="ph-fill ph-linkedin-logo text-base"></i>
+                </a>
+                <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Instagram">
+                  <i class="ph-fill ph-instagram-logo text-base"></i>
+                </a>
+                <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Facebook">
+                  <i class="ph-fill ph-facebook-logo text-base"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: TRACK RECORD METRICS & SINGLE KINETIC MARQUEE
+         (Dedicated section below hero per layout discipline)
+         ========================================== -->
+    <section id="metrics" class="border-y border-black/10 dark:border-white/10 bg-white/50 dark:bg-surface/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-black/10 dark:divide-white/10">
+          
+          <div class="pt-4 sm:pt-0 sm:px-6 first:pl-0 first:pt-0 flex items-baseline justify-between sm:block">
+            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500] font-mono">
+              <span class="counter-val" data-target="4">4</span> Years
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Pengalaman di industri desain digital &amp; interaktif</p>
+          </div>
+
+          <div class="pt-4 sm:pt-0 sm:px-6 flex items-baseline justify-between sm:block">
+            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500] font-mono">
+              <span class="counter-val" data-target="5">5</span>+ Shipped
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Kampanye microsite, produk UI/UX &amp; motion</p>
+          </div>
+
+          <div class="pt-4 sm:pt-0 sm:px-6 flex items-baseline justify-between sm:block">
+            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500] font-mono">
+              <span class="counter-val" data-target="2">2</span> Global Brands
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Kinetic Crossing Marquee (single marquee on page): two counter-moving bands, wave bobbing items, scroll-linked drift -->
+      <div class="marquee-stage select-none" aria-label="Skills and disciplines">
+        <div class="marquee-band marquee-band--accent">
+          <div class="marquee-track" data-marquee-track>
+            <div class="marquee-group">
+              <span class="marquee-item" style="--i:0"><span class="marquee-text">UI/UX Architecture</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+              <span class="marquee-item marquee-item--alt" style="--i:1"><span class="marquee-text">Motion Design</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+              <span class="marquee-item" style="--i:2"><span class="marquee-text">Interactive Prototyping</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+              <span class="marquee-item marquee-item--alt" style="--i:3"><span class="marquee-text">Figma &amp; Framer</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+              <span class="marquee-item" style="--i:4"><span class="marquee-text">Microsite Campaigns</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+              <span class="marquee-item marquee-item--alt" style="--i:5"><span class="marquee-text">After Effects</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+              <span class="marquee-item" style="--i:6"><span class="marquee-text">User Flow Systems</span><i class="ph-bold ph-asterisk marquee-star"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-band marquee-band--ghost" aria-hidden="true">
+          <div class="marquee-track" data-marquee-track>
+            <div class="marquee-group">
+              <span class="marquee-item marquee-item--outline" style="--i:0"><span class="marquee-text">User Flow Systems</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+              <span class="marquee-item" style="--i:1"><span class="marquee-text">After Effects</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+              <span class="marquee-item marquee-item--outline" style="--i:2"><span class="marquee-text">Microsite Campaigns</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+              <span class="marquee-item" style="--i:3"><span class="marquee-text">Figma &amp; Framer</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+              <span class="marquee-item marquee-item--outline" style="--i:4"><span class="marquee-text">Interactive Prototyping</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+              <span class="marquee-item" style="--i:5"><span class="marquee-text">Motion Design</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+              <span class="marquee-item marquee-item--outline" style="--i:6"><span class="marquee-text">UI/UX Architecture</span><i class="ph-bold ph-sparkle marquee-star"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: SELECTED WORK (Editorial Asymmetric Showcase)
+         (Vertical header stack, rhythmic 1 + 2 layout, zero zigzag repetition)
+         ========================================== -->
+    <section id="work" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-24">
+      
+      <!-- Vertically Stacked Section Header -->
+      <div class="max-w-2xl mb-14 space-y-3 reveal">
+        <span class="font-mono text-xs uppercase tracking-[0.16em] text-[#4D7C0F] dark:text-[#C4F500] block">
+          SELECTED CASE STUDIES
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+          Work built for clarity and conversion.
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+          Sorotan proyek pilihan yang memadukan struktur hierarki informasi, alur navigasi pengguna, dan eksekusi visual untuk klien internasional.
+        </p>
+      </div>
+
+      <!-- Flagship Case Study 01: Full-Width Asymmetric 7/5 Split -->
+      <article class="bento-card rounded-2xl p-5 sm:p-8 mb-8 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          
+          <div class="lg:col-span-7">
+            <div onclick="openCaseModal('modal-yep')" class="cursor-pointer group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10]">
+              <img 
+                src="https://framerusercontent.com/images/q9UhHbil37U0ZHrw6qX5dzMLaw.jpg" 
+                alt="Year End Promotion 2024 Sony" 
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 space-y-5">
+            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+                SONY
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+                UI/UX Designer
+              </span>
+            </div>
+
+            <h3 class="font-display font-bold text-2xl sm:text-4xl tracking-tight leading-tight">
+              Year End Promotion 2024
+            </h3>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+              Perancangan microsite kampanye promosi akhir tahun untuk Sony. Fokus utama pada pengelompokan produk dan hierarki informasi agar pengunjung menemukan penawaran musiman secara instan.
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <button type="button" onclick="openCaseModal('modal-yep')" class="btn-tactile px-5 py-3 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
+                <span>Read Case Study</span>
+                <i class="ph-bold ph-arrow-right"></i>
+              </button>
+
+              <a href="https://docs.google.com/presentation/d/1Ne9_IF7vqySCto997TkEJO782SVlHx0S/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-3 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2">
+                <span>View Deck</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Diptych Row: Asymmetric 5/7 Offset Columns for Case Studies 02 & 03 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Case Study 02: Mid Year Promotion 2025 (5 Columns) -->
+        <article class="lg:col-span-5 bento-card rounded-2xl p-5 sm:p-7 flex flex-col justify-between reveal delay-1">
+          <div class="space-y-5 relative z-10">
+            <div onclick="openCaseModal('modal-myp')" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[4/3]">
+              <img 
+                src="https://framerusercontent.com/images/IRihNK9tvKDcKwM9h2SMeudbxmc.jpg" 
+                alt="Mid Year Promotion 2025 Sony" 
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+                SONY
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+                UI/UX Designer
+              </span>
+            </div>
+
+            <h3 class="font-display font-bold text-2xl tracking-tight">
+              Mid Year Promotion 2025
+            </h3>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              Tata letak microsite responsif dengan sistem grid vertikal modular dan kontras visual tinggi pada kartu produk utama untuk kemudahan eksplorasi lintas perangkat.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-black/10 dark:border-white/10 flex items-center justify-between relative z-10">
+            <button type="button" onclick="openCaseModal('modal-myp')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
+              <span>Read Case Study</span>
+              <i class="ph-bold ph-arrow-right"></i>
+            </button>
+            <span class="font-mono text-xs text-slate-500">Microsite UI</span>
+          </div>
+        </article>
+
+        <!-- Case Study 03: The Loud Minority (7 Columns) -->
+        <article class="lg:col-span-7 bento-card rounded-2xl p-5 sm:p-7 flex flex-col justify-between reveal delay-2">
+          <div class="space-y-5 relative z-10">
+            <div onclick="openCaseModal('modal-tlm')" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10]">
+              <img 
+                src="https://framerusercontent.com/images/5VWaKpPqYsnXpaGBQrgvPG9RrY.png" 
+                alt="Digital Product and Interactive UI Suite The Loud Minority" 
+                class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+                THE LOUD MINORITY
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+                UI/UX &amp; Motion Designer
+              </span>
+            </div>
+
+            <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">
+              Digital Product &amp; Interactive UI Suite
+            </h3>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              Eksplorasi antarmuka produk digital interaktif dan sistem motion untuk The Loud Minority. Menggabungkan tipografi berani, alur pengguna yang terarah, dan transisi mikro yang responsif.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center gap-3 relative z-10">
+            <button type="button" onclick="openCaseModal('modal-tlm')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
+              <span>Read Case Study</span>
+              <i class="ph-bold ph-arrow-right"></i>
+            </button>
+
+            <a href="https://docs.google.com/presentation/d/1pkOPqYSdRl8oef2p651rDeomy4YfkRdY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2">
+              <span>View Deck</span>
+              <i class="ph-bold ph-arrow-up-right"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: CAPABILITIES & TOOLKIT BENTO
+         (Asymmetric 4-cell Bento Grid with visual variation, no eyebrow per restraint rule)
+         ========================================== -->
+    <section id="capabilities" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20 border-t border-black/10 dark:border-white/10">
+      
+      <!-- Vertically Stacked Header (No Eyebrow to pass Mechanical Eyebrow Cap) -->
+      <div class="max-w-2xl mb-12 space-y-3 reveal">
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
+          Crafted across interface and motion.
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+          Setiap keputusan tata letak dan animasi dirancang untuk memperjelas cara produk bekerja, bukan sekadar hiasan visual.
+        </p>
+      </div>
+
+      <!-- 4-Cell Asymmetric Bento Grid (Exact cell count = 4 items) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Cell 1 (7 Cols): UI/UX & Interactive Prototyping with Tinted Visual Accent -->
+        <div class="md:col-span-7 bento-card rounded-2xl p-7 sm:p-9 bg-gradient-to-br from-[#4D7C0F]/[0.08] dark:from-[#C4F500]/[0.07] via-transparent to-transparent flex flex-col justify-between reveal">
+          <div class="space-y-4 relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] flex items-center justify-center text-2xl">
+              <i class="ph-bold ph-layout"></i>
+            </div>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">
+              Interface Architecture &amp; Prototyping
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              Menyusun user flow, wireframing, dan prototipe interaktif dengan hierarki informasi yang terukur agar pengguna dapat menyelesaikan tugas tanpa hambatan kognitif.
+            </p>
+          </div>
+
+          <div class="pt-8 flex flex-wrap gap-2 relative z-10 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">User Flows</span>
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">Wireframing</span>
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">Design Systems</span>
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">Interactive Prototypes</span>
+          </div>
+        </div>
+
+        <!-- Cell 2 (5 Cols): Motion Design & Micro-interactions -->
+        <div class="md:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between reveal delay-1">
+          <div class="space-y-4 relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-black/5 dark:bg-white/10 text-[#4D7C0F] dark:text-[#C4F500] flex items-center justify-center text-2xl">
+              <i class="ph-bold ph-film-strip"></i>
+            </div>
+            <h3 class="font-display font-bold text-2xl tracking-tight">
+              Motion Systems &amp; Animation
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              Menghadirkan micro-interactions, transisi antarmuka, dan motion graphics di After Effects &amp; Framer yang memberi umpan balik instan serta memperkuat karakter brand.
+            </p>
+          </div>
+
+          <div class="pt-8 flex flex-wrap gap-2 relative z-10 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">After Effects</span>
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">Micro-interactions</span>
+            <span class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10">Video Editing</span>
+          </div>
+        </div>
+
+        <!-- Cell 3 (5 Cols): Promotional Microsites -->
+        <div class="md:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between reveal">
+          <div class="space-y-4 relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-black/5 dark:bg-white/10 text-[#4D7C0F] dark:text-[#C4F500] flex items-center justify-center text-2xl">
+              <i class="ph-bold ph-browsers"></i>
+            </div>
+            <h3 class="font-display font-bold text-2xl tracking-tight">
+              Campaign Microsites
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              Merancang landing page dan microsite promosi musiman dengan tata letak visual yang mudah dipindai (scannable) di layar desktop maupun mobile.
+            </p>
+          </div>
+
+          <div class="pt-6 relative z-10">
+            <a href="./graphic-design.html" class="text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500] inline-flex items-center gap-1.5 hover:underline">
+              <span>Explore Graphic Design Archive</span>
+              <i class="ph-bold ph-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cell 4 (7 Cols): Creative Stack & Workflow Matrix -->
+        <div class="md:col-span-7 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between reveal delay-1">
+          <div class="space-y-2 relative z-10">
+            <h3 class="font-display font-bold text-2xl tracking-tight">
+              Production Toolkit
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              Perangkat utama yang digunakan dari tahap eksplorasi konsep hingga serah terima produksi.
+            </p>
+          </div>
+
+          <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 relative z-10 font-mono text-xs">
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
+              <i class="ph-bold ph-figma-logo text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>Figma</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
+              <i class="ph-bold ph-frame-corners text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>Framer</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
+              <i class="ph-bold ph-waveform text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>After Effects</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
+              <i class="ph-bold ph-pen-nib text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>Illustrator</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
+              <i class="ph-bold ph-image-square text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>Photoshop</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
+              <i class="ph-bold ph-globe-hemisphere-west text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>WordPress</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5 sm:col-span-2">
+              <i class="ph-bold ph-video-camera text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <span>Motion &amp; Video Editing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CONTACT & COLLABORATION
+         ========================================== -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20">
+      <div class="bento-card rounded-2xl p-8 sm:p-14 text-center relative overflow-hidden reveal">
+        
+        <div class="w-16 h-16 mx-auto mb-6 rounded-full overflow-hidden border-2 border-[#4D7C0F] dark:border-[#C4F500]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
+            <circle cx="250" cy="250" r="236" fill="#0A0B0E"/>
+            <g fill="#F5F6F8">
+              <polygon points="241,63 250,63 216,177 241,177" />
+              <rect x="214" y="177" width="53" height="4" />
+              <polygon points="241,63 278,63 320,244 282,244" />
+              <polygon points="208,206 214,181 268,181 282,244 200,244" />
+              <rect x="195" y="244" width="126" height="20" rx="2" />
+              <path d="M 187,264 C 187,330 216,365 250,365 C 284,365 327,330 327,264 L 314,264 C 314,318 280,349 250,349 C 220,349 199,318 199,264 Z" />
+              <rect x="238" y="264" width="38" height="175" />
+              <rect x="195" y="439" width="125" height="5" />
+            </g>
+          </svg>
+        </div>
+
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight max-w-xl mx-auto">
+          Ready to build your next digital product?
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-lg mx-auto mt-3">
+          Tersedia untuk kolaborasi proyek UI/UX Design, Microsite Campaign, dan Motion Design.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3.5 relative z-10">
+          <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-7 py-4 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
+            <i class="ph-fill ph-linkedin-logo text-lg"></i>
+            <span>Start a Conversation</span>
+          </a>
+
+          <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-6 py-4 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-sm font-semibold whitespace-nowrap inline-flex items-center gap-2">
+            <i class="ph-fill ph-instagram-logo text-lg"></i>
+            <span>@aditt.yya</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div>
+        <strong class="text-slate-900 dark:text-white font-display">ADITYA NUGRAHA</strong> · UI/UX &amp; Motion Designer
+      </div>
+      <div class="flex flex-wrap items-center gap-6">
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">LinkedIn</a>
+        <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Instagram</a>
+        <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Facebook</a>
+        <a href="./graphic-design.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Graphic Design</a>
+        <a href="https://adityanugraha5550.wixsite.com/my-site-1" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Intro Site</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==========================================
+       CASE STUDY DRAWER MODALS
+       ========================================== -->
+
+  <!-- MODAL 1: Year End Promotion 2024 (Sony) -->
+  <div id="modal-yep" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-yep')">
+    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
+        <div class="flex flex-wrap gap-2 font-mono text-xs">
+          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
+        </div>
+        <button type="button" onclick="closeCaseModal('modal-yep')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+
+      <h3 class="font-display font-extrabold text-2xl sm:text-3xl mt-5">Year End Promotion 2024</h3>
+      <p class="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">Microsite Campaign &amp; Information Architecture</p>
+
+      <div class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 my-6 bg-obsidian">
+        <img src="https://framerusercontent.com/images/q9UhHbil37U0ZHrw6qX5dzMLaw.jpg" alt="Year End Promotion 2024 Sony" class="w-full h-auto object-cover" />
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Konteks &amp; Tujuan</h4>
+          <p>Merancang antarmuka microsite kampanye promosi akhir tahun untuk Sony agar pengunjung dapat menelusuri berbagai kategori produk audio, kamera, dan televisi beserta penawaran musiman secara terarah.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Tantangan Desain</h4>
+          <p>Menyajikan beragam informasi promosi dan daftar produk lintas kategori dalam satu halaman kampanye tanpa membuat tampilan terasa padat atau membingungkan alur baca pengguna.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Keputusan &amp; Eksekusi</h4>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>Visual Hierarchy:</strong> Menempatkan key visual kampanye di area hero diikuti pengelompokan produk yang terstruktur agar mudah dipindai (scannable).</li>
+            <li><strong>Guided Navigation:</strong> Menyusun urutan section secara bertahap dari pengenalan promo menuju rincian penawaran produk untuk menjaga fokus eksplorasi.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Deliverables</h4>
+          <p>Microsite Campaign UI Design, Visual Layout &amp; Presentation Deck.</p>
+        </div>
+      </div>
+
+      <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+        <a href="https://docs.google.com/presentation/d/1Ne9_IF7vqySCto997TkEJO782SVlHx0S/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+          <span>View Deck</span>
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </a>
+        <button type="button" onclick="closeCaseModal('modal-yep')" class="px-4 py-2 rounded-full bg-black/5 dark:bg-white/10 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Mid Year Promotion 2025 (Sony) -->
+  <div id="modal-myp" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-myp')">
+    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
+        <div class="flex flex-wrap gap-2 font-mono text-xs">
+          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
+        </div>
+        <button type="button" onclick="closeCaseModal('modal-myp')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+
+      <h3 class="font-display font-extrabold text-2xl sm:text-3xl mt-5">Mid Year Promotion 2025</h3>
+      <p class="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">Responsive Microsite Campaign</p>
+
+      <div class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 my-6 bg-obsidian max-h-80">
+        <img src="https://framerusercontent.com/images/IRihNK9tvKDcKwM9h2SMeudbxmc.jpg" alt="Mid Year Promotion 2025 Sony" class="w-full h-full object-cover object-top" />
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Konteks &amp; Tujuan</h4>
+          <p>Perancangan halaman microsite kampanye untuk periode promosi pertengahan tahun 2025 dengan fokus pada kejelasan struktur penawaran dan kenyamanan navigasi vertikal.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Tantangan Desain</h4>
+          <p>Menjaga konsistensi visual kampanye pada halaman yang memanjang secara vertikal sekaligus memastikan setiap blok informasi tetap memiliki ruang baca (whitespace) yang seimbang di layar desktop dan mobile.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Keputusan &amp; Eksekusi</h4>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>Modular Sectioning:</strong> Membagi konten halaman ke dalam blok visual yang terpisah jelas agar pengguna dapat memindai penawaran dengan cepat.</li>
+            <li><strong>Contrast &amp; Readability:</strong> Mengatur kontras tipografi dan tombol Call-to-Action agar langsung terlihat menonjol di atas latar visual kampanye.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Deliverables</h4>
+          <p>Microsite Campaign UI Design &amp; Responsive Page Layout.</p>
+        </div>
+      </div>
+
+      <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex justify-end">
+        <button type="button" onclick="closeCaseModal('modal-myp')" class="px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/10 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Digital Product & Interactive UI Suite (The Loud Minority) -->
+  <div id="modal-tlm" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-tlm')">
+    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
+        <div class="flex flex-wrap gap-2 font-mono text-xs">
+          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">THE LOUD MINORITY</span>
+          <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX &amp; Motion Designer</span>
+        </div>
+        <button type="button" onclick="closeCaseModal('modal-tlm')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+
+      <h3 class="font-display font-extrabold text-2xl sm:text-3xl mt-5">Digital Product &amp; Interactive UI Suite</h3>
+      <p class="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">The Loud Minority · Interface &amp; Motion Exploration</p>
+
+      <div class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 my-6 bg-obsidian">
+        <img src="https://framerusercontent.com/images/5VWaKpPqYsnXpaGBQrgvPG9RrY.png" alt="The Loud Minority UI/UX Showcase" class="w-full h-auto object-cover" />
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Konteks &amp; Tujuan</h4>
+          <p>Merancang pengalaman antarmuka produk digital dan eksplorasi visual interaktif untuk The Loud Minority yang mencerminkan karakter identitas brand secara tegas.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Tantangan Desain</h4>
+          <p>Menyeimbangkan karakter visual yang ekspresif dengan prinsip usability agar pengguna tetap mudah memahami alur navigasi dan fungsi setiap komponen.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Keputusan &amp; Eksekusi</h4>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>Interface &amp; Layout Exploration:</strong> Menyusun komposisi grid yang tegas untuk menjaga keteraturan konten di layar desktop maupun mobile.</li>
+            <li><strong>Interaction &amp; Motion:</strong> Memanfaatkan micro-interactions dan transisi terarah untuk memberi umpan balik visual tanpa mengganggu fokus baca.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
+          <h4 class="font-mono font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Deliverables</h4>
+          <p>Interactive UI Design, Motion Exploration &amp; Presentation Deck.</p>
+        </div>
+      </div>
+
+      <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+        <a href="https://docs.google.com/presentation/d/1pkOPqYSdRl8oef2p651rDeomy4YfkRdY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+          <span>View Deck</span>
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </a>
+        <button type="button" onclick="closeCaseModal('modal-tlm')" class="px-4 py-2 rounded-full bg-black/5 dark:bg-white/10 text-xs font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       INTERACTIVE ENGINE (Three.js 3D Stage, Theme, Observer)
+       Zero scroll event listeners per Section 5.D
+       ========================================== -->
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1. Theme Protocol (Dark Default, Dual-Mode Tested)
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const rootHtml = document.documentElement;
+
+    function updateThemeUI() {
+      const isDark = rootHtml.classList.contains('dark');
+      if (themeIcon) {
+        themeIcon.className = isDark ? 'ph-bold ph-sun' : 'ph-bold ph-moon';
+      }
+      if (typeof applyThreeTheme === 'function') applyThreeTheme(isDark);
+    }
+
+    // Marquee: build seamless loop by cloning each group (4 copies total, first stays accessible)
+    document.querySelectorAll('[data-marquee-track]').forEach(track => {
+      const group = track.firstElementChild;
+      if (!group) return;
+      for (let i = 0; i < 3; i++) {
+        const clone = group.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      }
+    });
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        rootHtml.classList.toggle('dark');
+        updateThemeUI();
+      });
+    }
+
+    // 2. Hero Stage View Switcher (3D Interactive vs Portrait)
+    function switchStageView(mode) {
+      const view3d = document.getElementById('view-3d');
+      const viewPortrait = document.getElementById('view-portrait');
+      const tab3d = document.getElementById('tab-3d');
+      const tabPortrait = document.getElementById('tab-portrait');
+      const disciplineTabs = document.getElementById('discipline-3d-tabs');
+
+      if (!view3d || !viewPortrait || !tab3d || !tabPortrait) return;
+
+      if (mode === '3d') {
+        view3d.classList.remove('hidden');
+        viewPortrait.classList.add('hidden');
+        if (disciplineTabs) disciplineTabs.classList.remove('opacity-40', 'pointer-events-none');
+        tab3d.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+        tabPortrait.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white';
+      } else {
+        view3d.classList.add('hidden');
+        viewPortrait.classList.remove('hidden');
+        if (disciplineTabs) disciplineTabs.classList.add('opacity-40', 'pointer-events-none');
+        tabPortrait.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+        tab3d.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white';
+      }
+    }
+
+    // 3. Case Study Modal Controller
+    function openCaseModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCaseModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeModalOnBackdrop(e, id) {
+      if (e.target.id === id) {
+        closeCaseModal(id);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.case-modal').forEach(m => {
+          m.classList.add('hidden');
+          m.classList.remove('flex');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+
+    // 4. IntersectionObserver for Scroll Reveal & Metric Counters
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      const counterObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-target') || '0', 10);
+            let current = 0;
+            const timer = setInterval(() => {
+              current += 1;
+              if (current >= target) {
+                el.textContent = target;
+                clearInterval(timer);
+              } else {
+                el.textContent = current;
+              }
+            }, 90);
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.counter-val').forEach(el => counterObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    // 5. Card Radial Spotlight & Magnetic Buttons
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    if (!prefersReducedMotion) {
+      document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.16;
+          const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.16;
+          btn.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate3d(0, 0, 0)';
+        });
+      });
+    }
+
+    // 5b. Hero Parallax: card tilt + depth layers + ambient glow (pointer-driven, rAF with lerp, no React state, no scroll listeners)
+    (function initHeroParallax() {
+      const hero = document.getElementById('hero');
+      const card = document.getElementById('hero-stage-card');
+      if (!hero || !card) return;
+
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (prefersReducedMotion || !canHover) return;
+
+      const anchor = card.parentElement;
+      const layers = Array.from(card.querySelectorAll('.parallax-layer'));
+      const orbs = Array.from(document.querySelectorAll('[data-orb-depth]'));
+
+      let targetX = 0, targetY = 0, currentX = 0, currentY = 0, frameId = null;
+
+      function clamp(v) { return Math.max(-1, Math.min(1, v)); }
+
+      function render() {
+        currentX += (targetX - currentX) * 0.09;
+        currentY += (targetY - currentY) * 0.09;
+
+        card.style.transform = 'perspective(1100px) rotateX(' + (-currentY * 7).toFixed(2) + 'deg) rotateY(' + (currentX * 9).toFixed(2) + 'deg)';
+
+        layers.forEach(function (layer) {
+          const depth = parseFloat(layer.getAttribute('data-depth') || '0');
+          layer.style.translate = (currentX * depth).toFixed(2) + 'px ' + (currentY * depth).toFixed(2) + 'px';
+        });
+
+        orbs.forEach(function (orb) {
+          const depth = parseFloat(orb.getAttribute('data-orb-depth') || '0');
+          orb.style.translate = (currentX * depth).toFixed(2) + 'px ' + (currentY * depth).toFixed(2) + 'px';
+        });
+
+        const settled = Math.abs(targetX - currentX) < 0.002 && Math.abs(targetY - currentY) < 0.002;
+        frameId = settled ? null : requestAnimationFrame(render);
+      }
+
+      function schedule() {
+        if (frameId === null) frameId = requestAnimationFrame(render);
+      }
+
+      hero.addEventListener('pointermove', function (e) {
+        const rect = anchor.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        targetX = clamp((e.clientX - cx) / (window.innerWidth / 2));
+        targetY = clamp((e.clientY - cy) / (window.innerHeight / 2));
+        schedule();
+      }, { passive: true });
+
+      hero.addEventListener('pointerleave', function () {
+        targetX = 0;
+        targetY = 0;
+        schedule();
+      });
+    })();
+
+    // 6. Interactive Three.js 3D Discipline Sculptures (UI/UX, Motion, Graphic, AI)
+    let currentShapeIndex = 0;
+    const shapeNames = ['UI/UX Stack', 'Motion Keyframes', 'Vector & Bezier', 'AI Neural Core'];
+    let rebuildMeshFn = null;
+    let applyThreeTheme = null;
+
+    function select3DMode(index) {
+      currentShapeIndex = index;
+      switchStageView('3d');
+      const badge = document.getElementById('mesh-badge');
+      if (badge) badge.textContent = shapeNames[index];
+
+      document.querySelectorAll('.mode-3d-btn').forEach((btn, idx) => {
+        if (idx === index) {
+          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-mono text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+        } else {
+          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-mono text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent';
+        }
+      });
+
+      if (rebuildMeshFn) rebuildMeshFn(index);
+    }
+
+    (function initHero3D() {
+      const canvas = document.getElementById('hero-3d-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+      camera.position.z = 5.4;
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      function resizeCanvas() {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        const w = parent.clientWidth || 400;
+        const h = parent.clientHeight || 400;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const mainGroup = new THREE.Group();
+      scene.add(mainGroup);
+
+      const sculptureGroup = new THREE.Group();
+      mainGroup.add(sculptureGroup);
+
+      // Shared Materials
+      const acidEdgeMat = new THREE.LineBasicMaterial({ color: 0xC4F500, transparent: true, opacity: 0.9 });
+      const mutedEdgeMat = new THREE.LineBasicMaterial({ color: 0x94A3B8, transparent: true, opacity: 0.45 });
+      const darkPanelMat = new THREE.MeshStandardMaterial({
+        color: 0x12151E,
+        roughness: 0.3,
+        metalness: 0.8,
+        transparent: true,
+        opacity: 0.88
+      });
+      const accentSolidMat = new THREE.MeshStandardMaterial({
+        color: 0xC4F500,
+        emissive: 0xC4F500,
+        emissiveIntensity: 0.35,
+        roughness: 0.2,
+        metalness: 0.5
+      });
+      const wireAccentMat = new THREE.MeshBasicMaterial({
+        color: 0xC4F500,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.75
+      });
+
+      // Helper: Create 3D Box with crisp wireframe edges
+      function createFramedBox(w, h, d, fillMat, edgeMat) {
+        const group = new THREE.Group();
+        const geo = new THREE.BoxGeometry(w, h, d);
+        const mesh = new THREE.Mesh(geo, fillMat);
+        const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat);
+        group.add(mesh);
+        group.add(edges);
+        return group;
+      }
+
+      let animatedParts = [];
+
+      function clearSculpture() {
+        while (sculptureGroup.children.length > 0) {
+          sculptureGroup.remove(sculptureGroup.children[0]);
+        }
+        animatedParts = [];
+      }
+
+      // MODE 0: UI/UX DESIGN (3D Exploded Spatial Interface & Bento Stack)
+      function buildUIUXStack() {
+        // 1. Base App Viewport Frame (z = -0.45)
+        const baseScreen = createFramedBox(2.5, 1.75, 0.06, darkPanelMat, mutedEdgeMat);
+        baseScreen.position.set(0, 0.05, -0.45);
+        sculptureGroup.add(baseScreen);
+
+        // 2. Top Navigation Bar (z = -0.15)
+        const navBar = createFramedBox(2.2, 0.22, 0.05, darkPanelMat, acidEdgeMat);
+        navBar.position.set(0, 0.65, -0.15);
+        sculptureGroup.add(navBar);
+        animatedParts.push({ obj: navBar, baseZ: -0.15, speed: 1.8, phase: 0, amp: 0.08 });
+
+        // 3. Left Sidebar Wireframe (z = -0.1)
+        const sideBar = createFramedBox(0.55, 1.15, 0.05, darkPanelMat, mutedEdgeMat);
+        sideBar.position.set(-0.82, -0.12, -0.1);
+        sculptureGroup.add(sideBar);
+        animatedParts.push({ obj: sideBar, baseZ: -0.1, speed: 1.8, phase: 0.6, amp: 0.09 });
+
+        // 4. Hero Display Card (z = +0.15)
+        const heroCard = createFramedBox(1.52, 0.62, 0.06, darkPanelMat, acidEdgeMat);
+        heroCard.position.set(0.32, 0.14, 0.15);
+        sculptureGroup.add(heroCard);
+        animatedParts.push({ obj: heroCard, baseZ: 0.15, speed: 2.0, phase: 1.2, amp: 0.12 });
+
+        // 5. Two Floating Bento Cards (z = +0.32)
+        const bento1 = createFramedBox(0.72, 0.44, 0.06, darkPanelMat, acidEdgeMat);
+        bento1.position.set(-0.08, -0.48, 0.32);
+        sculptureGroup.add(bento1);
+        animatedParts.push({ obj: bento1, baseZ: 0.32, speed: 2.1, phase: 1.9, amp: 0.14 });
+
+        const bento2 = createFramedBox(0.72, 0.44, 0.06, darkPanelMat, mutedEdgeMat);
+        bento2.position.set(0.72, -0.48, 0.24);
+        sculptureGroup.add(bento2);
+        animatedParts.push({ obj: bento2, baseZ: 0.24, speed: 2.1, phase: 2.4, amp: 0.11 });
+
+        // 6. Glowing Floating CTA Pill + 3D Cursor Pointer (z = +0.58)
+        const ctaBtn = createFramedBox(0.68, 0.2, 0.08, accentSolidMat, acidEdgeMat);
+        ctaBtn.position.set(0.32, 0.14, 0.58);
+        sculptureGroup.add(ctaBtn);
+        animatedParts.push({ obj: ctaBtn, baseZ: 0.58, speed: 2.4, phase: 2.8, amp: 0.16 });
+
+        const cursorGeo = new THREE.ConeGeometry(0.14, 0.34, 4);
+        const cursorMesh = new THREE.Mesh(cursorGeo, accentSolidMat);
+        cursorMesh.position.set(0.78, -0.05, 0.78);
+        cursorMesh.rotation.z = Math.PI / 4;
+        cursorMesh.rotation.x = -Math.PI / 6;
+        sculptureGroup.add(cursorMesh);
+        animatedParts.push({ obj: cursorMesh, baseZ: 0.78, speed: 3.0, phase: 0.5, amp: 0.15 });
+      }
+
+      // MODE 1: MOTION DESIGN (3D Keyframe Timeline & Kinetic Wave Ribbon)
+      function buildMotionWave() {
+        const barCount = 16;
+        for (let i = 0; i < barCount; i++) {
+          const t = (i / (barCount - 1)) - 0.5;
+          const x = t * 2.7;
+          const isKey = i % 5 === 0;
+          const bar = createFramedBox(0.09, isKey ? 1.15 : 0.68, 0.14, isKey ? accentSolidMat : darkPanelMat, isKey ? acidEdgeMat : mutedEdgeMat);
+          bar.position.set(x, 0, 0);
+          sculptureGroup.add(bar);
+          animatedParts.push({
+            type: 'waveBar',
+            obj: bar,
+            index: i
+          });
+        }
+
+        // 3 Floating Bezier Keyframe Diamonds (Octahedrons)
+        const kfPositions = [-1.1, 0, 1.1];
+        kfPositions.forEach((kx, idx) => {
+          const kfGeo = new THREE.OctahedronGeometry(0.24, 0);
+          const kfMesh = new THREE.Mesh(kfGeo, accentSolidMat);
+          const kfEdges = new THREE.LineSegments(new THREE.EdgesGeometry(kfGeo), acidEdgeMat);
+          const kfGroup = new THREE.Group();
+          kfGroup.add(kfMesh);
+          kfGroup.add(kfEdges);
+          kfGroup.position.set(kx, 0.85, 0.35);
+          sculptureGroup.add(kfGroup);
+          animatedParts.push({
+            type: 'keyframe',
+            obj: kfGroup,
+            phase: idx * 1.4
+          });
+        });
+
+        // Kinetic Motion Path Curve
+        const curve = new THREE.CatmullRomCurve3([
+          new THREE.Vector3(-1.45, -0.5, 0.3),
+          new THREE.Vector3(-0.5, 0.65, 0.5),
+          new THREE.Vector3(0.5, -0.65, -0.3),
+          new THREE.Vector3(1.45, 0.5, 0.4)
+        ]);
+        const tubeGeo = new THREE.TubeGeometry(curve, 64, 0.028, 8, false);
+        const tubeMesh = new THREE.Mesh(tubeGeo, accentSolidMat);
+        sculptureGroup.add(tubeMesh);
+      }
+
+      // MODE 2: GRAPHIC DESIGN (3D Vector Pen Nib, Bezier Handles & Bauhaus Grid)
+      function buildGraphicVector() {
+        // 1. Swiss / Golden Ratio Grid Frame
+        const gridPlane = createFramedBox(2.3, 2.3, 0.02, darkPanelMat, mutedEdgeMat);
+        gridPlane.position.z = -0.35;
+        sculptureGroup.add(gridPlane);
+
+        // 2. 3D Vector Bezier Curve
+        const bezierCurve = new THREE.CubicBezierCurve3(
+          new THREE.Vector3(-1.15, -0.75, 0.15),
+          new THREE.Vector3(-0.85, 1.15, 0.55),
+          new THREE.Vector3(0.85, -1.15, -0.25),
+          new THREE.Vector3(1.15, 0.75, 0.35)
+        );
+        const pathGeo = new THREE.TubeGeometry(bezierCurve, 60, 0.035, 10, false);
+        const pathMesh = new THREE.Mesh(pathGeo, accentSolidMat);
+        sculptureGroup.add(pathMesh);
+
+        // 3. Bezier Anchor Cubes & Tangent Handle Spheres
+        const handlePairs = [
+          { anchor: new THREE.Vector3(-1.15, -0.75, 0.15), handle: new THREE.Vector3(-0.75, 0.65, 0.45) },
+          { anchor: new THREE.Vector3(1.15, 0.75, 0.35), handle: new THREE.Vector3(0.75, -0.65, -0.15) }
+        ];
+
+        handlePairs.forEach((pair) => {
+          const anchorBox = createFramedBox(0.18, 0.18, 0.18, accentSolidMat, acidEdgeMat);
+          anchorBox.position.copy(pair.anchor);
+          sculptureGroup.add(anchorBox);
+
+          const handleSphere = new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 16), accentSolidMat);
+          handleSphere.position.copy(pair.handle);
+          sculptureGroup.add(handleSphere);
+
+          const lineGeo = new THREE.BufferGeometry().setFromPoints([pair.anchor, pair.handle]);
+          const line = new THREE.Line(lineGeo, acidEdgeMat);
+          sculptureGroup.add(line);
+        });
+
+        // 4. Center 3D Vector Pen Tool Nib Sculpture
+        const penGroup = new THREE.Group();
+        const nibTipGeo = new THREE.ConeGeometry(0.38, 0.85, 4);
+        const nibTip = new THREE.Mesh(nibTipGeo, darkPanelMat);
+        const nibEdges = new THREE.LineSegments(new THREE.EdgesGeometry(nibTipGeo), acidEdgeMat);
+        nibTip.position.y = 0.35;
+        nibEdges.position.y = 0.35;
+
+        const nibBaseGeo = new THREE.CylinderGeometry(0.38, 0.24, 0.45, 4);
+        const nibBase = new THREE.Mesh(nibBaseGeo, darkPanelMat);
+        const nibBaseEdges = new THREE.LineSegments(new THREE.EdgesGeometry(nibBaseGeo), acidEdgeMat);
+        nibBase.position.y = -0.3;
+        nibBaseEdges.position.y = -0.3;
+
+        const slitHole = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 12), accentSolidMat);
+        slitHole.position.set(0, 0.15, 0.28);
+
+        penGroup.add(nibTip, nibEdges, nibBase, nibBaseEdges, slitHole);
+        penGroup.rotation.z = -Math.PI / 5;
+        penGroup.rotation.y = Math.PI / 4;
+        penGroup.position.set(0, 0.05, 0.35);
+        sculptureGroup.add(penGroup);
+
+        animatedParts.push({ type: 'penNib', obj: penGroup });
+      }
+
+      // MODE 3: AI & GENERATIVE CORE (3D Synaptic Neural Constellation & Tensor Nucleus)
+      function buildAINeuralCore() {
+        // 1. Central Pulsing Tensor Nucleus
+        const coreGeo = new THREE.IcosahedronGeometry(0.68, 1);
+        const coreWire = new THREE.Mesh(coreGeo, wireAccentMat);
+        const coreInner = new THREE.Mesh(new THREE.IcosahedronGeometry(0.52, 0), accentSolidMat);
+        const nucleusGroup = new THREE.Group();
+        nucleusGroup.add(coreInner, coreWire);
+        sculptureGroup.add(nucleusGroup);
+        animatedParts.push({ type: 'aiNucleus', obj: nucleusGroup });
+
+        // 2. 24 Fibonacci Neural Nodes + Synaptic Connections
+        const nodeCount = 24;
+        const nodePoints = [];
+        const nodesGroup = new THREE.Group();
+        const nodeSphereGeo = new THREE.SphereGeometry(0.065, 12, 12);
+
+        for (let i = 0; i < nodeCount; i++) {
+          const phi = Math.acos(1 - 2 * (i + 0.5) / nodeCount);
+          const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+          const r = 1.52;
+          const pos = new THREE.Vector3(
+            r * Math.cos(theta) * Math.sin(phi),
+            r * Math.sin(theta) * Math.sin(phi),
+            r * Math.cos(phi)
+          );
+          nodePoints.push(pos);
+
+          const nodeMesh = new THREE.Mesh(nodeSphereGeo, i % 3 === 0 ? accentSolidMat : darkPanelMat);
+          nodeMesh.position.copy(pos);
+          nodesGroup.add(nodeMesh);
+        }
+
+        // Connect neighboring neural nodes + radial synapses to core
+        const linePositions = [];
+        for (let i = 0; i < nodeCount; i++) {
+          for (let j = i + 1; j < nodeCount; j++) {
+            if (nodePoints[i].distanceTo(nodePoints[j]) < 1.15) {
+              linePositions.push(nodePoints[i].x, nodePoints[i].y, nodePoints[i].z);
+              linePositions.push(nodePoints[j].x, nodePoints[j].y, nodePoints[j].z);
+            }
+          }
+          if (i % 3 === 0) {
+            linePositions.push(0, 0, 0);
+            linePositions.push(nodePoints[i].x, nodePoints[i].y, nodePoints[i].z);
+          }
+        }
+
+        const synGeo = new THREE.BufferGeometry();
+        synGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+        const synLines = new THREE.LineSegments(synGeo, acidEdgeMat);
+        nodesGroup.add(synLines);
+        sculptureGroup.add(nodesGroup);
+        animatedParts.push({ type: 'aiLattice', obj: nodesGroup });
+      }
+
+      function buildGeometry(index) {
+        clearSculpture();
+        if (index === 0) buildUIUXStack();
+        else if (index === 1) buildMotionWave();
+        else if (index === 2) buildGraphicVector();
+        else buildAINeuralCore();
+      }
+
+      rebuildMeshFn = buildGeometry;
+      buildGeometry(0);
+
+      // Outer Gyroscope Ring
+      const ringGeo = new THREE.TorusGeometry(2.05, 0.01, 16, 100);
+      const ringMat = new THREE.MeshBasicMaterial({
+        color: 0x94A3B8,
+        transparent: true,
+        opacity: 0.3
+      });
+      const orbitalRing = new THREE.Mesh(ringGeo, ringMat);
+      orbitalRing.rotation.x = Math.PI / 2.4;
+      mainGroup.add(orbitalRing);
+
+      // Ambient Particles
+      const particleCount = 55;
+      const positions = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 5.2;
+      }
+      const pGeo = new THREE.BufferGeometry();
+      pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const pMat = new THREE.PointsMaterial({
+        color: 0xC4F500,
+        size: 0.038,
+        transparent: true,
+        opacity: 0.6
+      });
+      const particles = new THREE.Points(pGeo, pMat);
+      scene.add(particles);
+
+      // Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+
+      const pointLight1 = new THREE.PointLight(0xC4F500, 2.4, 14);
+      pointLight1.position.set(3, 3, 4);
+      scene.add(pointLight1);
+
+      const pointLight2 = new THREE.PointLight(0xffffff, 1.2, 14);
+      pointLight2.position.set(-3, -2, 3);
+      scene.add(pointLight2);
+
+      // Light / Dark theme palettes for the 3D stage (materials are shared, so updating colors restyles every shape live)
+      applyThreeTheme = function (isDark) {
+        if (isDark) {
+          acidEdgeMat.color.setHex(0xC4F500);
+          acidEdgeMat.opacity = 0.9;
+          mutedEdgeMat.color.setHex(0x94A3B8);
+          mutedEdgeMat.opacity = 0.45;
+          darkPanelMat.color.setHex(0x12151E);
+          darkPanelMat.roughness = 0.3;
+          darkPanelMat.metalness = 0.8;
+          darkPanelMat.opacity = 0.88;
+          accentSolidMat.color.setHex(0xC4F500);
+          accentSolidMat.emissive.setHex(0xC4F500);
+          accentSolidMat.emissiveIntensity = 0.35;
+          accentSolidMat.roughness = 0.2;
+          accentSolidMat.metalness = 0.5;
+          wireAccentMat.color.setHex(0xC4F500);
+          wireAccentMat.opacity = 0.75;
+          ringMat.color.setHex(0x94A3B8);
+          ringMat.opacity = 0.3;
+          pMat.color.setHex(0xC4F500);
+          pMat.opacity = 0.6;
+          ambientLight.intensity = 0.8;
+          pointLight1.color.setHex(0xC4F500);
+          pointLight1.intensity = 2.4;
+          pointLight2.intensity = 1.2;
+        } else {
+          acidEdgeMat.color.setHex(0x3F6212);
+          acidEdgeMat.opacity = 1;
+          mutedEdgeMat.color.setHex(0x64748B);
+          mutedEdgeMat.opacity = 0.75;
+          darkPanelMat.color.setHex(0xF8FAFC);
+          darkPanelMat.roughness = 0.55;
+          darkPanelMat.metalness = 0.05;
+          darkPanelMat.opacity = 0.94;
+          accentSolidMat.color.setHex(0x4D7C0F);
+          accentSolidMat.emissive.setHex(0x4D7C0F);
+          accentSolidMat.emissiveIntensity = 0.12;
+          accentSolidMat.roughness = 0.35;
+          accentSolidMat.metalness = 0.2;
+          wireAccentMat.color.setHex(0x3F6212);
+          wireAccentMat.opacity = 0.85;
+          ringMat.color.setHex(0x64748B);
+          ringMat.opacity = 0.45;
+          pMat.color.setHex(0x4D7C0F);
+          pMat.opacity = 0.65;
+          ambientLight.intensity = 1.15;
+          pointLight1.color.setHex(0xFFFFFF);
+          pointLight1.intensity = 1.1;
+          pointLight2.intensity = 0.8;
+        }
+      };
+      applyThreeTheme(rootHtml.classList.contains('dark'));
+
+      // Pointer & Drag Physics
+      let targetRotX = 0.18;
+      let targetRotY = -0.28;
+      let isDragging = false;
+      let prevX = 0;
+      let prevY = 0;
+      let clockTime = 0;
+
+      canvas.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        prevX = e.clientX;
+        prevY = e.clientY;
+      });
+
+      window.addEventListener('pointerup', () => {
+        isDragging = false;
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const nx = ((e.clientX - rect.left) / rect.width) - 0.5;
+        const ny = ((e.clientY - rect.top) / rect.height) - 0.5;
+
+        if (isDragging) {
+          targetRotY += (e.clientX - prevX) * 0.012;
+          targetRotX += (e.clientY - prevY) * 0.012;
+          prevX = e.clientX;
+          prevY = e.clientY;
+        } else {
+          targetRotY += nx * 0.025;
+          targetRotX += ny * 0.025;
+        }
+      });
+
+      function animate() {
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(animate);
+          clockTime += 0.02;
+
+          if (!isDragging) {
+            targetRotY += 0.0038;
+          }
+
+          mainGroup.rotation.y += (targetRotY - mainGroup.rotation.y) * 0.08;
+          mainGroup.rotation.x += (targetRotX - mainGroup.rotation.x) * 0.08;
+          orbitalRing.rotation.z -= 0.005;
+          particles.rotation.y += 0.0012;
+
+          // Animate Discipline-Specific Internal Parts
+          animatedParts.forEach(part => {
+            if (part.baseZ !== undefined) {
+              part.obj.position.z = part.baseZ + Math.sin(clockTime * part.speed + part.phase) * part.amp;
+            } else if (part.type === 'waveBar') {
+              part.obj.position.y = Math.sin(clockTime * 2.2 + part.index * 0.42) * 0.38;
+              part.obj.rotation.x = Math.cos(clockTime * 1.6 + part.index * 0.3) * 0.45;
+            } else if (part.type === 'keyframe') {
+              part.obj.rotation.y = clockTime * 1.8 + part.phase;
+              part.obj.position.y = 0.82 + Math.sin(clockTime * 2.4 + part.phase) * 0.14;
+            } else if (part.type === 'penNib') {
+              part.obj.position.y = 0.05 + Math.sin(clockTime * 2.0) * 0.12;
+              part.obj.rotation.y = (Math.PI / 4) + Math.sin(clockTime * 1.5) * 0.25;
+            } else if (part.type === 'aiNucleus') {
+              const pulse = 1 + Math.sin(clockTime * 3.2) * 0.12;
+              part.obj.scale.setScalar(pulse);
+              part.obj.rotation.x = -clockTime * 1.2;
+              part.obj.rotation.y = clockTime * 1.4;
+            } else if (part.type === 'aiLattice') {
+              part.obj.rotation.y = -clockTime * 0.45;
+            }
+          });
+        }
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    })();
+  </script>
+</body>
+</html>
