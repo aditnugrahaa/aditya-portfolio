@@ -13,7 +13,7 @@
 
   <!-- Background Swiss Grid Circle Blueprint -->
   <circle cx="300" cy="360" r="215" fill="none" stroke="#121318" stroke-opacity="0.09" stroke-width="1.5"/>
-  <circle cx="300" cy="360" r="136" fill="none" stroke="#FF5A1F" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <circle cx="300" cy="360" r="136" fill="none" stroke="#2340E8" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 6"/>
   <line x1="40" y1="360" x2="560" y2="360" stroke="#121318" stroke-opacity="0.08" stroke-width="1.5"/>
   <line x1="300" y1="60" x2="300" y2="690" stroke="#121318" stroke-opacity="0.08" stroke-width="1.5"/>
 
@@ -27,7 +27,7 @@
     <text x="20" y="256" font-family="monospace" font-size="13" fill="#FFFFFF">#3B82F6</text>
   </g>
   <g transform="translate(285, 138) rotate(8)" filter="url(#elShadow)">
-    <rect width="145" height="290" rx="16" fill="#FF5A1F"/>
+    <rect width="145" height="290" rx="16" fill="#2340E8"/>
     <rect x="0" y="218" width="145" height="72" rx="0" fill="#FFFFFF"/>
     <rect x="0" y="274" width="145" height="16" rx="8" fill="#FFFFFF"/>
     <text x="18" y="248" font-family="monospace" font-size="12" font-weight="700" fill="#121318">TANGERINE</text>
@@ -37,22 +37,22 @@
   <!-- Vector Bezier Pen Nib + Anchor Curve Artwork -->
   <g filter="url(#elShadow)" transform="translate(76, 445)">
     <rect width="448" height="205" rx="22" fill="#FFFFFF" stroke="#121318" stroke-opacity="0.1"/>
-    <text x="28" y="40" font-family="monospace" font-size="13" font-weight="700" fill="#C83705">STEP 02 / VISUAL SYSTEM</text>
+    <text x="28" y="40" font-family="monospace" font-size="13" font-weight="700" fill="#1A2FB0">STEP 02 / VISUAL SYSTEM</text>
 
     <!-- Bezier path + tangent handle -->
     <path d="M 48 152 C 130 56, 260 184, 396 84" fill="none" stroke="#121318" stroke-width="4" stroke-linecap="round"/>
-    <line x1="48" y1="152" x2="130" y2="56" stroke="#FF5A1F" stroke-width="2"/>
-    <line x1="396" y1="84" x2="260" y2="184" stroke="#FF5A1F" stroke-width="2"/>
+    <line x1="48" y1="152" x2="130" y2="56" stroke="#2340E8" stroke-width="2"/>
+    <line x1="396" y1="84" x2="260" y2="184" stroke="#2340E8" stroke-width="2"/>
     <rect x="41" y="145" width="14" height="14" fill="#FFFFFF" stroke="#121318" stroke-width="3"/>
     <rect x="389" y="77" width="14" height="14" fill="#FFFFFF" stroke="#121318" stroke-width="3"/>
-    <circle cx="130" cy="56" r="7" fill="#FF5A1F"/>
-    <circle cx="260" cy="184" r="7" fill="#FF5A1F"/>
+    <circle cx="130" cy="56" r="7" fill="#2340E8"/>
+    <circle cx="260" cy="184" r="7" fill="#2340E8"/>
 
     <!-- Minimal Vector Fountain Pen Nib Icon on top of curve -->
     <g transform="translate(222, 66) rotate(32)">
       <polygon points="0,-24 18,16 10,32 -10,32 -18,16" fill="#121318"/>
       <line x1="0" y1="-24" x2="0" y2="4" stroke="#FFFFFF" stroke-width="2"/>
-      <circle cx="0" cy="6" r="4" fill="#FF5A1F"/>
+      <circle cx="0" cy="6" r="4" fill="#2340E8"/>
     </g>
   </g>
 </svg>
