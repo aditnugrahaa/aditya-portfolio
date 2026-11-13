@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#0A0B0E"/>
-  <path d="M18 46L29.5 18H34.5L46 46H40.2L37.8 39.8H26.2L23.8 46H18ZM28 35.1H36L32 24.4L28 35.1Z" fill="#C4F500"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <circle cx="250" cy="250" r="236" fill="#0A0B0E" stroke="#C4F500" stroke-opacity="0.65" stroke-width="18"/>
+  <g fill="#F5F6F8">
+    <polygon points="241,63 250,63 216,177 241,177" />
+    <rect x="214" y="177" width="53" height="4" />
+    <polygon points="241,63 278,63 320,244 282,244" />
+    <polygon points="208,206 214,181 268,181 282,244 200,244" />
+    <rect x="195" y="244" width="126" height="20" rx="2" />
+    <path d="M 187,264 C 187,330 216,365 250,365 C 284,365 327,330 327,264 L 314,264 C 314,318 280,349 250,349 C 220,349 199,318 199,264 Z" />
+    <rect x="238" y="264" width="38" height="175" />
+    <rect x="195" y="439" width="125" height="5" />
+  </g>
 </svg>
