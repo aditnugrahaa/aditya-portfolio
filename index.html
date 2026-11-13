@@ -631,6 +631,7 @@
       <ul class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-500 dark:text-slate-300">
         <li><a href="#work" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Selected Work</a></li>
         <li><a href="#capabilities" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Capabilities</a></li>
+        <li><a href="./articles.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Articles</a></li>
         <li><a href="#contact" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Contact</a></li>
         <li>
           <a href="./graphic-design.html" class="nav-pill magnetic-btn whitespace-nowrap" aria-label="Graphic Design portfolio">
@@ -1381,6 +1382,70 @@
     </section>
 
     <!-- ==========================================
+         SECTION 4A: FEATURED ARTICLES (2-ARTICLE HOOK)
+         ========================================== -->
+    <section id="articles" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 border-t border-black/10 dark:border-white/10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-[#4D7C0F] dark:text-[#C4F500]">Writing &amp; Insights</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mt-2">
+            Featured Articles
+          </h2>
+        </div>
+        <a href="./articles.html" class="btn-tactile px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2 transition-colors self-start sm:self-auto">
+          <span>View All 6 Articles</span>
+          <i class="ph-bold ph-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+        <a href="./articles/estetika-vs-performa.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+          <div class="relative z-10">
+            <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/9] mb-5 bg-obsidian">
+              <img src="./assets/article-estetika-vs-performa.jpg" alt="Estetika vs Performa Website Conversion" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+            </div>
+            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2.5">
+              <span>UI/UX &amp; Conversion</span>
+              <span>10 min read</span>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+              &ldquo;Estetika vs Performa&rdquo; Mengapa Banyak Website Cantik Gagal Menghasilkan Konversi?
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+              Membedah 5 penyebab utama website modern tetap rendah konversinya&mdash;mulai dari hierarchy, cognitive load, hingga animasi berlebihan.
+            </p>
+          </div>
+          <span class="relative z-10 mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+            <span>Read Article</span>
+            <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+          </span>
+        </a>
+
+        <a href="./articles/lean-ux-lite-for-small-team.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+          <div class="relative z-10">
+            <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/9] mb-5 bg-obsidian">
+              <img src="./assets/article-lean-ux-lite.jpg" alt="Lean UX Lite Playbook for Small Team" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
+            </div>
+            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2.5">
+              <span>Lean UX &amp; Analytics</span>
+              <span>12 min read</span>
+            </div>
+            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+              Lean UX &ldquo;Lite&rdquo; for Small Team: Playbook Microsite &amp; Pengukuran
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+              Panduan praktis dari workshop 2 jam, template hipotesis, guerrilla usability testing, hingga metrik GA4 dan heatmap untuk microsite kampanye.
+            </p>
+          </div>
+          <span class="relative z-10 mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+            <span>Read Article</span>
+            <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
          SECTION 4B: FREQUENTLY ASKED QUESTIONS (AEO)
          ========================================== -->
     <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 border-t border-black/10 dark:border-white/10">
@@ -1500,6 +1565,7 @@
         <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Instagram</a>
         <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Facebook</a>
         <a href="./graphic-design.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Graphic Design</a>
+        <a href="./articles.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Articles</a>
         <a href="https://adityanugraha5550.wixsite.com/my-site-1" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Intro Site</a>
       </div>
     </footer>

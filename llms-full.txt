@@ -27,6 +27,15 @@
 - [Sony Retail & Product Key Visuals](https://adt-design.vercel.app/graphic-design.html) — `Sony Days`, `REON POCKET 5`, `March Holiday Deals`, `Xperia`.
 - [Brand Identity & UI Systems](https://adt-design.vercel.app/graphic-design.html) — `FinFlow`, `LaunchPad`, `HealthSync`, `TalentBridge`, `MarketMingle`.
 
+## Articles & UI/UX Publications
+- [Articles Index](https://adt-design.vercel.app/articles.html)
+- [Estetika vs Performa: Mengapa Banyak Website Cantik Gagal Menghasilkan Konversi?](https://adt-design.vercel.app/articles/estetika-vs-performa.html)
+- [Lean UX "Lite" for Small Team: Playbook Microsite & Pengukuran](https://adt-design.vercel.app/articles/lean-ux-lite-for-small-team.html)
+- [Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking](https://adt-design.vercel.app/articles/ebook-ui-ux-designer.html)
+- [How to Analyze Ideas with SWOT & Weighted Scoring Model](https://adt-design.vercel.app/articles/swot-and-weighted-scoring.html)
+- [Customer Research: Mengukur Efektivitas Sumber Informasi Promo](https://adt-design.vercel.app/articles/customer-research.html)
+- [Cara Mengukur Akurasi Data Secara Kuantitatif](https://adt-design.vercel.app/articles/mengukur-data-secara-kuantitatif.html)
+
 ## Design Stack & Tools
 - **UI/UX & Prototyping:** Figma, Framer
 - **Motion & Visuals:** Adobe After Effects, Adobe Illustrator, Adobe Photoshop, Motion & Video Editing

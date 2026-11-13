@@ -5,6 +5,7 @@
 ## Pages
 - [UI/UX & Motion Portfolio](https://adt-design.vercel.app/): Main portfolio featuring interactive 3D hero stage, Sony campaign microsite case studies, product UI work, capabilities, and FAQ.
 - [Graphic Design & Visual Campaigns](https://adt-design.vercel.app/graphic-design.html): Archive of Sony retail key visuals, editorial posters, brand identity systems, and motion explorations.
+- [Articles & UI/UX Notes](https://adt-design.vercel.app/articles.html): Collection of practical articles on UI/UX conversion, Lean UX, product thinking, SWOT & weighted scoring, and customer research.
 - [Full LLM Context](https://adt-design.vercel.app/llms-full.txt): Complete Markdown reference with detailed project summaries, tools, and verified contact info.
 - [XML Sitemap](https://adt-design.vercel.app/sitemap.xml): Machine-readable index of all public pages.
 

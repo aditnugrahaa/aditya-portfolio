@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking | Aditya Nugraha</title>
+  <meta name="description" content="Panduan awal memahami prinsip UI/UX, metode Design Thinking, kolaborasi lintas tim dengan developer, serta pentingnya Product Thinking.">
+  <meta name="author" content="Aditya Nugraha">
+  <meta name="DC.creator" content="Aditya Nugraha">
+  <meta name="DC.language" content="id">
+  <meta name="geo.region" content="ID-BT">
+  <meta name="geo.placename" content="Tangerang, Indonesia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0A0B0E">
+  <link rel="canonical" href="https://adt-design.vercel.app/articles/ebook-ui-ux-designer.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+  <link rel="alternate" type="text/plain" title="LLMs Full Context" href="/llms-full.txt">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Aditya Nugraha Portfolio">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:url" content="https://adt-design.vercel.app/articles/ebook-ui-ux-designer.html">
+  <meta property="og:title" content="Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking">
+  <meta property="og:description" content="Panduan awal memahami prinsip UI/UX, metode Design Thinking, kolaborasi lintas tim dengan developer, serta pentingnya Product Thinking.">
+  <meta property="og:image" content="https://adt-design.vercel.app/assets/article-ebook-uiux.jpg">
+  <meta property="article:published_time" content="2026-03-10">
+  <meta property="article:author" content="Aditya Nugraha">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking">
+  <meta name="twitter:description" content="Panduan awal memahami prinsip UI/UX, metode Design Thinking, kolaborasi lintas tim dengan developer, serta pentingnya Product Thinking.">
+  <meta name="twitter:image" content="https://adt-design.vercel.app/assets/article-ebook-uiux.jpg">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking",
+          "description": "Panduan awal memahami prinsip UI/UX, metode Design Thinking, kolaborasi lintas tim dengan developer, serta pentingnya Product Thinking.",
+          "datePublished": "2026-03-10",
+          "inLanguage": "id-ID",
+          "mainEntityOfPage": "https://adt-design.vercel.app/articles/ebook-ui-ux-designer.html",
+          "author": { "@type": "Person", "name": "Aditya Nugraha", "url": "https://adt-design.vercel.app/" },
+          "publisher": { "@type": "Person", "name": "Aditya Nugraha", "url": "https://adt-design.vercel.app/" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adt-design.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://adt-design.vercel.app/articles.html" },
+            { "@type": "ListItem", "position": 3, "name": "Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking", "item": "https://adt-design.vercel.app/articles/ebook-ui-ux-designer.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: { obsidian: '#0A0B0E', surface: '#12141C', alabaster: '#F5F6F8', acid: '#C4F500' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --bg-page: #F5F6F8; --bg-surface: #FFFFFF; --text-main: #0F1117; --border-subtle: rgba(15, 17, 23, 0.1); --accent: #4D7C0F; --accent-fg: #FFFFFF; }
+    html.dark { --bg-page: #0A0B0E; --bg-surface: #12141C; --text-main: #F5F6F8; --border-subtle: rgba(255, 255, 255, 0.09); --accent: #C4F500; --accent-fg: #0A0B0E; }
+    body { background-color: var(--bg-page); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
+    .bg-grid-pattern { background-size: 64px 64px; background-image: linear-gradient(to right, var(--border-subtle) 1px, transparent 1px), linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px); }
+    .glass-surface { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border: 1px solid var(--border-subtle); }
+    html.dark .glass-surface { background: rgba(18, 20, 28, 0.78); }
+    .prose-body h2 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.5rem; margin-top: 2.25rem; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .prose-body p { margin-bottom: 1rem; line-height: 1.8; opacity: 0.88; }
+    .prose-body ul, .prose-body ol { margin-bottom: 1.25rem; padding-left: 1.35rem; opacity: 0.88; }
+    .prose-body ul { list-style-type: disc; }
+    .prose-body ol { list-style-type: decimal; }
+    .prose-body li { margin-bottom: 0.45rem; line-height: 1.75; }
+    .prose-body blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1rem; margin: 1.5rem 0; background: color-mix(in srgb, var(--accent) 8%, transparent); border-radius: 0.75rem; font-size: 0.95rem; line-height: 1.7; }
+    .nav-pill { position: relative; overflow: hidden; isolation: isolate; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid var(--border-subtle); background: color-mix(in srgb, var(--text-main) 5%, transparent); color: var(--text-main); font-weight: 600; transition: color 0.3s ease, border-color 0.3s ease; }
+    .nav-pill::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--accent); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .nav-pill:hover { color: var(--accent-fg); border-color: var(--accent); }
+    .nav-pill:hover::before { transform: scaleX(1); }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E]">
+  <!-- Reading Progress Bar Micro-Interaction -->
+  <div id="read-progress" class="fixed top-0 left-0 h-[3px] bg-[#4D7C0F] dark:bg-[#C4F500] z-50 transition-[width] duration-75" style="width: 0%"></div>
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-45 z-0"></div>
+
+  <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-10">
+    <nav class="max-w-4xl mx-auto h-14 glass-surface rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
+      <a href="../articles.html" class="inline-flex items-center gap-2 text-xs font-semibold hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors group">
+        <i class="ph-bold ph-arrow-left transition-transform group-hover:-translate-x-1"></i>
+        <span>All Articles</span>
+      </a>
+      <a href="../index.html" class="font-display font-bold text-xs sm:text-sm tracking-tight">ADITYA NUGRAHA</a>
+      <div class="flex items-center gap-2">
+        <a href="../graphic-design.html" class="hidden sm:inline-flex nav-pill text-[11px]">
+          <i class="ph-bold ph-pen-nib"></i>
+          <span>Graphic Design</span>
+        </a>
+        <button id="theme-toggle" type="button" class="w-8 h-8 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors" aria-label="Toggle color theme">
+          <i id="theme-icon" class="ph-bold ph-sun"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 pt-28 pb-20">
+    <article>
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-4">
+        <span class="px-2.5 py-1 rounded-lg bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10">Career & Product</span>
+        <span>8 min read</span>
+        <span class="text-slate-500 dark:text-slate-400">2026-03-10</span>
+      </div>
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight mb-6">
+        Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking
+      </h1>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-6 mb-8 border-b border-black/10 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300">
+        <span>By <strong class="text-slate-900 dark:text-white">Aditya Nugraha</strong> &mdash; UI/UX &amp; Motion Designer</span>
+        <button id="copy-link-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 dark:border-white/15 hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors font-medium">
+          <i class="ph-bold ph-link"></i>
+          <span id="copy-link-text">Copy Link</span>
+        </button>
+      </div>
+
+      <!-- Hero Cover Visual -->
+      <figure class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/9] mb-10 group">
+        <img src="../assets/article-ebook-uiux.jpg" alt="Menjadi UI/UX Designer: Roadmap, Design Thinking & Product Thinking" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]" />
+      </figure>
+
+      <div class="prose-body text-base sm:text-[17px]">
+              <p>Perkembangan teknologi digital menuntut desain yang tidak hanya menarik secara visual, tetapi juga mudah digunakan dan memberikan pengalaman yang memuaskan bagi pengguna. Panduan ini disusun sebagai pijakan awal untuk memahami dunia UI/UX secara terstruktur.</p>
+
+      <h2>Apa yang Akan Dipelajari?</h2>
+      <ul>
+        <li>Memahami alur belajar UX yang terstruktur dan efektif.</li>
+        <li>Mengetahui langkah awal memulai karier di UI/UX (UX Researcher, UX Writer, UI Designer, hingga Interaction Designer).</li>
+        <li>Mengerti cara mengembangkan nilai diri dan naik level dalam karier produk digital.</li>
+      </ul>
+
+      <h2>Metode &amp; Fondasi Desain</h2>
+      <p>Dalam proses perancangan web maupun aplikasi, ada beberapa metode populer yang sering digunakan di industri:</p>
+      <ul>
+        <li><strong>Design Thinking</strong> (5 tahapan: Empathize, Define, Ideate, Prototyping, Testing)</li>
+        <li><strong>Double Diamond</strong> &amp; <strong>Lean UX</strong></li>
+        <li><strong>Google Design Sprint</strong></li>
+        <li><strong>Human-Centered Design (HCD)</strong> &amp; <strong>User-Centered Design (UCD)</strong></li>
+      </ul>
+
+            <figure class="my-8 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-surface group">
+        <div class="aspect-[16/9] overflow-hidden bg-obsidian">
+          <img src="../assets/design-methods-diagram.jpg" alt="Diagram Metode dan Fondasi Desain: Design Thinking, Double Diamond, Lean UX, Google Design Sprint, HCD/UCD." loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+        </div>
+        <figcaption class="px-4 py-3 text-xs font-mono text-slate-500 dark:text-slate-400 border-t border-black/10 dark:border-white/10">
+          Metode &amp; Fondasi Desain: Design Thinking, Double Diamond, Lean UX, Google Design Sprint, dan HCD/UCD.
+        </figcaption>
+      </figure>
+
+      <h2>Bekerja Bersama Developer &amp; Tim Produk</h2>
+      <p>Menjadi desainer bukan hanya soal &ldquo;saya&rdquo;, tapi tentang &ldquo;kita&rdquo;&mdash;berkolaborasi dengan developer, researcher, writer, product manager, business analyst, dan sales. Desain yang baik berdiri di atas tiga fondasi: <strong>menyelesaikan masalah, mudah digunakan, dan didukung oleh semua pihak</strong>.</p>
+
+      <h2>Product Thinking: Pembeda Desainer Pemula &amp; Senior</h2>
+      <p>Dalam mengembangkan produk digital, jangan hanya memikirkan estetika semata, melainkan juga prospek bisnis dan teknologinya. <em>Thinking in products gives designers the advantage of building the right features for the right people</em>&mdash;dan pemahaman tentang Product Market Fit inilah yang menjadi pembeda menuju level Senior Product Designer.</p>
+      <p>Secara teknis, latih tiga hal secara konsisten: <strong>UI/UX fundamentals</strong>, <strong>Product thinking</strong>, dan <strong>Problem solving</strong>.</p>
+      </div>
+    </article>
+
+    <div class="mt-16 pt-8 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs">
+      <a href="../articles.html" class="inline-flex items-center gap-2 font-semibold hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors group">
+        <i class="ph-bold ph-arrow-left transition-transform group-hover:-translate-x-1"></i>
+        <span>Back to Articles</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="px-4 py-2.5 rounded-full border border-black/10 dark:border-white/15 font-semibold hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors">
+          Back to Top &uarr;
+        </a>
+        <a href="../index.html#contact" class="px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] font-bold">
+          Work With Aditya
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    function syncIcon() { icon.className = html.classList.contains('dark') ? 'ph-bold ph-sun' : 'ph-bold ph-moon'; }
+    if (localStorage.getItem('theme') === 'light') html.classList.remove('dark');
+    syncIcon();
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+      syncIcon();
+    });
+
+    // Reading Progress Bar
+    const progressBar = document.getElementById('read-progress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = h > 0 ? Math.min(100, (window.scrollY / h) * 100) + '%' : '0%';
+    }, { passive: true });
+
+    // Copy Link Micro-Interaction
+    const copyBtn = document.getElementById('copy-link-btn');
+    const copyTxt = document.getElementById('copy-link-text');
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        copyTxt.textContent = 'Copied!';
+        setTimeout(() => { copyTxt.textContent = 'Copy Link'; }, 1800);
+      } catch (e) {}
+    });
+  </script>
+
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zd3fa9y71j");
+  </script>
+</body>
+</html>

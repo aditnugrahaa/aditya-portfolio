@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles &amp; UI/UX Notes | Aditya Nugraha</title>
+  <meta name="description" content="Kumpulan artikel, panduan UI/UX, Lean UX, riset pengguna, SWOT &amp; Weighted Scoring, dan catatan konversi website oleh Aditya Nugraha.">
+  <meta name="keywords" content="Aditya Nugraha, Artikel UI/UX, Lean UX, Customer Research, Weighted Scoring, SWOT, Konversi Website, Indonesia">
+  <meta name="author" content="Aditya Nugraha">
+  <meta name="DC.creator" content="Aditya Nugraha">
+  <meta name="DC.language" content="id">
+  <meta name="geo.region" content="ID-BT">
+  <meta name="geo.placename" content="Tangerang, Indonesia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0A0B0E">
+  <link rel="canonical" href="https://adt-design.vercel.app/articles.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+  <link rel="alternate" type="text/plain" title="LLMs Full Context" href="/llms-full.txt">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aditya Nugraha Portfolio">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:url" content="https://adt-design.vercel.app/articles.html">
+  <meta property="og:title" content="Articles &amp; UI/UX Notes | Aditya Nugraha">
+  <meta property="og:description" content="Kumpulan artikel, panduan UI/UX, Lean UX, riset pengguna, SWOT &amp; Weighted Scoring, dan catatan konversi website oleh Aditya Nugraha.">
+  <meta property="og:image" content="https://adt-design.vercel.app/assets/work-finflow.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Articles &amp; UI/UX Notes | Aditya Nugraha">
+  <meta name="twitter:description" content="Kumpulan artikel, panduan UI/UX, Lean UX, riset pengguna, SWOT &amp; Weighted Scoring, dan catatan konversi website oleh Aditya Nugraha.">
+  <meta name="twitter:image" content="https://adt-design.vercel.app/assets/work-finflow.jpg">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Blog",
+          "@id": "https://adt-design.vercel.app/articles.html#blog",
+          "url": "https://adt-design.vercel.app/articles.html",
+          "name": "Articles & UI/UX Notes | Aditya Nugraha",
+          "description": "Kumpulan artikel, panduan UI/UX, Lean UX, riset pengguna, dan strategi konversi website oleh Aditya Nugraha.",
+          "inLanguage": "id-ID",
+          "author": {
+            "@type": "Person",
+            "name": "Aditya Nugraha",
+            "url": "https://adt-design.vercel.app/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adt-design.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://adt-design.vercel.app/articles.html" }
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#0A0B0E',
+            surface: '#12141C',
+            surfaceElevated: '#181B26',
+            alabaster: '#F5F6F8',
+            acid: '#C4F500',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-page: #F5F6F8;
+      --bg-surface: #FFFFFF;
+      --text-main: #0F1117;
+      --border-subtle: rgba(15, 17, 23, 0.1);
+      --accent: #4D7C0F;
+      --accent-fg: #FFFFFF;
+    }
+    html.dark {
+      --bg-page: #0A0B0E;
+      --bg-surface: #12141C;
+      --text-main: #F5F6F8;
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --accent: #C4F500;
+      --accent-fg: #0A0B0E;
+    }
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .bg-grid-pattern {
+      background-size: 64px 64px;
+      background-image:
+        linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+    }
+    .glass-surface {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+    }
+    html.dark .glass-surface {
+      background: rgba(18, 20, 28, 0.78);
+    }
+    .bento-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(196, 245, 0, 0.45);
+      box-shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Interactive Nav Pill Button (Matched with index.html) */
+    .nav-pill {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-subtle);
+      background: color-mix(in srgb, var(--text-main) 5%, transparent);
+      color: var(--text-main);
+      font-weight: 600;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover,
+    .nav-pill:focus-visible {
+      color: var(--accent-fg);
+      border-color: var(--accent);
+      outline: none;
+    }
+    .nav-pill:hover::before,
+    .nav-pill:focus-visible::before {
+      transform: scaleX(1);
+    }
+    .nav-pill:active {
+      transform: scale(0.97);
+    }
+    .nav-pill-label {
+      display: flex;
+      flex-direction: column;
+      height: 1.3em;
+      line-height: 1.3em;
+      overflow: hidden;
+    }
+    .nav-pill-text {
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover .nav-pill-text,
+    .nav-pill:focus-visible .nav-pill-text {
+      transform: translate3d(0, -100%, 0);
+    }
+    .nav-pill-icon {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover .nav-pill-icon {
+      transform: rotate(-18deg) scale(1.1);
+    }
+    .nav-pill-arrow {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill:hover .nav-pill-arrow {
+      transform: translate3d(2px, -2px, 0);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E]">
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-45 z-0"></div>
+
+  <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-10">
+    <nav class="max-w-7xl mx-auto h-16 glass-surface rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
+      <a href="./index.html" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#C4F500] transition-transform duration-300 group-hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
+            <circle cx="250" cy="250" r="236" fill="#0A0B0E" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
+            <g fill="#F5F6F8">
+              <polygon points="241,63 250,63 216,177 241,177" />
+              <rect x="214" y="177" width="53" height="4" />
+              <polygon points="241,63 278,63 320,244 282,244" />
+              <polygon points="208,206 214,181 268,181 282,244 200,244" />
+              <rect x="195" y="244" width="126" height="20" rx="2" />
+              <path d="M 187,264 C 187,330 216,365 250,365 C 284,365 327,330 327,264 L 314,264 C 314,318 280,349 250,349 C 220,349 199,318 199,264 Z" />
+              <rect x="238" y="264" width="38" height="175" />
+              <rect x="195" y="439" width="125" height="5" />
+            </g>
+          </svg>
+        </div>
+        <span class="font-display font-bold text-sm sm:text-base tracking-tight whitespace-nowrap">ADITYA NUGRAHA</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-500 dark:text-slate-300">
+        <li><a href="./index.html#work" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Selected Work</a></li>
+        <li><a href="./index.html#capabilities" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Capabilities</a></li>
+        <li><a href="./articles.html" class="text-[#4D7C0F] dark:text-[#C4F500] font-semibold whitespace-nowrap">Articles</a></li>
+        <li>
+          <a href="./graphic-design.html" class="nav-pill whitespace-nowrap" aria-label="Graphic Design portfolio">
+            <i class="ph-bold ph-pen-nib nav-pill-icon"></i>
+            <span class="nav-pill-label">
+              <span class="nav-pill-text">Graphic Design</span>
+              <span class="nav-pill-text" aria-hidden="true">Open Gallery</span>
+            </span>
+            <i class="ph-bold ph-arrow-up-right nav-pill-arrow"></i>
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex items-center gap-2.5">
+        <button id="theme-toggle" type="button" class="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors" aria-label="Toggle color theme">
+          <i id="theme-icon" class="ph-bold ph-sun"></i>
+        </button>
+        <a href="./index.html#contact" class="px-4 sm:px-5 py-2 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap">
+          Start a Conversation
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-32 pb-20">
+    <div class="max-w-3xl mb-12">
+      <span class="font-mono text-xs uppercase tracking-widest text-[#4D7C0F] dark:text-[#C4F500]">Writing &amp; UI/UX Notes</span>
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight mt-2">
+        Articles &amp; Practical Frameworks
+      </h1>
+      <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-4 leading-relaxed">
+        Catatan praktik seputar UI/UX design, optimasi konversi website, Lean UX untuk tim kecil, riset pelanggan, hingga metode prioritas ide.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="./articles/estetika-vs-performa.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+        <div>
+          <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
+            <img src="./assets/article-estetika-vs-performa.jpg" alt="Estetika vs Performa Website Conversion" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+          </div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+            <span>UI/UX &amp; Conversion</span>
+            <span>10 min read</span>
+          </div>
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            &ldquo;Estetika vs Performa&rdquo; Mengapa Banyak Website Cantik Gagal Menghasilkan Konversi?
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+            Membedah 5 penyebab utama website yang terlihat modern tetap rendah konversinya&mdash;mulai dari hierarchy, cognitive load, hingga animasi berlebihan.
+          </p>
+        </div>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span>Read Article</span>
+          <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </span>
+      </a>
+
+      <a href="./articles/lean-ux-lite-for-small-team.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+        <div>
+          <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
+            <img src="./assets/article-lean-ux-lite.jpg" alt="Lean UX Lite Playbook Microsite" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
+          </div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+            <span>Lean UX &amp; Analytics</span>
+            <span>12 min read</span>
+          </div>
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            Lean UX &ldquo;Lite&rdquo; for Small Team: Playbook Microsite &amp; Pengukuran
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+            Panduan praktis dari workshop 2 jam, template hipotesis, guerrilla usability testing, hingga metrik GA4 dan heatmap untuk microsite kampanye.
+          </p>
+        </div>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span>Read Article</span>
+          <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </span>
+      </a>
+
+      <a href="./articles/ebook-ui-ux-designer.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+        <div>
+          <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
+            <img src="./assets/article-ebook-uiux.jpg" alt="Menjadi UI/UX Designer Roadmap" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
+          </div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+            <span>Career &amp; Product</span>
+            <span>8 min read</span>
+          </div>
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            Menjadi UI/UX Designer: Roadmap, Design Thinking &amp; Product Thinking
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+            Panduan awal memahami prinsip UI/UX, metode desain, kolaborasi lintas tim dengan developer, dan pentingnya product thinking untuk naik level.
+          </p>
+        </div>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span>Read Article</span>
+          <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </span>
+      </a>
+
+      <a href="./articles/swot-and-weighted-scoring.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+        <div>
+          <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
+            <img src="./assets/article-swot-scoring.jpg" alt="SWOT and Weighted Scoring Model" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
+          </div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+            <span>Product Strategy</span>
+            <span>5 min read</span>
+          </div>
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            How to Analyze Ideas with SWOT &amp; Weighted Scoring Model
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+            Cara memetakan pain point lewat analisis TOWS/SWOT lalu memberi bobot prioritas secara objektif menggunakan Weighted Scoring Matrix.
+          </p>
+        </div>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span>Read Article</span>
+          <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </span>
+      </a>
+
+      <a href="./articles/customer-research.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+        <div>
+          <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
+            <img src="./assets/article-customer-research.jpg" alt="Customer Research &amp; Promo Effectiveness" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
+          </div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+            <span>UX Research</span>
+            <span>6 min read</span>
+          </div>
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            Customer Research: Mengukur Efektivitas Sumber Informasi Promo
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+            Kerangka riset pelanggan dari penentuan sampel, kuesioner kuantitatif, hingga pengolahan Skala Ketertarikan dan Frekuensi.
+          </p>
+        </div>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span>Read Article</span>
+          <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </span>
+      </a>
+
+      <a href="./articles/mengukur-data-secara-kuantitatif.html" class="bento-card rounded-2xl p-5 sm:p-6 group flex flex-col justify-between">
+        <div>
+          <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
+            <img src="./assets/article-akurasi-data.jpg" alt="Mengukur Akurasi Data Secara Kuantitatif" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
+          </div>
+          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+            <span>Data &amp; Research</span>
+            <span>5 min read</span>
+          </div>
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            Cara Mengukur Akurasi Data Secara Kuantitatif
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+            Tiga metode menjaga validitas hasil riset: persentase kesalahan, cross-check dengan data penjualan/analytics, dan confidence interval.
+          </p>
+        </div>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span>Read Article</span>
+          <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
+        </span>
+      </a>
+    </div>
+
+    <footer class="mt-20 pt-10 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div><strong class="text-slate-900 dark:text-white font-display">Aditya Nugraha</strong>, UI/UX &amp; Motion Designer</div>
+      <div class="flex flex-wrap items-center gap-6">
+        <a href="./index.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Home</a>
+        <a href="./graphic-design.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Graphic Design</a>
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">LinkedIn</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    function syncIcon() {
+      icon.className = html.classList.contains('dark') ? 'ph-bold ph-sun' : 'ph-bold ph-moon';
+    }
+    if (localStorage.getItem('theme') === 'light') html.classList.remove('dark');
+    syncIcon();
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+      syncIcon();
+    });
+  </script>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zd3fa9y71j");
+  </script>
+</body>
+</html>
