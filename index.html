@@ -164,10 +164,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-
-  <!-- Three.js (WebGL 3D Engine for Interactive Hero Stage) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 
   <script>
     tailwind.config = {
@@ -2055,6 +2052,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Three.js (WebGL 3D Engine for Interactive Hero Stage - loaded after body HTML so first paint isn't blocked) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- ==========================================
        INTERACTIVE ENGINE (Three.js 3D Stage, Theme, Observer)
