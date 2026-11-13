@@ -2,14 +2,17 @@
 
 > Portfolio of Aditya Nugraha, a UI/UX Designer and Motion Designer with 4+ years of experience crafting interactive web interfaces, campaign microsites, design systems, and motion/visual campaigns for global brands.
 
+## Pages
+- [UI/UX & Motion Portfolio](https://adt-design.vercel.app/): Main portfolio featuring interactive 3D hero stage, Sony campaign microsite case studies, product UI work, capabilities, and FAQ.
+- [Graphic Design & Visual Campaigns](https://adt-design.vercel.app/graphic-design.html): Archive of Sony retail key visuals, editorial posters, brand identity systems, and motion explorations.
+- [Full LLM Context](https://adt-design.vercel.app/llms-full.txt): Complete Markdown reference with detailed project summaries, tools, and verified contact info.
+- [XML Sitemap](https://adt-design.vercel.app/sitemap.xml): Machine-readable index of all public pages.
+
 ## Overview
 - **Name:** Aditya Nugraha
 - **Role:** UI/UX & Motion Designer
 - **Experience:** 4+ years
 - **Location:** Tangerang, Indonesia (Remote)
-- **Primary Website:** https://adt-design.vercel.app/
-- **Graphic Design Archive:** https://adt-design.vercel.app/graphic-design.html
-- **Full Context (`llms-full.txt`):** https://adt-design.vercel.app/llms-full.txt
 - **Availability:** Available for UI/UX design, interactive campaign microsites, product design, and motion design collaborations.
 
 ## Core Capabilities
@@ -18,24 +21,18 @@
 - **Motion & Visual Design:** Motion graphics, micro-interactions, 3D/key visual direction, brand identity systems, and retail campaign assets.
 
 ## Selected Works & Case Studies
-- **Sony Days 2026: "Otter-ly Festive" Year-End Microsite** — Interactive festive campaign microsite experience.
-- **Sony Days MYP 2026: "Match Ready" Microsite** — Mid-year promotional campaign microsite.
-- **Sony Days 2025: Year-End Promotion Microsite** — High-conversion seasonal retail campaign microsite.
-- **Year End Promotion 2024 & Mid Year Promotion 2025** — Multi-channel retail promotion and digital campaign systems.
-- **Digital Product & Interactive UI Suite** — FinFlow, HealthSync, LaunchPad, MarketMingle, and TalentBridge product UI concepts and interactive systems.
-- **Graphic Design & Visual Campaigns** — Sony retail key visuals, editorial posters, brand identity, and visual systems (https://adt-design.vercel.app/graphic-design.html).
+- [Sony Days 2026: "Otter-ly Festive" Year-End Microsite](https://adt-design.vercel.app/#work): Interactive festive campaign microsite experience.
+- [Sony Days MYP 2026: "Match Ready" Microsite](https://adt-design.vercel.app/#work): Mid-year promotional campaign microsite.
+- [Sony Days 2025: Year-End Promotion Microsite](https://adt-design.vercel.app/#work): High-conversion seasonal retail campaign microsite.
+- [Year End Promotion 2024 & Mid Year Promotion 2025](https://adt-design.vercel.app/#work): Multi-channel retail promotion and digital campaign systems.
+- [Digital Product & Interactive UI Suite](https://adt-design.vercel.app/#work): FinFlow, HealthSync, LaunchPad, MarketMingle, and TalentBridge product UI concepts and interactive systems.
+- [Graphic Design & Visual Campaigns](https://adt-design.vercel.app/graphic-design.html): Sony retail key visuals, REON POCKET 5, March Holiday Deals, Xperia, editorial posters, and brand identity systems.
 
 ## Tools & Stack
-- Figma
-- Framer
-- Adobe After Effects
-- Adobe Illustrator
-- Adobe Photoshop
-- WordPress
-- Motion & Video Editing
+- Figma, Framer, Adobe After Effects, Adobe Illustrator, Adobe Photoshop, WordPress, Motion & Video Editing
 
 ## Contact & Profiles
-- **Email:** adityanugraha555@gmail.com
-- **LinkedIn:** https://www.linkedin.com/in/aditya-nugraha-74816020a
-- **Instagram:** https://www.instagram.com/aditt.yya/
-- **Facebook:** https://www.facebook.com/nugrahadityya2/
+- [Email Aditya Nugraha](mailto:adityanugraha555@gmail.com)
+- [LinkedIn Profile](https://www.linkedin.com/in/aditya-nugraha-74816020a)
+- [Instagram (@aditt.yya)](https://www.instagram.com/aditt.yya/)
+- [Facebook Profile](https://www.facebook.com/nugrahadityya2/)

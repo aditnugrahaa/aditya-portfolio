@@ -7,29 +7,25 @@
 - **Primary Role:** UI/UX & Motion Designer
 - **Experience:** 4+ years
 - **Location:** Tangerang, Banten, Indonesia (Remote-friendly)
-- **Primary Portfolio:** https://adt-design.vercel.app/
-- **Graphic Design & Visual Campaign Archive:** https://adt-design.vercel.app/graphic-design.html
-- **Compact Summary (`llms.txt`):** https://adt-design.vercel.app/llms.txt
+- **Primary Portfolio:** [Aditya Nugraha Portfolio](https://adt-design.vercel.app/)
+- **Graphic Design Archive:** [Galeri Desain Grafis & Kampanye Visual](https://adt-design.vercel.app/graphic-design.html)
+- **Compact Summary:** [llms.txt](https://adt-design.vercel.app/llms.txt)
 
 ## Core Expertise
-1. **UI/UX & Interactive Product Design**
-   - End-to-end interface architecture, user flows, wireframing, responsive design systems, and interactive web experiences.
-2. **Campaign Microsites (Global Retail & Consumer Electronics)**
-   - High-impact promotional microsites built for seasonal retail campaigns, balancing brand storytelling, product discovery, and conversion.
-3. **Motion Design & Visual Systems**
-   - Motion graphics, micro-interactions, 3D/key visual art direction, editorial posters, and multi-channel retail visual systems.
+1. **UI/UX & Interactive Product Design** — End-to-end interface architecture, user flows, wireframing, responsive design systems, and interactive web experiences.
+2. **Campaign Microsites (Global Retail & Consumer Electronics)** — High-impact promotional microsites built for seasonal retail campaigns, balancing brand storytelling, product discovery, and conversion.
+3. **Motion Design & Visual Systems** — Motion graphics, micro-interactions, 3D/key visual art direction, editorial posters, and multi-channel retail visual systems.
 
-## Selected UI/UX & Microsite Projects (`index.html`)
-- **Sony Days 2026: "Otter-ly Festive" Year-End Microsite** — Interactive festive promotional microsite experience.
-- **Sony Days MYP 2026: "Match Ready" Microsite** — Mid-year promotional campaign microsite.
-- **Sony Days 2025: Year-End Promotion Microsite** — Seasonal retail campaign microsite.
-- **Year End Promotion 2024 & Mid Year Promotion 2025** — Multi-campaign promotional web experiences.
-- **Digital Product & Interactive UI Suite** — Product UI systems and concepts across FinTech, HealthTech, SaaS, HR, and Marketplace verticals (`FinFlow`, `HealthSync`, `LaunchPad`, `MarketMingle`, `TalentBridge`).
+## Selected UI/UX & Microsite Projects
+- [Sony Days 2026: "Otter-ly Festive" Year-End Microsite](https://adt-design.vercel.app/#work) — Interactive festive promotional microsite experience.
+- [Sony Days MYP 2026: "Match Ready" Microsite](https://adt-design.vercel.app/#work) — Mid-year promotional campaign microsite.
+- [Sony Days 2025: Year-End Promotion Microsite](https://adt-design.vercel.app/#work) — Seasonal retail campaign microsite.
+- [Year End Promotion 2024 & Mid Year Promotion 2025](https://adt-design.vercel.app/#work) — Multi-campaign promotional web experiences.
+- [Digital Product & Interactive UI Suite](https://adt-design.vercel.app/#work) — Product UI systems and concepts across FinTech, HealthTech, SaaS, HR, and Marketplace verticals (`FinFlow`, `HealthSync`, `LaunchPad`, `MarketMingle`, `TalentBridge`).
 
-## Selected Graphic Design & Visual Campaigns (`graphic-design.html`)
-- **Sony Retail & Product Key Visuals:** `Sony Days`, `REON POCKET 5`, `March Holiday Deals`, `Xperia`.
-- **Brand Identity & UI Systems:** `FinFlow`, `LaunchPad`, `HealthSync`, `TalentBridge`, `MarketMingle`.
-- **Visual Craft:** Editorial posters, 3D key visuals, brand identity systems, and motion explorations.
+## Selected Graphic Design & Visual Campaigns
+- [Sony Retail & Product Key Visuals](https://adt-design.vercel.app/graphic-design.html) — `Sony Days`, `REON POCKET 5`, `March Holiday Deals`, `Xperia`.
+- [Brand Identity & UI Systems](https://adt-design.vercel.app/graphic-design.html) — `FinFlow`, `LaunchPad`, `HealthSync`, `TalentBridge`, `MarketMingle`.
 
 ## Design Stack & Tools
 - **UI/UX & Prototyping:** Figma, Framer
@@ -37,7 +33,7 @@
 - **Web Publishing:** WordPress, HTML/CSS/Tailwind, Three.js interactive stages
 
 ## Verified Contact & Official Profiles
-- **Email:** adityanugraha555@gmail.com
-- **LinkedIn:** https://www.linkedin.com/in/aditya-nugraha-74816020a
-- **Instagram:** https://www.instagram.com/aditt.yya/
-- **Facebook:** https://www.facebook.com/nugrahadityya2/
+- [Email (adityanugraha555@gmail.com)](mailto:adityanugraha555@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/aditya-nugraha-74816020a)
+- [Instagram (@aditt.yya)](https://www.instagram.com/aditt.yya/)
+- [Facebook](https://www.facebook.com/nugrahadityya2/)
