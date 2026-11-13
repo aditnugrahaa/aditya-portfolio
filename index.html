@@ -531,10 +531,6 @@
       font-size: 1.1rem;
       animation: marqueeSpin 6s linear infinite;
     }
-    .marquee-stage:hover .marquee-track,
-    .marquee-stage:hover .marquee-item {
-      animation-play-state: paused;
-    }
     @keyframes marqueeSlide {
       from { transform: translate3d(0, 0, 0); }
       to { transform: translate3d(-50%, 0, 0); }
@@ -896,7 +892,6 @@
             <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500]">
               <span class="counter-val" data-target="2">2</span> Global Brands
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Multi-season campaign delivery for Sony and The Loud Minority</p>
           </div>
 
         </div>
@@ -2364,6 +2359,38 @@
         track.appendChild(clone);
       }
     });
+
+    // Marquee: smoothly slow down (instead of pausing) on hover
+    const marqueeStage = document.querySelector('.marquee-stage');
+    if (marqueeStage) {
+      let marqueeRate = 1;
+      let targetMarqueeRate = 1;
+      let marqueeRaf = null;
+      const tickMarqueeRate = () => {
+        marqueeRate += (targetMarqueeRate - marqueeRate) * 0.14;
+        if (Math.abs(targetMarqueeRate - marqueeRate) < 0.01) {
+          marqueeRate = targetMarqueeRate;
+          marqueeRaf = null;
+        } else {
+          marqueeRaf = requestAnimationFrame(tickMarqueeRate);
+        }
+        marqueeStage.querySelectorAll('.marquee-track, .marquee-item').forEach(el => {
+          el.getAnimations().forEach(anim => {
+            if (anim.animationName === 'marqueeSlide' || anim.animationName === 'marqueeBob') {
+              anim.playbackRate = marqueeRate;
+            }
+          });
+        });
+      };
+      marqueeStage.addEventListener('pointerenter', () => {
+        targetMarqueeRate = 0.25;
+        if (!marqueeRaf) marqueeRaf = requestAnimationFrame(tickMarqueeRate);
+      });
+      marqueeStage.addEventListener('pointerleave', () => {
+        targetMarqueeRate = 1;
+        if (!marqueeRaf) marqueeRaf = requestAnimationFrame(tickMarqueeRate);
+      });
+    }
 
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
