@@ -36,6 +36,16 @@
 - [Customer Research: Mengukur Efektivitas Sumber Informasi Promo](https://adt-design.vercel.app/articles/customer-research.html)
 - [Cara Mengukur Akurasi Data Secara Kuantitatif](https://adt-design.vercel.app/articles/mengukur-data-secara-kuantitatif.html)
 
+## Verified Certifications & Credentials
+- [Enterprise Design Thinking Practitioner (IBM, 2025)](https://www.credly.com/badges/81da0dc4-934e-4ad0-85e5-4da001d302ea/linked_in_profile)
+- [User Experience Design Fundamentals (IBM, 2025)](https://www.credly.com/badges/bf4abbd0-4bbb-4143-bed1-718ea138585e/linked_in_profile)
+- [Digital Mindset (IBM, 2025)](https://www.credly.com/badges/ffd54b76-1a43-4daa-96c0-70700e55d047/linked_in_profile)
+- [Google UX Design Specialization (Google / Coursera, 2022)](https://www.coursera.org/account/accomplishments/specialization/certificate/SK57QN5EM4ET)
+- [Google UX Design Certificate (Credly, 2022)](https://www.credly.com/badges/b5dcae99-dff2-49b9-9fda-aac78bc2f895/linked_in_profile)
+- [Complete Web Designer in 2022 with Figma (BuildWithAngga)](https://drive.google.com/file/d/1SrJR-4L8zuujU5a0AyUqVDe7x-Akw1ax/view)
+- [Kickstart UI/UX Design Journey (Rakamin Academy)](https://drive.google.com/file/d/1SipG8WRNuLEExuk_oPjQ2c1DeDPFQcti/view)
+- [CCNA Routing and Switching: Introduction to Networks (Cisco Networking Academy)](https://drive.google.com/file/d/1SmI5g5iM8hVz956ZmcgtfgXNFqycVRbq/view)
+
 ## Design Stack & Tools
 - **UI/UX & Prototyping:** Figma, Framer
 - **Motion & Visuals:** Adobe After Effects, Adobe Illustrator, Adobe Photoshop, Motion & Video Editing
