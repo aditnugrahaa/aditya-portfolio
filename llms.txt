@@ -26,8 +26,8 @@
 - [Sony Days MYP 2026: "Match Ready" Microsite](https://adt-design.vercel.app/#work): Mid-year promotional campaign microsite.
 - [Sony Days 2025: Year-End Promotion Microsite](https://adt-design.vercel.app/#work): High-conversion seasonal retail campaign microsite.
 - [Year End Promotion 2024 & Mid Year Promotion 2025](https://adt-design.vercel.app/#work): Multi-channel retail promotion and digital campaign systems.
-- [Digital Product & Interactive UI Suite](https://adt-design.vercel.app/#work): FinFlow, HealthSync, LaunchPad, MarketMingle, and TalentBridge product UI concepts and interactive systems.
-- [Graphic Design & Visual Campaigns](https://adt-design.vercel.app/graphic-design.html): Sony retail key visuals, REON POCKET 5, March Holiday Deals, Xperia, editorial posters, and brand identity systems.
+- [The Loud Minority: Digital Product & Interactive UI Suite](https://adt-design.vercel.app/#work): Interactive product UI and motion exploration.
+- [Graphic Design & Visual Campaigns](https://adt-design.vercel.app/graphic-design.html): Sony retail key visuals (Purr-fect Deals, REON POCKET 5, March Holideals, Xperia, HT-AX7, National Day 2026), JBL Quantum TWS Air digital ads, POSM, magazine ads, and social motion reels.
 
 ## Tools & Stack
 - Figma, Framer, Adobe After Effects, Adobe Illustrator, Adobe Photoshop, WordPress, Motion & Video Editing

@@ -8,7 +8,7 @@
 - **Experience:** 4+ years
 - **Location:** Tangerang, Banten, Indonesia (Remote-friendly)
 - **Primary Portfolio:** [Aditya Nugraha Portfolio](https://adt-design.vercel.app/)
-- **Graphic Design Archive:** [Galeri Desain Grafis & Kampanye Visual](https://adt-design.vercel.app/graphic-design.html)
+- **Graphic Design Archive:** [Graphic Design & Campaign Archive](https://adt-design.vercel.app/graphic-design.html)
 - **Compact Summary:** [llms.txt](https://adt-design.vercel.app/llms.txt)
 
 ## Core Expertise
@@ -21,11 +21,11 @@
 - [Sony Days MYP 2026: "Match Ready" Microsite](https://adt-design.vercel.app/#work) — Mid-year promotional campaign microsite.
 - [Sony Days 2025: Year-End Promotion Microsite](https://adt-design.vercel.app/#work) — Seasonal retail campaign microsite.
 - [Year End Promotion 2024 & Mid Year Promotion 2025](https://adt-design.vercel.app/#work) — Multi-campaign promotional web experiences.
-- [Digital Product & Interactive UI Suite](https://adt-design.vercel.app/#work) — Product UI systems and concepts across FinTech, HealthTech, SaaS, HR, and Marketplace verticals (`FinFlow`, `HealthSync`, `LaunchPad`, `MarketMingle`, `TalentBridge`).
+- [The Loud Minority: Digital Product & Interactive UI Suite](https://adt-design.vercel.app/#work) — Interactive product UI and motion exploration for The Loud Minority.
 
 ## Selected Graphic Design & Visual Campaigns
-- [Sony Retail & Product Key Visuals](https://adt-design.vercel.app/graphic-design.html) — `Sony Days`, `REON POCKET 5`, `March Holiday Deals`, `Xperia`.
-- [Brand Identity & UI Systems](https://adt-design.vercel.app/graphic-design.html) — `FinFlow`, `LaunchPad`, `HealthSync`, `TalentBridge`, `MarketMingle`.
+- [Sony Retail & Product Key Visuals](https://adt-design.vercel.app/graphic-design.html) — `Sony Days`, `Purr-fect Deals (Sony x The Garfield Movie)`, `REON POCKET 5`, `March Holideals`, `National Day 2026`, `9.9 Perfect Timing & Shopping Deals`, `Kyoto by the Sea`.
+- [POSM, Magazine & Digital Campaigns](https://adt-design.vercel.app/graphic-design.html) — `JBL Quantum TWS Air`, `Sony Xperia` & `HT-AX7` magazine ads, `BRAVIA 85" x Spider-Man`, pull-up banners, shelf talkers, IG carousels, and TikTok/Reels motion videos.
 
 ## Articles & UI/UX Publications
 - [Articles Index](https://adt-design.vercel.app/articles.html)
