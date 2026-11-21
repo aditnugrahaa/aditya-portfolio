@@ -156,6 +156,11 @@
       overflow-x: hidden;
     }
 
+    :focus-visible {
+      outline: 2px solid var(--cobalt);
+      outline-offset: 2px;
+    }
+
     /* Variable Font Condensed Display Treatment (Poster Typography) */
     .type-poster {
       font-family: 'Archivo', sans-serif;
@@ -1581,7 +1586,7 @@
   <!-- ==========================================
        HIGH-RES GALLERY LIGHTBOX MODAL (Images, Video & Live Motion)
        ========================================== -->
-  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8" onclick="closeLightbox(event)">
+  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4 sm:p-8" onclick="closeLightbox(event)">
     <div class="lightbox-pop relative w-full max-w-4xl bg-sheet rule-box overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between px-6 py-4 rule-bottom bg-white">
         <span id="lightbox-caption" class="type-ui text-sm sm:text-base text-ink">Preview</span>
