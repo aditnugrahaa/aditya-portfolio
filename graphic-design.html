@@ -107,10 +107,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 
   <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
   <script>
     tailwind.config = {
@@ -385,7 +385,7 @@
     <nav class="max-w-7xl mx-auto h-16 px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4">
       
       <!-- Brand Identity -->
-      <a href="#top" class="flex items-center gap-3 group focus:outline-none shrink-0">
+      <a href="#top" class="flex items-center gap-3 group shrink-0 rounded-full">
         <div class="w-9 h-9 overflow-hidden flex-shrink-0 bg-ink border border-black">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="Monogram ADT">
             <rect width="500" height="500" fill="#000000"/>
@@ -2527,6 +2527,19 @@
         }
       }
 
+      window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[onclick*="openLightbox"]').forEach((el) => {
+          if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+          if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+          el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              el.click();
+            }
+          });
+        });
+      });
+
       window.addEventListener('pointermove', (e) => {
         tx = (e.clientX / window.innerWidth) - 0.5;
         ty = (e.clientY / window.innerHeight) - 0.5;
@@ -2541,6 +2554,7 @@
     }
 
     (function initCreative3D() {
+      const run = () => {
       const canvas = document.getElementById('creative-3d-canvas');
       if (!canvas || typeof THREE === 'undefined') return;
 
@@ -2736,6 +2750,12 @@
       }
 
       renderLoop();
+      };
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', run);
+      } else {
+        run();
+      }
     })();
   </script>
 

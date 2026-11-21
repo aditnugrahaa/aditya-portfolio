@@ -286,6 +286,11 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
     /* Subtle Architectural Grid Overlay */
     .bg-grid-pattern {
       background-size: 64px 64px;
@@ -385,7 +390,6 @@
     .nav-pill:focus-visible {
       color: var(--accent-fg);
       border-color: var(--accent);
-      outline: none;
     }
     .nav-pill:hover::before,
     .nav-pill:focus-visible::before {
@@ -638,7 +642,7 @@
   </style>
 </head>
 
-<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E] bg-grid-pattern">
+<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E]">
 
   <!-- ==========================================
        NAVIGATION (Single-Line, Height <= 72px)
@@ -647,7 +651,7 @@
     <nav class="max-w-7xl mx-auto h-16 glass-surface rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
       
       <!-- Brand Identity + Original ADT Sword Monogram -->
-      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+      <a href="#hero" class="flex items-center gap-3 group rounded-full">
         <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#C4F500] transition-transform duration-300 group-hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
             <circle cx="250" cy="250" r="236" fill="#0A0B0E" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
@@ -759,7 +763,7 @@
                 </button>
               </div>
 
-              <span id="mesh-badge" class="font-medium text-[11px] px-2.5 py-1 rounded-xl bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span id="mesh-badge" class="font-medium text-[11px] px-2.5 py-1 rounded-md bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10 text-[#4D7C0F] dark:text-[#C4F500]">
                 UI/UX Stack
               </span>
             </div>
@@ -792,14 +796,16 @@
                 <canvas id="hero-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
 
                 <!-- Floating Identity Pill inside 3D Stage (adapts to light / dark) -->
-                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-2.5 rounded-xl bg-white/85 dark:bg-[#0A0B0E]/85 backdrop-blur-md border border-black/10 dark:border-white/15 pointer-events-auto transition-colors duration-300">
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-2.5 rounded-xl bg-white/95 dark:bg-[#0A0B0E]/95 border border-black/10 dark:border-white/15 pointer-events-auto transition-colors duration-300">
                   <div class="flex items-center gap-2.5">
                     <img 
                       src="https://framerusercontent.com/images/1K6YtJ414tV2qsi5uTsk86s.jpeg?width=1254&height=1254" 
                       alt="Aditya Nugraha" 
+                      width="40"
+                      height="40"
                       fetchpriority="high"
                       decoding="async"
-                      class="w-10 h-10 rounded-xl object-cover border border-[#4D7C0F]/50 dark:border-[#C4F500]/50 cursor-pointer"
+                      class="w-10 h-10 rounded-lg object-cover border border-[#4D7C0F]/50 dark:border-[#C4F500]/50 cursor-pointer"
                       onclick="switchStageView('portrait')"
                     />
                     <div>
@@ -817,13 +823,15 @@
               <div id="view-portrait" class="absolute inset-0 w-full h-full hidden">
                 <img 
                   src="https://framerusercontent.com/images/1K6YtJ414tV2qsi5uTsk86s.jpeg?width=1254&height=1254" 
-                  alt="Aditya Nugraha, UI/UX & Motion Designer" 
+                  alt="Aditya Nugraha, UI/UX &amp; Motion Designer" 
+                  width="1254"
+                  height="1254"
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-cover object-center"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0A0B0E]/90 via-transparent to-transparent"></div>
-                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-3 rounded-xl bg-[#0A0B0E]/85 backdrop-blur-md border border-white/15">
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-3 rounded-xl bg-[#0A0B0E]/95 border border-white/15">
                   <div>
                     <div class="font-display font-bold text-white text-sm">Aditya Nugraha</div>
                     <div class="text-xs text-[#C4F500]">@aditt.yya</div>
@@ -950,6 +958,8 @@
               <img 
                 src="./assets/sony-yep-2026-hero.jpg" 
                 alt="Sony Days 2026 Otter-ly Festive Year-End Microsite" 
+                width="1500"
+                height="1000"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -985,9 +995,8 @@
             </div>
 
             <div class="pt-2 flex flex-wrap items-center gap-3">
-              <button type="button" onclick="openCaseModal('modal-yep-2026')" class="btn-tactile px-5 py-3 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
+              <button type="button" onclick="openCaseModal('modal-yep-2026')" class="btn-tactile px-5 py-3 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
                 <span>Read Case Study</span>
-                <i class="ph-bold ph-arrow-right"></i>
               </button>
 
               <button type="button" onclick="openCaseModal('modal-yep-2026', 'full')" class="btn-tactile px-5 py-3 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2">
@@ -1010,6 +1019,8 @@
               <img 
                 src="./assets/sony-myp-2026-hero.jpg" 
                 alt="Sony Days MYP 2026 Match Ready Microsite" 
+                width="1200"
+                height="900"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -1038,13 +1049,12 @@
           </div>
 
           <div class="pt-6 mt-6 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
-            <button type="button" onclick="openCaseModal('modal-myp-2026')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
+            <button type="button" onclick="openCaseModal('modal-myp-2026')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
               <span>Read Case Study</span>
-              <i class="ph-bold ph-arrow-right"></i>
             </button>
-            <button type="button" onclick="openCaseModal('modal-myp-2026', 'full')" class="font-medium text-xs text-slate-500 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] inline-flex items-center gap-1 transition-colors">
+            <button type="button" onclick="openCaseModal('modal-myp-2026', 'full')" class="font-medium text-xs text-slate-600 dark:text-slate-400 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] inline-flex items-center gap-1 transition-colors">
               <span>8 Campaign Modules</span>
-              <i class="ph-bold ph-arrows-out-simple"></i>
+              <i class="ph-bold ph-arrows-out-simple" aria-hidden="true"></i>
             </button>
           </div>
         </article>
@@ -1056,6 +1066,8 @@
               <img 
                 src="./assets/sony-yep-2025-hero.jpg" 
                 alt="Sony Days 2025 Year-End Promotion Microsite" 
+                width="1600"
+                height="1000"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -1118,10 +1130,9 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-            <div onclick="openCaseModal('modal-yep-2025')" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 transition-colors space-y-1.5">
+            <div onclick="openCaseModal('modal-yep-2025')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2025');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500] transition-colors space-y-1.5">
               <div class="flex items-center justify-between font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">
                 <span>NOV 2025</span>
-                <i class="ph-bold ph-arrow-up-right"></i>
               </div>
               <div class="font-display font-bold text-sm text-slate-900 dark:text-white">Sony Days YEP 2025</div>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -1129,10 +1140,9 @@
               </p>
             </div>
 
-            <div onclick="openCaseModal('modal-myp-2026')" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 transition-colors space-y-1.5">
+            <div onclick="openCaseModal('modal-myp-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp-2026');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500] transition-colors space-y-1.5">
               <div class="flex items-center justify-between font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">
                 <span>MAY 2026</span>
-                <i class="ph-bold ph-arrow-up-right"></i>
               </div>
               <div class="font-display font-bold text-sm text-slate-900 dark:text-white">Sony Days MYP 2026</div>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -1140,10 +1150,9 @@
               </p>
             </div>
 
-            <div onclick="openCaseModal('modal-yep-2026')" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 transition-colors space-y-1.5">
+            <div onclick="openCaseModal('modal-yep-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2026');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500] transition-colors space-y-1.5">
               <div class="flex items-center justify-between font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">
                 <span>NOV 2026</span>
-                <i class="ph-bold ph-arrow-up-right"></i>
               </div>
               <div class="font-display font-bold text-sm text-slate-900 dark:text-white">Sony Days YEP 2026</div>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -1154,60 +1163,67 @@
         </div>
       </div>
 
-      <!-- Trio Row: 3-Column Architectural Grid for Earlier Campaigns & Product Exploration -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Asymmetric Editorial Grid for Earlier Campaigns & Product Exploration -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
         
-        <!-- Case Study 04: Year End Promotion 2024 (Sony) -->
-        <article class="bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal">
-          <div class="space-y-4 relative z-10">
-            <div onclick="openCaseModal('modal-yep')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep');}" class="cursor-pointer group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus:outline-none focus:ring-2 focus:ring-[#4D7C0F] dark:focus:ring-[#C4F500]">
+        <!-- Case Study 04: Year End Promotion 2024 (Sony) - Featured Horizontal Split -->
+        <article class="md:col-span-12 bento-card rounded-2xl p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center reveal">
+          <div class="lg:col-span-6 relative z-10">
+            <div onclick="openCaseModal('modal-yep')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep');}" class="cursor-pointer group relative rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500]">
               <img 
                 src="https://framerusercontent.com/images/q9UhHbil37U0ZHrw6qX5dzMLaw.jpg" 
                 alt="Year End Promotion 2024 Sony" 
+                width="1600"
+                height="1000"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </div>
-
-            <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
-                SONY
-              </span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
-                UI/UX Designer
-              </span>
-            </div>
-
-            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight">
-              Year End Promotion 2024
-            </h3>
-
-            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-              Designed a year-end promotional microsite for Sony focused on clear product grouping and visual hierarchy, helping holiday shoppers find seasonal deals across audio, camera, and TV lines right away.
-            </p>
           </div>
 
-          <div class="pt-5 mt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center gap-2.5 relative z-10">
-            <button type="button" onclick="openCaseModal('modal-yep')" class="btn-tactile px-4 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-1.5">
-              <span>Read Case Study</span>
-              <i class="ph-bold ph-arrow-right"></i>
-            </button>
+          <div class="lg:col-span-6 flex flex-col justify-between space-y-5 relative z-10">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+                  SONY
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+                  UI/UX Designer
+                </span>
+              </div>
 
-            <a href="https://docs.google.com/presentation/d/1Ne9_IF7vqySCto997TkEJO782SVlHx0S/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-4 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-1.5">
-              <span>View Deck</span>
-              <i class="ph-bold ph-arrow-up-right"></i>
-            </a>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">
+                Year End Promotion 2024
+              </h3>
+
+              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                Designed a year-end promotional microsite for Sony focused on clear product grouping and visual hierarchy, helping holiday shoppers find seasonal deals across audio, camera, and TV lines right away.
+              </p>
+            </div>
+
+            <div class="pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center gap-2.5">
+              <button type="button" onclick="openCaseModal('modal-yep')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
+                <span>Read Case Study</span>
+              </button>
+
+              <a href="https://docs.google.com/presentation/d/1Ne9_IF7vqySCto997TkEJO782SVlHx0S/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-4 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-1.5">
+                <span>View Deck</span>
+                <i class="ph-bold ph-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </article>
 
         <!-- Case Study 05: Mid Year Promotion 2025 (Sony) -->
-        <article class="bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal delay-1">
+        <article class="md:col-span-6 bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal delay-1">
           <div class="space-y-4 relative z-10">
-            <div onclick="openCaseModal('modal-myp')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp');}" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus:outline-none focus:ring-2 focus:ring-[#4D7C0F] dark:focus:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-myp')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp');}" class="cursor-pointer group rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500]">
               <img 
                 src="https://framerusercontent.com/images/IRihNK9tvKDcKwM9h2SMeudbxmc.jpg" 
                 alt="Mid Year Promotion 2025 Sony" 
+                width="1600"
+                height="1000"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -1215,10 +1231,10 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-2.5 py-1 rounded-md bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
                 SONY
               </span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+              <span class="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
                 UI/UX Designer
               </span>
             </div>
@@ -1233,21 +1249,22 @@
           </div>
 
           <div class="pt-5 mt-5 border-t border-black/10 dark:border-white/10 flex items-center justify-between relative z-10">
-            <button type="button" onclick="openCaseModal('modal-myp')" class="btn-tactile px-4 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-1.5">
+            <button type="button" onclick="openCaseModal('modal-myp')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
               <span>Read Case Study</span>
-              <i class="ph-bold ph-arrow-right"></i>
             </button>
-            <span class="font-medium text-xs text-slate-500">Microsite UI</span>
+            <span class="font-medium text-xs text-slate-600 dark:text-slate-400">Microsite UI</span>
           </div>
         </article>
 
         <!-- Case Study 06: The Loud Minority -->
-        <article class="bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal delay-2">
+        <article class="md:col-span-6 bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal delay-2">
           <div class="space-y-4 relative z-10">
-            <div onclick="openCaseModal('modal-tlm')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-tlm');}" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus:outline-none focus:ring-2 focus:ring-[#4D7C0F] dark:focus:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-tlm')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-tlm');}" class="cursor-pointer group rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500]">
               <img 
                 src="https://framerusercontent.com/images/5VWaKpPqYsnXpaGBQrgvPG9RrY.png" 
                 alt="Digital Product and Interactive UI Suite The Loud Minority" 
+                width="1600"
+                height="1000"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
@@ -1255,10 +1272,10 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-2.5 py-1 rounded-md bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
                 THE LOUD MINORITY
               </span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+              <span class="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
                 UI/UX &amp; Motion Designer
               </span>
             </div>
@@ -1273,14 +1290,13 @@
           </div>
 
           <div class="pt-5 mt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center gap-2.5 relative z-10">
-            <button type="button" onclick="openCaseModal('modal-tlm')" class="btn-tactile px-4 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-1.5">
+            <button type="button" onclick="openCaseModal('modal-tlm')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
               <span>Read Case Study</span>
-              <i class="ph-bold ph-arrow-right"></i>
             </button>
 
             <a href="https://docs.google.com/presentation/d/1pkOPqYSdRl8oef2p651rDeomy4YfkRdY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-4 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-1.5">
               <span>View Deck</span>
-              <i class="ph-bold ph-arrow-up-right"></i>
+              <i class="ph-bold ph-arrow-up-right" aria-hidden="true"></i>
             </a>
           </div>
         </article>
@@ -1777,7 +1793,7 @@
        ========================================== -->
 
   <!-- MODAL NEW 1: Sony Days 2026 "Otter-ly Festive" Year-End Microsite -->
-  <div id="modal-yep-2026" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-yep-2026')">
+  <div id="modal-yep-2026" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-yep-2026')">
     <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
@@ -1910,7 +1926,7 @@
   </div>
 
   <!-- MODAL NEW 2: Sony Days MYP 2026 "Match Ready" Microsite -->
-  <div id="modal-myp-2026" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-myp-2026')">
+  <div id="modal-myp-2026" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-myp-2026')">
     <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
@@ -2057,7 +2073,7 @@
   </div>
 
   <!-- MODAL NEW 3: Sony Days 2025 Year-End Promotion Microsite -->
-  <div id="modal-yep-2025" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-yep-2025')">
+  <div id="modal-yep-2025" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-yep-2025')">
     <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
@@ -2177,7 +2193,7 @@
   </div>
 
   <!-- MODAL 1: Year End Promotion 2024 (Sony) -->
-  <div id="modal-yep" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-yep')">
+  <div id="modal-yep" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-yep')">
     <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
@@ -2232,7 +2248,7 @@
   </div>
 
   <!-- MODAL 2: Mid Year Promotion 2025 (Sony) -->
-  <div id="modal-myp" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-myp')">
+  <div id="modal-myp" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-myp')">
     <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
@@ -2283,7 +2299,7 @@
   </div>
 
   <!-- MODAL 3: Digital Product & Interactive UI Suite (The Loud Minority) -->
-  <div id="modal-tlm" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'modal-tlm')">
+  <div id="modal-tlm" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-tlm')">
     <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
