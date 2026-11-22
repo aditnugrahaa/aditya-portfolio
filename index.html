@@ -291,6 +291,19 @@
       outline-offset: 2px;
     }
 
+    /* Directional Hero Atmosphere (Gambar 1: #FF6D29 -> #453027 -> #161316) */
+    .hero-atmosphere {
+      background-image:
+        radial-gradient(62% 54% at 74% 36%, rgba(194, 65, 12, 0.09) 0%, rgba(255, 109, 41, 0.05) 45%, transparent 76%),
+        radial-gradient(48% 42% at 14% 18%, rgba(69, 48, 39, 0.06) 0%, transparent 72%);
+    }
+
+    html.dark .hero-atmosphere {
+      background-image:
+        radial-gradient(62% 54% at 74% 36%, rgba(255, 109, 41, 0.22) 0%, rgba(69, 48, 39, 0.28) 44%, transparent 78%),
+        radial-gradient(48% 42% at 14% 18%, rgba(69, 48, 39, 0.30) 0%, transparent 72%);
+    }
+
     /* Subtle Architectural Grid Overlay */
     .bg-grid-pattern {
       background-size: 64px 64px;
@@ -644,6 +657,9 @@
 
 <body class="antialiased selection:bg-[#FF6D29] selection:text-[#161316]">
 
+  <!-- Directional Warm Hero Atmosphere (separates Hero & 3D stage from matte content below) -->
+  <div class="hero-atmosphere absolute inset-x-0 top-0 h-[100dvh] pointer-events-none z-0" aria-hidden="true"></div>
+
   <!-- ==========================================
        NAVIGATION (Single-Line, Height <= 72px)
        ========================================== -->
@@ -654,7 +670,7 @@
       <a href="#hero" class="flex items-center gap-3 group rounded-full">
         <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#FF6D29] transition-transform duration-300 group-hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
-            <circle cx="250" cy="250" r="236" fill="#161316" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
+            <circle cx="250" cy="250" r="236" fill="#161316" stroke="rgba(255,109,41,0.55)" stroke-width="12"/>
             <g fill="#F5F6F8">
               <polygon points="241,63 250,63 216,177 241,177" />
               <rect x="214" y="177" width="53" height="4" />
