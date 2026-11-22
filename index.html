@@ -13,7 +13,7 @@
   <meta name="geo.placename" content="Tangerang, Indonesia">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="google-site-verification" content="OuK9Zeg8u-33IKX_ZfOz5onOoN7TJT1YomA2CxhGnR0">
-  <meta name="theme-color" content="#0A0B0E">
+  <meta name="theme-color" content="#161316">
   <link rel="canonical" href="https://adt-design.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
@@ -228,12 +228,12 @@
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            obsidian: '#0A0B0E',
-            surface: '#12141C',
-            surfaceElevated: '#181B26',
+            obsidian: '#161316',
+            surface: '#1E1A1D',
+            surfaceElevated: '#292222',
             alabaster: '#F5F6F8',
-            acid: '#C4F500',
-            acidDark: '#3F6212',
+            acid: '#FF6D29',
+            acidDark: '#9A3412',
           },
           animation: {
             'marquee': 'marquee 28s linear infinite',
@@ -257,21 +257,21 @@
       --text-main: #0F1117;
       --text-muted: #475569;
       --border-subtle: rgba(15, 17, 23, 0.1);
-      --accent: #4D7C0F;
+      --accent: #C2410C;
       --accent-fg: #FFFFFF;
-      --spotlight: rgba(77, 124, 15, 0.08);
+      --spotlight: rgba(194, 65, 12, 0.08);
     }
 
     html.dark {
-      --bg-page: #0A0B0E;
-      --bg-surface: #12141C;
-      --bg-elevated: #181B26;
+      --bg-page: #161316;
+      --bg-surface: #1E1A1D;
+      --bg-elevated: #292222;
       --text-main: #F5F6F8;
       --text-muted: #94A3B8;
       --border-subtle: rgba(255, 255, 255, 0.09);
-      --accent: #C4F500;
-      --accent-fg: #0A0B0E;
-      --spotlight: rgba(196, 245, 0, 0.09);
+      --accent: #FF6D29;
+      --accent-fg: #161316;
+      --spotlight: rgba(255, 109, 41, 0.09);
     }
 
     * {
@@ -351,12 +351,12 @@
     }
 
     html.dark .bento-card:hover {
-      border-color: rgba(196, 245, 0, 0.38);
+      border-color: rgba(255, 109, 41, 0.38);
       box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.75);
     }
 
     html:not(.dark) .bento-card:hover {
-      border-color: rgba(77, 124, 15, 0.45);
+      border-color: rgba(194, 65, 12, 0.45);
       box-shadow: 0 20px 40px -15px rgba(15, 17, 23, 0.1);
     }
 
@@ -642,7 +642,7 @@
   </style>
 </head>
 
-<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E]">
+<body class="antialiased selection:bg-[#FF6D29] selection:text-[#161316]">
 
   <!-- ==========================================
        NAVIGATION (Single-Line, Height <= 72px)
@@ -652,9 +652,9 @@
       
       <!-- Brand Identity + Original ADT Sword Monogram -->
       <a href="#hero" class="flex items-center gap-3 group rounded-full">
-        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#C4F500] transition-transform duration-300 group-hover:scale-105">
+        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#FF6D29] transition-transform duration-300 group-hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
-            <circle cx="250" cy="250" r="236" fill="#0A0B0E" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
+            <circle cx="250" cy="250" r="236" fill="#161316" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
             <g fill="#F5F6F8">
               <polygon points="241,63 250,63 216,177 241,177" />
               <rect x="214" y="177" width="53" height="4" />
@@ -674,10 +674,10 @@
 
       <!-- Primary Links -->
       <ul class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-500 dark:text-slate-300">
-        <li><a href="#work" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Selected Work</a></li>
-        <li><a href="#capabilities" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Capabilities</a></li>
-        <li><a href="./articles.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Articles</a></li>
-        <li><a href="#contact" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Contact</a></li>
+        <li><a href="#work" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors whitespace-nowrap">Selected Work</a></li>
+        <li><a href="#capabilities" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors whitespace-nowrap">Capabilities</a></li>
+        <li><a href="./articles.html" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors whitespace-nowrap">Articles</a></li>
+        <li><a href="#contact" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors whitespace-nowrap">Contact</a></li>
         <li>
           <a href="./graphic-design.html" class="nav-pill magnetic-btn whitespace-nowrap" aria-label="Graphic Design portfolio">
             <i class="ph-bold ph-pen-nib nav-pill-icon"></i>
@@ -692,11 +692,11 @@
 
       <!-- Right Controls: Theme Switcher + Single Primary Contact CTA -->
       <div class="flex items-center gap-2.5">
-        <button id="theme-toggle" type="button" class="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors" aria-label="Toggle color theme">
+        <button id="theme-toggle" type="button" class="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#C2410C] dark:hover:border-[#FF6D29] transition-colors" aria-label="Toggle color theme">
           <i id="theme-icon" class="ph-bold ph-sun"></i>
         </button>
 
-        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-4 sm:px-5 py-2 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap">
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-4 sm:px-5 py-2 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap">
           Start a Conversation
         </a>
       </div>
@@ -717,8 +717,8 @@
         <div class="lg:col-span-7 space-y-6 reveal scroll-drift-fast">
           
           <!-- 1. Role Pill (Sentence case, no tracked-out all-caps) -->
-          <div class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10 border border-[#4D7C0F]/30 dark:border-[#C4F500]/30">
-            <span class="text-xs font-semibold text-[#4D7C0F] dark:text-[#C4F500]">
+          <div class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#C2410C]/10 dark:bg-[#FF6D29]/10 border border-[#C2410C]/30 dark:border-[#FF6D29]/30">
+            <span class="text-xs font-semibold text-[#C2410C] dark:text-[#FF6D29]">
               UI/UX &amp; Motion Designer
             </span>
           </div>
@@ -735,7 +735,7 @@
 
           <!-- 4. CTAs (1 Primary + 1 Secondary, no wrap) -->
           <div class="pt-2 flex flex-wrap items-center gap-3.5">
-            <a href="#work" class="btn-tactile magnetic-btn px-7 py-3.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
+            <a href="#work" class="btn-tactile magnetic-btn px-7 py-3.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
               <span>Selected Work</span>
               <i class="ph-bold ph-arrow-down-right"></i>
             </a>
@@ -755,7 +755,7 @@
             <!-- Stage Mode Switcher Header -->
             <div data-depth="4" class="parallax-layer flex items-center justify-between pb-3 mb-3 border-b border-black/10 dark:border-white/10 relative z-20 gap-2">
               <div class="flex items-center gap-1 bg-black/5 dark:bg-obsidian p-1 rounded-full border border-black/10 dark:border-white/10">
-                <button type="button" id="tab-3d" onclick="switchStageView('3d')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+                <button type="button" id="tab-3d" onclick="switchStageView('3d')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
                   3D Interactive
                 </button>
                 <button type="button" id="tab-portrait" onclick="switchStageView('portrait')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white">
@@ -763,26 +763,26 @@
                 </button>
               </div>
 
-              <span id="mesh-badge" class="font-medium text-[11px] px-2.5 py-1 rounded-md bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10 text-[#4D7C0F] dark:text-[#C4F500]">
+              <span id="mesh-badge" class="font-medium text-[11px] px-2.5 py-1 rounded-md bg-[#C2410C]/10 dark:bg-[#FF6D29]/10 text-[#C2410C] dark:text-[#FF6D29]">
                 UI/UX Stack
               </span>
             </div>
 
             <!-- 4 Discipline 3D Selector Pills (UI/UX, Motion, Graphic, AI) -->
             <div id="discipline-3d-tabs" data-depth="8" class="parallax-layer grid grid-cols-4 gap-1.5 mb-3 relative z-20">
-              <button type="button" onclick="select3DMode(0)" data-mode-btn="0" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+              <button type="button" onclick="select3DMode(0)" data-mode-btn="0" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
                 <i class="ph-bold ph-layout"></i>
                 <span>UI/UX</span>
               </button>
-              <button type="button" onclick="select3DMode(1)" data-mode-btn="1" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent">
+              <button type="button" onclick="select3DMode(1)" data-mode-btn="1" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
                 <i class="ph-bold ph-waveform"></i>
                 <span>Motion</span>
               </button>
-              <button type="button" onclick="select3DMode(2)" data-mode-btn="2" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent">
+              <button type="button" onclick="select3DMode(2)" data-mode-btn="2" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
                 <i class="ph-bold ph-pen-nib"></i>
                 <span>Graphic</span>
               </button>
-              <button type="button" onclick="select3DMode(3)" data-mode-btn="3" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent">
+              <button type="button" onclick="select3DMode(3)" data-mode-btn="3" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
                 <i class="ph-bold ph-cpu"></i>
                 <span>AI Core</span>
               </button>
@@ -796,7 +796,7 @@
                 <canvas id="hero-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
 
                 <!-- Floating Identity Pill inside 3D Stage (adapts to light / dark) -->
-                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-2.5 rounded-xl bg-white/95 dark:bg-[#0A0B0E]/95 border border-black/10 dark:border-white/15 pointer-events-auto transition-colors duration-300">
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-2.5 rounded-xl bg-white/95 dark:bg-[#161316]/95 border border-black/10 dark:border-white/15 pointer-events-auto transition-colors duration-300">
                   <div class="flex items-center gap-2.5">
                     <img 
                       src="https://framerusercontent.com/images/1K6YtJ414tV2qsi5uTsk86s.jpeg?width=1254&height=1254" 
@@ -805,15 +805,15 @@
                       height="40"
                       fetchpriority="high"
                       decoding="async"
-                      class="w-10 h-10 rounded-lg object-cover border border-[#4D7C0F]/50 dark:border-[#C4F500]/50 cursor-pointer"
+                      class="w-10 h-10 rounded-lg object-cover border border-[#C2410C]/50 dark:border-[#FF6D29]/50 cursor-pointer"
                       onclick="switchStageView('portrait')"
                     />
                     <div>
                       <div class="font-display font-bold text-slate-900 dark:text-white text-sm leading-tight">Aditya Nugraha</div>
-                      <div class="font-medium text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">Drag or hover 3D mesh</div>
+                      <div class="font-medium text-[11px] text-[#C2410C] dark:text-[#FF6D29]">Drag or hover 3D mesh</div>
                     </div>
                   </div>
-                  <button type="button" onclick="switchStageView('portrait')" class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] text-slate-900 dark:text-white text-xs font-semibold transition-colors whitespace-nowrap">
+                  <button type="button" onclick="switchStageView('portrait')" class="px-3 py-1.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] text-slate-900 dark:text-white text-xs font-semibold transition-colors whitespace-nowrap">
                     Photo
                   </button>
                 </div>
@@ -830,13 +830,13 @@
                   decoding="async"
                   class="w-full h-full object-cover object-center"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0A0B0E]/90 via-transparent to-transparent"></div>
-                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-3 rounded-xl bg-[#0A0B0E]/95 border border-white/15">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#161316]/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 p-3 rounded-xl bg-[#161316]/95 border border-white/15">
                   <div>
                     <div class="font-display font-bold text-white text-sm">Aditya Nugraha</div>
-                    <div class="text-xs text-[#C4F500]">@aditt.yya</div>
+                    <div class="text-xs text-[#FF6D29]">@aditt.yya</div>
                   </div>
-                  <button type="button" onclick="switchStageView('3d')" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#C4F500] hover:text-[#0A0B0E] text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 whitespace-nowrap">
+                  <button type="button" onclick="switchStageView('3d')" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#FF6D29] hover:text-[#161316] text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 whitespace-nowrap">
                     <i class="ph-bold ph-cube"></i>
                     <span>3D Interactive</span>
                   </button>
@@ -849,13 +849,13 @@
             <div data-depth="5" class="parallax-layer mt-3 pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 relative z-20">
               <span class="font-mono">Tangerang / Remote</span>
               <div class="flex items-center gap-2">
-                <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="LinkedIn">
                   <i class="ph-fill ph-linkedin-logo text-base"></i>
                 </a>
-                <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Instagram">
+                <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Instagram">
                   <i class="ph-fill ph-instagram-logo text-base"></i>
                 </a>
-                <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Facebook">
+                <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Facebook">
                   <i class="ph-fill ph-facebook-logo text-base"></i>
                 </a>
               </div>
@@ -876,21 +876,21 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-black/10 dark:divide-white/10">
           
           <div class="pt-4 sm:pt-0 sm:px-6 first:pl-0 first:pt-0 flex items-baseline justify-between sm:block">
-            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500]">
+            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#C2410C] dark:text-[#FF6D29]">
               <span class="counter-val" data-target="4">4</span> Years
             </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Designing digital products, campaign microsites, and motion systems</p>
           </div>
 
           <div class="pt-4 sm:pt-0 sm:px-6 flex items-baseline justify-between sm:block">
-            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500]">
+            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#C2410C] dark:text-[#FF6D29]">
               <span class="counter-val" data-target="6">6</span>+ Shipped
             </div>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">End-to-end campaign microsites, UI/UX suites, and interactive flows</p>
           </div>
 
           <div class="pt-4 sm:pt-0 sm:px-6 flex items-baseline justify-between sm:block">
-            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#4D7C0F] dark:text-[#C4F500]">
+            <div class="font-display font-extrabold text-3xl sm:text-4xl text-[#C2410C] dark:text-[#FF6D29]">
               <span class="counter-val" data-target="2">2</span> Global Brands
             </div>
           </div>
@@ -938,7 +938,7 @@
       
       <!-- Vertically Stacked Section Header -->
       <div class="max-w-2xl mb-14 space-y-3 reveal">
-        <span class="text-xs font-semibold text-[#4D7C0F] dark:text-[#C4F500] block">
+        <span class="text-xs font-semibold text-[#C2410C] dark:text-[#FF6D29] block">
           Selected Case Studies
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-none">
@@ -954,7 +954,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           
           <div class="lg:col-span-7">
-            <div onclick="openCaseModal('modal-yep-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2026');}" class="cursor-pointer group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[15/10] focus:outline-none focus:ring-2 focus:ring-[#4D7C0F] dark:focus:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-yep-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2026');}" class="cursor-pointer group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[15/10] focus:outline-none focus:ring-2 focus:ring-[#C2410C] dark:focus:ring-[#FF6D29]">
               <img 
                 src="./assets/sony-yep-2026-hero.jpg" 
                 alt="Sony Days 2026 Otter-ly Festive Year-End Microsite" 
@@ -969,7 +969,7 @@
 
           <div class="lg:col-span-5 space-y-5">
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">
                 SONY
               </span>
               <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
@@ -995,7 +995,7 @@
             </div>
 
             <div class="pt-2 flex flex-wrap items-center gap-3">
-              <button type="button" onclick="openCaseModal('modal-yep-2026')" class="btn-tactile px-5 py-3 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
+              <button type="button" onclick="openCaseModal('modal-yep-2026')" class="btn-tactile px-5 py-3 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap inline-flex items-center">
                 <span>Read Case Study</span>
               </button>
 
@@ -1015,7 +1015,7 @@
         <!-- Case Study 02: Sony Days MYP 2026 "Match Ready" (5 Columns) -->
         <article class="lg:col-span-5 bento-card rounded-2xl p-5 sm:p-7 flex flex-col justify-between reveal delay-1">
           <div class="space-y-5 relative z-10">
-            <div onclick="openCaseModal('modal-myp-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp-2026');}" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[4/3] focus:outline-none focus:ring-2 focus:ring-[#4D7C0F] dark:focus:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-myp-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp-2026');}" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[4/3] focus:outline-none focus:ring-2 focus:ring-[#C2410C] dark:focus:ring-[#FF6D29]">
               <img 
                 src="./assets/sony-myp-2026-hero.jpg" 
                 alt="Sony Days MYP 2026 Match Ready Microsite" 
@@ -1028,7 +1028,7 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">
                 SONY
               </span>
               <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
@@ -1049,10 +1049,10 @@
           </div>
 
           <div class="pt-6 mt-6 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
-            <button type="button" onclick="openCaseModal('modal-myp-2026')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
+            <button type="button" onclick="openCaseModal('modal-myp-2026')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap inline-flex items-center">
               <span>Read Case Study</span>
             </button>
-            <button type="button" onclick="openCaseModal('modal-myp-2026', 'full')" class="font-medium text-xs text-slate-600 dark:text-slate-400 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] inline-flex items-center gap-1 transition-colors">
+            <button type="button" onclick="openCaseModal('modal-myp-2026', 'full')" class="font-medium text-xs text-slate-600 dark:text-slate-400 hover:text-[#C2410C] dark:hover:text-[#FF6D29] inline-flex items-center gap-1 transition-colors">
               <span>8 Campaign Modules</span>
               <i class="ph-bold ph-arrows-out-simple" aria-hidden="true"></i>
             </button>
@@ -1062,7 +1062,7 @@
         <!-- Case Study 03: Sony Days 2025 Year-End Promotion (7 Columns) -->
         <article class="lg:col-span-7 bento-card rounded-2xl p-5 sm:p-7 flex flex-col justify-between reveal delay-2">
           <div class="space-y-5 relative z-10">
-            <div onclick="openCaseModal('modal-yep-2025')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2025');}" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus:outline-none focus:ring-2 focus:ring-[#4D7C0F] dark:focus:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-yep-2025')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2025');}" class="cursor-pointer group rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus:outline-none focus:ring-2 focus:ring-[#C2410C] dark:focus:ring-[#FF6D29]">
               <img 
                 src="./assets/sony-yep-2025-hero.jpg" 
                 alt="Sony Days 2025 Year-End Promotion Microsite" 
@@ -1075,7 +1075,7 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">
                 SONY
               </span>
               <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
@@ -1097,7 +1097,7 @@
 
           <div class="pt-6 mt-6 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
             <div class="flex flex-wrap items-center gap-3">
-              <button type="button" onclick="openCaseModal('modal-yep-2025')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
+              <button type="button" onclick="openCaseModal('modal-yep-2025')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap inline-flex items-center gap-2">
                 <span>Read Case Study</span>
                 <i class="ph-bold ph-arrow-right"></i>
               </button>
@@ -1113,7 +1113,7 @@
       </div>
 
       <!-- Multi-Year Sony Campaign Evolution Bar (Architectural Bridge connecting 2025 -> Mid 2026 -> End 2026) -->
-      <div class="bento-card rounded-2xl p-5 sm:p-7 mb-8 bg-gradient-to-r from-[#4D7C0F]/[0.07] dark:from-[#C4F500]/[0.06] via-transparent to-transparent reveal">
+      <div class="bento-card rounded-2xl p-5 sm:p-7 mb-8 bg-gradient-to-r from-[#C2410C]/[0.07] dark:from-[#FF6D29]/[0.06] via-transparent to-transparent reveal">
         <div class="relative z-10 space-y-5">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/10 dark:border-white/10 pb-4">
             <div>
@@ -1124,14 +1124,14 @@
                 Continuous layout refinement across three consecutive seasonal microsites, adapting visual pacing and conversion mechanics to each campaign's audience.
               </p>
             </div>
-            <span class="font-mono text-xs font-medium text-[#4D7C0F] dark:text-[#C4F500] whitespace-nowrap">
+            <span class="font-mono text-xs font-medium text-[#C2410C] dark:text-[#FF6D29] whitespace-nowrap">
               2025 → 2026 Progression
             </span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-            <div onclick="openCaseModal('modal-yep-2025')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2025');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500] transition-colors space-y-1.5">
-              <div class="flex items-center justify-between font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">
+            <div onclick="openCaseModal('modal-yep-2025')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2025');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#C2410C] dark:hover:border-[#FF6D29]/50 focus-visible:ring-2 focus-visible:ring-[#C2410C] dark:focus-visible:ring-[#FF6D29] transition-colors space-y-1.5">
+              <div class="flex items-center justify-between font-mono text-[11px] text-[#C2410C] dark:text-[#FF6D29]">
                 <span>NOV 2025</span>
               </div>
               <div class="font-display font-bold text-sm text-slate-900 dark:text-white">Sony Days YEP 2025</div>
@@ -1140,8 +1140,8 @@
               </p>
             </div>
 
-            <div onclick="openCaseModal('modal-myp-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp-2026');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500] transition-colors space-y-1.5">
-              <div class="flex items-center justify-between font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">
+            <div onclick="openCaseModal('modal-myp-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp-2026');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#C2410C] dark:hover:border-[#FF6D29]/50 focus-visible:ring-2 focus-visible:ring-[#C2410C] dark:focus-visible:ring-[#FF6D29] transition-colors space-y-1.5">
+              <div class="flex items-center justify-between font-mono text-[11px] text-[#C2410C] dark:text-[#FF6D29]">
                 <span>MAY 2026</span>
               </div>
               <div class="font-display font-bold text-sm text-slate-900 dark:text-white">Sony Days MYP 2026</div>
@@ -1150,8 +1150,8 @@
               </p>
             </div>
 
-            <div onclick="openCaseModal('modal-yep-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2026');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#4D7C0F] dark:hover:border-[#C4F500]/50 focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500] transition-colors space-y-1.5">
-              <div class="flex items-center justify-between font-mono text-[11px] text-[#4D7C0F] dark:text-[#C4F500]">
+            <div onclick="openCaseModal('modal-yep-2026')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep-2026');}" class="cursor-pointer p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10 hover:border-[#C2410C] dark:hover:border-[#FF6D29]/50 focus-visible:ring-2 focus-visible:ring-[#C2410C] dark:focus-visible:ring-[#FF6D29] transition-colors space-y-1.5">
+              <div class="flex items-center justify-between font-mono text-[11px] text-[#C2410C] dark:text-[#FF6D29]">
                 <span>NOV 2026</span>
               </div>
               <div class="font-display font-bold text-sm text-slate-900 dark:text-white">Sony Days YEP 2026</div>
@@ -1169,7 +1169,7 @@
         <!-- Case Study 04: Year End Promotion 2024 (Sony) - Featured Horizontal Split -->
         <article class="md:col-span-12 bento-card rounded-2xl p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center reveal">
           <div class="lg:col-span-6 relative z-10">
-            <div onclick="openCaseModal('modal-yep')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep');}" class="cursor-pointer group relative rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-yep')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-yep');}" class="cursor-pointer group relative rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#C2410C] dark:focus-visible:ring-[#FF6D29]">
               <img 
                 src="https://framerusercontent.com/images/q9UhHbil37U0ZHrw6qX5dzMLaw.jpg" 
                 alt="Year End Promotion 2024 Sony" 
@@ -1185,7 +1185,7 @@
           <div class="lg:col-span-6 flex flex-col justify-between space-y-5 relative z-10">
             <div class="space-y-4">
               <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-                <span class="px-2.5 py-1 rounded-md bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+                <span class="px-2.5 py-1 rounded-md bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">
                   SONY
                 </span>
                 <span class="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
@@ -1203,7 +1203,7 @@
             </div>
 
             <div class="pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center gap-2.5">
-              <button type="button" onclick="openCaseModal('modal-yep')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
+              <button type="button" onclick="openCaseModal('modal-yep')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap inline-flex items-center">
                 <span>Read Case Study</span>
               </button>
 
@@ -1218,7 +1218,7 @@
         <!-- Case Study 05: Mid Year Promotion 2025 (Sony) -->
         <article class="md:col-span-6 bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal delay-1">
           <div class="space-y-4 relative z-10">
-            <div onclick="openCaseModal('modal-myp')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp');}" class="cursor-pointer group rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-myp')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-myp');}" class="cursor-pointer group rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#C2410C] dark:focus-visible:ring-[#FF6D29]">
               <img 
                 src="https://framerusercontent.com/images/IRihNK9tvKDcKwM9h2SMeudbxmc.jpg" 
                 alt="Mid Year Promotion 2025 Sony" 
@@ -1231,7 +1231,7 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-2.5 py-1 rounded-md bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-2.5 py-1 rounded-md bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">
                 SONY
               </span>
               <span class="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
@@ -1249,7 +1249,7 @@
           </div>
 
           <div class="pt-5 mt-5 border-t border-black/10 dark:border-white/10 flex items-center justify-between relative z-10">
-            <button type="button" onclick="openCaseModal('modal-myp')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
+            <button type="button" onclick="openCaseModal('modal-myp')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap inline-flex items-center">
               <span>Read Case Study</span>
             </button>
             <span class="font-medium text-xs text-slate-600 dark:text-slate-400">Microsite UI</span>
@@ -1259,7 +1259,7 @@
         <!-- Case Study 06: The Loud Minority -->
         <article class="md:col-span-6 bento-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between reveal delay-2">
           <div class="space-y-4 relative z-10">
-            <div onclick="openCaseModal('modal-tlm')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-tlm');}" class="cursor-pointer group rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#4D7C0F] dark:focus-visible:ring-[#C4F500]">
+            <div onclick="openCaseModal('modal-tlm')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCaseModal('modal-tlm');}" class="cursor-pointer group rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-obsidian aspect-[16/10] focus-visible:ring-2 focus-visible:ring-[#C2410C] dark:focus-visible:ring-[#FF6D29]">
               <img 
                 src="https://framerusercontent.com/images/5VWaKpPqYsnXpaGBQrgvPG9RrY.png" 
                 alt="Digital Product and Interactive UI Suite The Loud Minority" 
@@ -1272,7 +1272,7 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2 font-medium text-xs">
-              <span class="px-2.5 py-1 rounded-md bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">
+              <span class="px-2.5 py-1 rounded-md bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">
                 THE LOUD MINORITY
               </span>
               <span class="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300">
@@ -1290,7 +1290,7 @@
           </div>
 
           <div class="pt-5 mt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center gap-2.5 relative z-10">
-            <button type="button" onclick="openCaseModal('modal-tlm')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap inline-flex items-center">
+            <button type="button" onclick="openCaseModal('modal-tlm')" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap inline-flex items-center">
               <span>Read Case Study</span>
             </button>
 
@@ -1324,9 +1324,9 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
         
         <!-- Cell 1 (7 Cols): UI/UX & Interactive Prototyping with Tinted Visual Accent -->
-        <div class="md:col-span-7 bento-card rounded-2xl p-7 sm:p-9 bg-gradient-to-br from-[#4D7C0F]/[0.08] dark:from-[#C4F500]/[0.07] via-transparent to-transparent flex flex-col justify-between reveal">
+        <div class="md:col-span-7 bento-card rounded-2xl p-7 sm:p-9 bg-gradient-to-br from-[#C2410C]/[0.08] dark:from-[#FF6D29]/[0.07] via-transparent to-transparent flex flex-col justify-between reveal">
           <div class="space-y-4 relative z-10">
-            <div class="w-12 h-12 rounded-xl bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] flex items-center justify-center text-2xl">
+            <div class="w-12 h-12 rounded-xl bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] flex items-center justify-center text-2xl">
               <i class="ph-bold ph-layout"></i>
             </div>
             <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight">
@@ -1349,7 +1349,7 @@
         <!-- Cell 2 (5 Cols): Motion Design & Micro-interactions -->
         <div class="md:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between reveal delay-1">
           <div class="space-y-4 relative z-10">
-            <div class="w-12 h-12 rounded-xl bg-black/5 dark:bg-white/10 text-[#4D7C0F] dark:text-[#C4F500] flex items-center justify-center text-2xl">
+            <div class="w-12 h-12 rounded-xl bg-black/5 dark:bg-white/10 text-[#C2410C] dark:text-[#FF6D29] flex items-center justify-center text-2xl">
               <i class="ph-bold ph-film-strip"></i>
             </div>
             <h3 class="font-display font-bold text-2xl tracking-tight">
@@ -1371,7 +1371,7 @@
         <!-- Cell 3 (5 Cols): Promotional Microsites -->
         <div class="md:col-span-5 bento-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between reveal">
           <div class="space-y-4 relative z-10">
-            <div class="w-12 h-12 rounded-xl bg-black/5 dark:bg-white/10 text-[#4D7C0F] dark:text-[#C4F500] flex items-center justify-center text-2xl">
+            <div class="w-12 h-12 rounded-xl bg-black/5 dark:bg-white/10 text-[#C2410C] dark:text-[#FF6D29] flex items-center justify-center text-2xl">
               <i class="ph-bold ph-browsers"></i>
             </div>
             <h3 class="font-display font-bold text-2xl tracking-tight">
@@ -1383,7 +1383,7 @@
           </div>
 
           <div class="pt-6 relative z-10">
-            <a href="./graphic-design.html" class="text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500] inline-flex items-center gap-1.5 hover:underline">
+            <a href="./graphic-design.html" class="text-xs font-bold text-[#C2410C] dark:text-[#FF6D29] inline-flex items-center gap-1.5 hover:underline">
               <span>Explore Campaign Work</span>
               <i class="ph-bold ph-arrow-up-right"></i>
             </a>
@@ -1403,31 +1403,31 @@
 
           <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 relative z-10 font-medium text-xs">
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
-              <i class="ph-bold ph-figma-logo text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-figma-logo text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>Figma</span>
             </div>
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
-              <i class="ph-bold ph-frame-corners text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-frame-corners text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>Framer</span>
             </div>
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
-              <i class="ph-bold ph-waveform text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-waveform text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>After Effects</span>
             </div>
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
-              <i class="ph-bold ph-pen-nib text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-pen-nib text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>Illustrator</span>
             </div>
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
-              <i class="ph-bold ph-image-square text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-image-square text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>Photoshop</span>
             </div>
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5">
-              <i class="ph-bold ph-globe-hemisphere-west text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-globe-hemisphere-west text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>WordPress</span>
             </div>
             <div class="p-3.5 rounded-xl bg-black/5 dark:bg-obsidian border border-black/10 dark:border-white/10 flex items-center gap-2.5 sm:col-span-2">
-              <i class="ph-bold ph-video-camera text-lg text-[#4D7C0F] dark:text-[#C4F500]"></i>
+              <i class="ph-bold ph-video-camera text-lg text-[#C2410C] dark:text-[#FF6D29]"></i>
               <span>Motion &amp; Video Editing</span>
             </div>
           </div>
@@ -1442,12 +1442,12 @@
     <section id="credentials" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 border-t border-black/10 dark:border-white/10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-[#4D7C0F] dark:text-[#C4F500]">Verified Credentials</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-[#C2410C] dark:text-[#FF6D29]">Verified Credentials</span>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mt-2">
             Certifications &amp; Training
           </h2>
         </div>
-        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2 transition-colors self-start sm:self-auto">
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2 transition-colors self-start sm:self-auto">
           <span>View on LinkedIn</span>
           <i class="ph-bold ph-arrow-up-right"></i>
         </a>
@@ -1456,15 +1456,15 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
         <a href="https://www.credly.com/badges/81da0dc4-934e-4ad0-85e5-4da001d302ea/linked_in_profile" target="_blank" rel="noopener noreferrer" class="bento-card rounded-2xl p-5 group flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2">
               <span>IBM</span>
               <span>2025</span>
             </div>
-            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               Enterprise Design Thinking Practitioner
             </h3>
           </div>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500]">
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29]">
             <span>Verify on Credly</span>
             <i class="ph-bold ph-arrow-up-right"></i>
           </span>
@@ -1472,15 +1472,15 @@
 
         <a href="https://www.credly.com/badges/bf4abbd0-4bbb-4143-bed1-718ea138585e/linked_in_profile" target="_blank" rel="noopener noreferrer" class="bento-card rounded-2xl p-5 group flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2">
               <span>IBM</span>
               <span>2025</span>
             </div>
-            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               User Experience Design Fundamentals
             </h3>
           </div>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500]">
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29]">
             <span>Verify on Credly</span>
             <i class="ph-bold ph-arrow-up-right"></i>
           </span>
@@ -1488,15 +1488,15 @@
 
         <a href="https://www.credly.com/badges/ffd54b76-1a43-4daa-96c0-70700e55d047/linked_in_profile" target="_blank" rel="noopener noreferrer" class="bento-card rounded-2xl p-5 group flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2">
               <span>IBM</span>
               <span>2025</span>
             </div>
-            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               Digital Mindset
             </h3>
           </div>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500]">
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29]">
             <span>Verify on Credly</span>
             <i class="ph-bold ph-arrow-up-right"></i>
           </span>
@@ -1504,15 +1504,15 @@
 
         <a href="https://www.credly.com/badges/b5dcae99-dff2-49b9-9fda-aac78bc2f895/linked_in_profile" target="_blank" rel="noopener noreferrer" class="bento-card rounded-2xl p-5 group flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2">
               <span>Google / Coursera</span>
               <span>2022</span>
             </div>
-            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               Google UX Design Specialization
             </h3>
           </div>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500]">
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29]">
             <span>Verify on Credly</span>
             <i class="ph-bold ph-arrow-up-right"></i>
           </span>
@@ -1520,15 +1520,15 @@
 
         <a href="https://drive.google.com/file/d/1SrJR-4L8zuujU5a0AyUqVDe7x-Akw1ax/view" target="_blank" rel="noopener noreferrer" class="bento-card rounded-2xl p-5 group flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2">
               <span>BuildWithAngga</span>
               <span>2022</span>
             </div>
-            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               Complete Web Designer in 2022 with Figma
             </h3>
           </div>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500]">
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29]">
             <span>View Certificate</span>
             <i class="ph-bold ph-arrow-up-right"></i>
           </span>
@@ -1536,15 +1536,15 @@
 
         <a href="https://drive.google.com/file/d/1SipG8WRNuLEExuk_oPjQ2c1DeDPFQcti/view" target="_blank" rel="noopener noreferrer" class="bento-card rounded-2xl p-5 group flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2">
               <span>Rakamin Academy</span>
               <span>2022</span>
             </div>
-            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-lg leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               Kickstart UI/UX Design Journey
             </h3>
           </div>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500]">
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29]">
             <span>View Certificate</span>
             <i class="ph-bold ph-arrow-up-right"></i>
           </span>
@@ -1554,42 +1554,42 @@
       <details class="mt-5 bento-card rounded-2xl p-5 reveal group">
         <summary class="font-display font-semibold text-sm cursor-pointer list-none flex items-center justify-between gap-4">
           <span>View Google UX Design Modules, Credly Badge &amp; Additional Credentials (9)</span>
-          <i class="ph-bold ph-caret-down text-[#4D7C0F] dark:text-[#C4F500] transition-transform group-open:rotate-180"></i>
+          <i class="ph-bold ph-caret-down text-[#C2410C] dark:text-[#FF6D29] transition-transform group-open:rotate-180"></i>
         </summary>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 pt-4 border-t border-black/10 dark:border-white/10 text-xs">
-          <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/SK57QN5EM4ET" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/SK57QN5EM4ET" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Google UX Design Specialization (Coursera Certificate)</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/verify/U3UH4ZZ9Y4UJ" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/verify/U3UH4ZZ9Y4UJ" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Foundations of User Experience (UX) Design</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/certificate/TYVX5HBWLVE5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/certificate/TYVX5HBWLVE5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Start the UX Design Process: Empathize, Define, and Ideate</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/certificate/ZDGLQECBAS6D" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/certificate/ZDGLQECBAS6D" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Build Wireframes and Low-Fidelity Prototypes</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/certificate/VTDCFSQYSXBH" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/certificate/VTDCFSQYSXBH" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Conduct UX Research and Test Early Concepts</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/certificate/SNJQHFT6EZF2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/certificate/SNJQHFT6EZF2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Create High-Fidelity Designs and Prototypes in Figma</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/certificate/2TU3BGNLMMXT" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/certificate/2TU3BGNLMMXT" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Responsive Web Design in Adobe XD</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://www.coursera.org/account/accomplishments/certificate/YVKMR278LS6D" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">
+          <a href="https://www.coursera.org/account/accomplishments/certificate/YVKMR278LS6D" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">
             <span>Design a UX for Social Good &amp; Prepare for Jobs</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
-          <a href="https://drive.google.com/file/d/1SmI5g5iM8hVz956ZmcgtfgXNFqycVRbq/view" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors sm:col-span-2">
+          <a href="https://drive.google.com/file/d/1SmI5g5iM8hVz956ZmcgtfgXNFqycVRbq/view" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors sm:col-span-2">
             <span>CCNA Routing and Switching: Introduction to Networks (Cisco Networking Academy)</span>
             <i class="ph-bold ph-arrow-up-right shrink-0"></i>
           </a>
@@ -1603,12 +1603,12 @@
     <section id="articles" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 border-t border-black/10 dark:border-white/10">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-[#4D7C0F] dark:text-[#C4F500]">Writing &amp; Insights</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-[#C2410C] dark:text-[#FF6D29]">Writing &amp; Insights</span>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mt-2">
             Featured Articles
           </h2>
         </div>
-        <a href="./articles.html" class="btn-tactile px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2 transition-colors self-start sm:self-auto">
+        <a href="./articles.html" class="btn-tactile px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] border border-black/10 dark:border-white/15 text-xs font-semibold whitespace-nowrap inline-flex items-center gap-2 transition-colors self-start sm:self-auto">
           <span>View All 6 Articles</span>
           <i class="ph-bold ph-arrow-right"></i>
         </a>
@@ -1620,18 +1620,18 @@
             <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/9] mb-5 bg-obsidian">
               <img src="./assets/article-estetika-vs-performa.jpg" alt="Estetika vs Performa Website Conversion" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
             </div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2.5">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2.5">
               <span>UI/UX &amp; Conversion</span>
               <span>10 min read</span>
             </div>
-            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               &ldquo;Estetika vs Performa&rdquo; Mengapa Banyak Website Cantik Gagal Menghasilkan Konversi?
             </h3>
             <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
               Membedah 5 penyebab utama website modern tetap rendah konversinya, mulai dari hierarchy, cognitive load, hingga animasi berlebihan.
             </p>
           </div>
-          <span class="relative z-10 mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span class="relative z-10 mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
             <span>Read Article</span>
             <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
           </span>
@@ -1642,18 +1642,18 @@
             <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/9] mb-5 bg-obsidian">
               <img src="./assets/article-lean-ux-lite.jpg" alt="Lean UX Lite Playbook for Small Team" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
             </div>
-            <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-2.5">
+            <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-2.5">
               <span>Lean UX &amp; Analytics</span>
               <span>12 min read</span>
             </div>
-            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+            <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
               Lean UX &ldquo;Lite&rdquo; for Small Teams: Microsite &amp; Measurement Playbook
             </h3>
             <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
               A practical guide from 2-hour workshops and hypothesis templates to guerrilla usability testing, GA4 events, and campaign microsite heatmaps.
             </p>
           </div>
-          <span class="relative z-10 mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+          <span class="relative z-10 mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
             <span>Read Article</span>
             <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
           </span>
@@ -1666,7 +1666,7 @@
          ========================================== -->
     <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 border-t border-black/10 dark:border-white/10">
       <div class="max-w-3xl mb-10 reveal">
-        <span class="font-mono text-xs uppercase tracking-widest text-[#4D7C0F] dark:text-[#C4F500]">Quick Answers</span>
+        <span class="font-mono text-xs uppercase tracking-widest text-[#C2410C] dark:text-[#FF6D29]">Quick Answers</span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mt-2">
           Frequently Asked Questions
         </h2>
@@ -1676,7 +1676,7 @@
         <details class="bento-card rounded-2xl p-6 group" open>
           <summary class="font-display font-bold text-base sm:text-lg cursor-pointer list-none flex items-center justify-between gap-4">
             <span>Who is Aditya Nugraha and what does he specialize in?</span>
-            <i class="ph-bold ph-plus text-[#4D7C0F] dark:text-[#C4F500] shrink-0 transition-transform group-open:rotate-45"></i>
+            <i class="ph-bold ph-plus text-[#C2410C] dark:text-[#FF6D29] shrink-0 transition-transform group-open:rotate-45"></i>
           </summary>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mt-3">
             Aditya Nugraha is a UI/UX Designer and Motion Designer with 4+ years of experience designing interactive web interfaces, campaign microsites, design systems, and visual motion campaigns for global brands.
@@ -1686,7 +1686,7 @@
         <details class="bento-card rounded-2xl p-6 group">
           <summary class="font-display font-bold text-base sm:text-lg cursor-pointer list-none flex items-center justify-between gap-4">
             <span>What design services does Aditya Nugraha offer?</span>
-            <i class="ph-bold ph-plus text-[#4D7C0F] dark:text-[#C4F500] shrink-0 transition-transform group-open:rotate-45"></i>
+            <i class="ph-bold ph-plus text-[#C2410C] dark:text-[#FF6D29] shrink-0 transition-transform group-open:rotate-45"></i>
           </summary>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mt-3">
             He offers UI/UX &amp; product design, interactive campaign microsites, motion &amp; micro-interaction design, and brand/retail graphic design systems.
@@ -1696,7 +1696,7 @@
         <details class="bento-card rounded-2xl p-6 group">
           <summary class="font-display font-bold text-base sm:text-lg cursor-pointer list-none flex items-center justify-between gap-4">
             <span>What notable projects or brands has he worked on?</span>
-            <i class="ph-bold ph-plus text-[#4D7C0F] dark:text-[#C4F500] shrink-0 transition-transform group-open:rotate-45"></i>
+            <i class="ph-bold ph-plus text-[#C2410C] dark:text-[#FF6D29] shrink-0 transition-transform group-open:rotate-45"></i>
           </summary>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mt-3">
             His portfolio includes seasonal promotional microsites and retail key visuals for Sony (Sony Days 2026 &ldquo;Otter-ly Festive&rdquo;, Match Ready MYP 2026, Year-End Promotion 2025), digital campaigns for JBL, and interactive product UI work for The Loud Minority.
@@ -1706,7 +1706,7 @@
         <details class="bento-card rounded-2xl p-6 group">
           <summary class="font-display font-bold text-base sm:text-lg cursor-pointer list-none flex items-center justify-between gap-4">
             <span>What tools does Aditya Nugraha use?</span>
-            <i class="ph-bold ph-plus text-[#4D7C0F] dark:text-[#C4F500] shrink-0 transition-transform group-open:rotate-45"></i>
+            <i class="ph-bold ph-plus text-[#C2410C] dark:text-[#FF6D29] shrink-0 transition-transform group-open:rotate-45"></i>
           </summary>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mt-3">
             His primary design and production stack includes Figma, Framer, Adobe After Effects, Adobe Illustrator, Adobe Photoshop, WordPress, and motion/video editing workflows.
@@ -1716,10 +1716,10 @@
         <details class="bento-card rounded-2xl p-6 group md:col-span-2">
           <summary class="font-display font-bold text-base sm:text-lg cursor-pointer list-none flex items-center justify-between gap-4">
             <span>How can I contact or collaborate with Aditya Nugraha?</span>
-            <i class="ph-bold ph-plus text-[#4D7C0F] dark:text-[#C4F500] shrink-0 transition-transform group-open:rotate-45"></i>
+            <i class="ph-bold ph-plus text-[#C2410C] dark:text-[#FF6D29] shrink-0 transition-transform group-open:rotate-45"></i>
           </summary>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mt-3">
-            You can reach Aditya Nugraha via email at <a href="mailto:adityanugraha555@gmail.com" class="underline text-[#4D7C0F] dark:text-[#C4F500]">adityanugraha555@gmail.com</a>, connect on LinkedIn, or message via Instagram (@aditt.yya).
+            You can reach Aditya Nugraha via email at <a href="mailto:adityanugraha555@gmail.com" class="underline text-[#C2410C] dark:text-[#FF6D29]">adityanugraha555@gmail.com</a>, connect on LinkedIn, or message via Instagram (@aditt.yya).
           </p>
         </details>
       </div>
@@ -1731,9 +1731,9 @@
     <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20">
       <div class="bento-card rounded-2xl p-8 sm:p-14 text-center relative overflow-hidden reveal">
         
-        <div class="w-16 h-16 mx-auto mb-6 rounded-full overflow-hidden border-2 border-[#4D7C0F] dark:border-[#C4F500]">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-full overflow-hidden border-2 border-[#C2410C] dark:border-[#FF6D29]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
-            <circle cx="250" cy="250" r="236" fill="#0A0B0E"/>
+            <circle cx="250" cy="250" r="236" fill="#161316"/>
             <g fill="#F5F6F8">
               <polygon points="241,63 250,63 216,177 241,177" />
               <rect x="214" y="177" width="53" height="4" />
@@ -1755,7 +1755,7 @@
         </p>
 
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3.5 relative z-10">
-          <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-7 py-4 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
+          <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="btn-tactile magnetic-btn px-7 py-4 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] font-display font-bold text-sm whitespace-nowrap inline-flex items-center gap-2 shadow-lg">
             <i class="ph-fill ph-linkedin-logo text-lg"></i>
             <span>Connect on LinkedIn</span>
           </a>
@@ -1777,12 +1777,12 @@
         <strong class="text-slate-900 dark:text-white font-display">Aditya Nugraha</strong>, UI/UX &amp; Motion Designer
       </div>
       <div class="flex flex-wrap items-center gap-6">
-        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">LinkedIn</a>
-        <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Instagram</a>
-        <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Facebook</a>
-        <a href="./graphic-design.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Graphic Design</a>
-        <a href="./articles.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Articles</a>
-        <a href="https://adityanugraha5550.wixsite.com/my-site-1" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Intro Site</a>
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">LinkedIn</a>
+        <a href="https://www.instagram.com/aditt.yya/" target="_blank" rel="noopener noreferrer" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Instagram</a>
+        <a href="https://www.facebook.com/nugrahadityya2/" target="_blank" rel="noopener noreferrer" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Facebook</a>
+        <a href="./graphic-design.html" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Graphic Design</a>
+        <a href="./articles.html" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Articles</a>
+        <a href="https://adityanugraha5550.wixsite.com/my-site-1" target="_blank" rel="noopener noreferrer" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Intro Site</a>
       </div>
     </footer>
 
@@ -1794,14 +1794,14 @@
 
   <!-- MODAL NEW 1: Sony Days 2026 "Otter-ly Festive" Year-End Microsite -->
   <div id="modal-yep-2026" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-yep-2026')">
-    <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#1E1A1D] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
-          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-semibold">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-semibold">SONY</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10 font-mono text-[11px]">6 Nov 2026 to 3 Jan 2027</span>
         </div>
-        <button type="button" onclick="closeCaseModal('modal-yep-2026')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+        <button type="button" onclick="closeCaseModal('modal-yep-2026')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Close modal">
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
@@ -1814,22 +1814,22 @@
       <!-- Key Campaign Architecture Metrics -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-5">
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">1 Mascot</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">1 Mascot</div>
           <div class="text-[11px] font-semibold mt-0.5">Unified Brand Mascot</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Otter guide across every module.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">2 Games</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">2 Games</div>
           <div class="text-[11px] font-semibold mt-0.5">Gamified Mechanics</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Otter Parade ($50) &amp; Festive Bingo.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">$100</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">$100</div>
           <div class="text-[11px] font-semibold mt-0.5">Tiered Online Codes</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Bronze ($20), Silver ($50), Gold.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">5 Hubs</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">5 Hubs</div>
           <div class="text-[11px] font-semibold mt-0.5">Roadshow &amp; Store Hubs</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Mall activations &amp; Sony Stores.</p>
         </div>
@@ -1840,7 +1840,7 @@
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Interface Preview Mode</span>
           <div class="inline-flex p-1 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10">
-            <button type="button" data-tab-hero onclick="switchCasePreview('modal-yep-2026', 'hero')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+            <button type="button" data-tab-hero onclick="switchCasePreview('modal-yep-2026', 'hero')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
               Hero Overview
             </button>
             <button type="button" data-tab-full onclick="switchCasePreview('modal-yep-2026', 'full')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white">
@@ -1855,7 +1855,7 @@
 
         <div data-preview-full class="hidden rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-[#0A1328]">
           <div class="px-4 py-2 bg-black/60 text-[11px] font-mono text-slate-300 flex items-center justify-between border-b border-white/10">
-            <span><i class="ph-bold ph-mouse-scroll mr-1 text-[#C4F500]"></i> Scroll inside container to inspect all 8 microsite modules</span>
+            <span><i class="ph-bold ph-mouse-scroll mr-1 text-[#FF6D29]"></i> Scroll inside container to inspect all 8 microsite modules</span>
             <span>Full Resolution UI</span>
           </div>
           <div class="max-h-[540px] overflow-y-auto">
@@ -1867,7 +1867,7 @@
       <!-- Detailed Hybrid Case Study Breakdown -->
       <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Art Direction: Character-Led Scroll Experience</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Art Direction: Character-Led Scroll Experience</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Mascot as Visual Guide (Otter Character):</strong> An otter wearing a Sony cap appears in each section to tie the page together and pull the eye down the scroll.</li>
             <li><strong>Reordered Conversion Funnel:</strong> Unlike the previous year, the mini-game and online voucher codes sit near the top so impulse shoppers see them right away.</li>
@@ -1876,7 +1876,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Top Funnel: Hero Living Room, &ldquo;Otter Bound&rdquo; &amp; Tiered Vouchers</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Top Funnel: Hero Living Room, &ldquo;Otter Bound&rdquo; &amp; Tiered Vouchers</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Cozy Interior Hero Scene:</strong> Places Sony hardware inside a lived-in living room alongside the otter mascot instead of a plain product grid.</li>
             <li><strong>&ldquo;Otter Bound / Parade&rdquo; Game Banner:</strong> An icy-blue strip with a red <code>PLAY</code> button invites quick participation for a $50 voucher.</li>
@@ -1885,7 +1885,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Mid-Funnel Discovery: Roadshow Events Board &amp; Guided Gift Finder</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Mid-Funnel Discovery: Roadshow Events Board &amp; Guided Gift Finder</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Candy-Cane Framed Container:</strong> A red-and-green striped border over a snowy backdrop groups 5 roadshow locations and 4 perk icons cleanly.</li>
             <li><strong>&ldquo;Not Sure What To Get?&rdquo; Banner:</strong> Acts as a quick fork for undecided gift shoppers, routing them into the curated catalog.</li>
@@ -1893,7 +1893,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Loyalty &amp; Perks: My Sony Rewards &amp; &ldquo;Unwrap Christmas Joy&rdquo;</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Loyalty &amp; Perks: My Sony Rewards &amp; &ldquo;Unwrap Christmas Joy&rdquo;</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Peek-a-Boo Mascot Anchor:</strong> An otter peeking over the brown <em>My Sony Rewards</em> card softens the row of $5 voucher blocks.</li>
             <li><strong>Visual Metaphor &ldquo;Unwrap Joy&rdquo;:</strong> Instead of a plain spec table, shopping perks float out of an open gift box as green and red balloons.</li>
@@ -1901,7 +1901,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Retention &amp; O2O Footfall: Bingo Gamification, Bespoke &amp; Golden Bells</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Retention &amp; O2O Footfall: Bingo Gamification, Bespoke &amp; Golden Bells</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>In-Store Bingo &amp; Workshops Split:</strong> Pairs a 3x3 Bingo board on the left with store workshop cards on the right to drive repeat store visits.</li>
             <li><strong>Tilted Polaroid Bespoke Slider:</strong> Angled photo cards over a bright red backdrop give movement to the <em>Personalised Engraving</em> section.</li>
@@ -1910,13 +1910,13 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">UI/UX Rationale &amp; Multi-Year Evolution</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">UI/UX Rationale &amp; Multi-Year Evolution</h4>
           <p class="mb-2">Combining the otter mascot hook, die-cut festive containers (gold bells and candy-cane frames), and two-layer gamification (online mini-game plus in-store Bingo) connects Sony&rsquo;s 2025 campaign into the 2026 year-end push.</p>
         </div>
       </div>
 
       <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-        <button type="button" onclick="switchCasePreview('modal-yep-2026', 'full', true)" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+        <button type="button" onclick="switchCasePreview('modal-yep-2026', 'full', true)" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold inline-flex items-center gap-2">
           <span>Inspect Full Landing Page</span>
           <i class="ph-bold ph-arrows-out-simple"></i>
         </button>
@@ -1927,14 +1927,14 @@
 
   <!-- MODAL NEW 2: Sony Days MYP 2026 "Match Ready" Microsite -->
   <div id="modal-myp-2026" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-myp-2026')">
-    <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#1E1A1D] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
-          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-semibold">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-semibold">SONY</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10 font-mono text-[11px]">15 May to 28 Jun 2026</span>
         </div>
-        <button type="button" onclick="closeCaseModal('modal-myp-2026')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+        <button type="button" onclick="closeCaseModal('modal-myp-2026')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Close modal">
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
@@ -1947,22 +1947,22 @@
       <!-- Key Campaign Scope Metrics -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-5">
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">8 Modules</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">8 Modules</div>
           <div class="text-[11px] font-semibold mt-0.5">Campaign Modules</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">End-to-end promo funnel.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">4 Venues</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">4 Venues</div>
           <div class="text-[11px] font-semibold mt-0.5">Roadshow Venues</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Suntec to Wisma Atria.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">2X Points</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">2X Points</div>
           <div class="text-[11px] font-semibold mt-0.5">Loyalty Points</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">My Sony Rewards incentive.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">$100</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">$100</div>
           <div class="text-[11px] font-semibold mt-0.5">Max Tier Voucher</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Instant checkout promo codes.</p>
         </div>
@@ -1973,7 +1973,7 @@
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Interface Preview Mode</span>
           <div class="inline-flex p-1 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10">
-            <button type="button" data-tab-hero onclick="switchCasePreview('modal-myp-2026', 'hero')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+            <button type="button" data-tab-hero onclick="switchCasePreview('modal-myp-2026', 'hero')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
               Hero Overview
             </button>
             <button type="button" data-tab-full onclick="switchCasePreview('modal-myp-2026', 'full')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white">
@@ -1988,7 +1988,7 @@
 
         <div data-preview-full class="hidden rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-[#0E2238]">
           <div class="px-4 py-2 bg-black/60 text-[11px] font-mono text-slate-300 flex items-center justify-between border-b border-white/10">
-            <span><i class="ph-bold ph-mouse-scroll mr-1 text-[#C4F500]"></i> Scroll inside container to inspect all 8 campaign modules</span>
+            <span><i class="ph-bold ph-mouse-scroll mr-1 text-[#FF6D29]"></i> Scroll inside container to inspect all 8 campaign modules</span>
             <span>Full Resolution UI</span>
           </div>
           <div class="max-h-[540px] overflow-y-auto">
@@ -2000,7 +2000,7 @@
       <!-- Detailed Hybrid Case Study Breakdown (8 Campaign Modules) -->
       <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Hero Showcase &amp; Asymmetric 80/20 Bento Grid</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Hero Showcase &amp; Asymmetric 80/20 Bento Grid</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Dynamic &ldquo;Match Ready&rdquo; Energy:</strong> Uses a mid-year football theme with mint green and crimson red accents to give the sale immediate energy.</li>
             <li><strong>Asymmetric Bento Grid:</strong> An 80/20 split keeps the main key visual separate from interactive side cards on the right.</li>
@@ -2009,7 +2009,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Gamified Quick Links: E-Catalogue &amp; Play &amp; Win</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Gamified Quick Links: E-Catalogue &amp; Play &amp; Win</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Dual Micro-Conversions:</strong> Quick links for the E-Catalogue and <em>&ldquo;Play &amp; Win $50 Off&rdquo;</em> mini-game encourage engagement right below the hero.</li>
             <li><strong>Clear Omnichannel Funnel:</strong> Guides visitors from initial promo awareness to roadshow stops and online checkout.</li>
@@ -2017,7 +2017,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Tactical Roadshow Trajectory (4 Mall Venues)</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Tactical Roadshow Trajectory (4 Mall Venues)</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Tactical Playbook Trajectory:</strong> Dashed pitch lines connect four mall roadshow dates in chronological order (Suntec City to Wisma Atria).</li>
             <li><strong>Progressive Visual Pacing:</strong> Section background shifts prevent scroll fatigue across all 8 promo modules.</li>
@@ -2025,21 +2025,21 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">High-Contrast &ldquo;New Power Drop&rdquo; Interlude</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">High-Contrast &ldquo;New Power Drop&rdquo; Interlude</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>High-Contrast Dark Interlude:</strong> The dark blue <em>&ldquo;New Power Drop&rdquo;</em> band acts as a visual break to spotlight new hardware releases.</li>
           </ul>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Loyalty Anchor: My Sony Rewards</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Loyalty Anchor: My Sony Rewards</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Warm Amber Anchor Block:</strong> A warm amber card on the left anchors three perk cards on the right, led by the <code>2X</code> points offer.</li>
           </ul>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Split Perks Matrix: In-Store vs. Online</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Split Perks Matrix: In-Store vs. Online</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Split Perks Matrix:</strong> Places <em>In-Store Perks</em> (Spin &amp; Win, Royal Caribbean Cruise) side by side with <em>Online Perks</em>.</li>
             <li><strong>Scannable Numeric Callouts:</strong> Oversized <code>$5</code>, <code>2X</code>, <code>10% OFF</code>, and <code>50% OFF</code> figures stand out during quick skimming.</li>
@@ -2047,14 +2047,14 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Color-Coded Tiered Vouchers</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Color-Coded Tiered Vouchers</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Color-Coded Tiered Vouchers:</strong> <code>$20</code>, <code>$40</code>, and <code>$100</code> coupons use perforated ticket shapes in green and yellow with high-contrast <em>&ldquo;Shop Now&rdquo;</em> buttons.</li>
           </ul>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Bespoke Engraving Carousel &amp; O2O Store Locator</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Bespoke Engraving Carousel &amp; O2O Store Locator</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>3D Carousel Bespoke Experience:</strong> Displays <em>Personalised Engraving</em> services in a center-focused slider.</li>
             <li><strong>O2O Store Locator Strip:</strong> Closes the scroll with five physical Sony Store cards to drive in-store visits.</li>
@@ -2063,7 +2063,7 @@
       </div>
 
       <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-        <button type="button" onclick="switchCasePreview('modal-myp-2026', 'full', true)" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+        <button type="button" onclick="switchCasePreview('modal-myp-2026', 'full', true)" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold inline-flex items-center gap-2">
           <span>Inspect Full Landing Page</span>
           <i class="ph-bold ph-arrows-out-simple"></i>
         </button>
@@ -2074,14 +2074,14 @@
 
   <!-- MODAL NEW 3: Sony Days 2025 Year-End Promotion Microsite -->
   <div id="modal-yep-2025" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-yep-2025')">
-    <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="drawer-panel w-full max-w-3xl bg-white dark:bg-[#1E1A1D] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
-          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-semibold">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-semibold">SONY</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10 font-mono text-[11px]">6 Nov 2025 to 4 Jan 2026</span>
         </div>
-        <button type="button" onclick="closeCaseModal('modal-yep-2025')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+        <button type="button" onclick="closeCaseModal('modal-yep-2025')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Close modal">
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
@@ -2094,17 +2094,17 @@
       <!-- Key Implementation & Impact Metrics -->
       <div class="grid grid-cols-3 gap-2.5 my-5">
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">8 Zones</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">8 Zones</div>
           <div class="text-[11px] font-semibold mt-0.5">Modular Layout</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Each section works as an independent block.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">360&deg;</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">360&deg;</div>
           <div class="text-[11px] font-semibold mt-0.5">O2O Integration</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Connects web traffic to mall visits.</p>
         </div>
         <div class="p-3 rounded-xl bg-black/[0.03] dark:bg-obsidian/80 border border-black/10 dark:border-white/10">
-          <div class="font-display font-extrabold text-lg text-[#4D7C0F] dark:text-[#C4F500]">4 Stages</div>
+          <div class="font-display font-extrabold text-lg text-[#C2410C] dark:text-[#FF6D29]">4 Stages</div>
           <div class="text-[11px] font-semibold mt-0.5">Scroll Journey</div>
           <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">From attention hook to after-sales trust.</p>
         </div>
@@ -2115,7 +2115,7 @@
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Interface Preview Mode</span>
           <div class="inline-flex p-1 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10">
-            <button type="button" data-tab-hero onclick="switchCasePreview('modal-yep-2025', 'hero')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]">
+            <button type="button" data-tab-hero onclick="switchCasePreview('modal-yep-2025', 'hero')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
               Hero Overview
             </button>
             <button type="button" data-tab-full onclick="switchCasePreview('modal-yep-2025', 'full')" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white">
@@ -2130,7 +2130,7 @@
 
         <div data-preview-full class="hidden rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-[#0D1F4B]">
           <div class="px-4 py-2 bg-black/60 text-[11px] font-mono text-slate-300 flex items-center justify-between border-b border-white/10">
-            <span><i class="ph-bold ph-mouse-scroll mr-1 text-[#C4F500]"></i> Scroll inside container to inspect all 8 thematic zones</span>
+            <span><i class="ph-bold ph-mouse-scroll mr-1 text-[#FF6D29]"></i> Scroll inside container to inspect all 8 thematic zones</span>
             <span>Full Resolution UI</span>
           </div>
           <div class="max-h-[540px] overflow-y-auto">
@@ -2142,7 +2142,7 @@
       <!-- Detailed Hybrid Case Study Breakdown -->
       <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Background &amp; Challenge: Simplifying a Multi-Channel Campaign</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Background &amp; Challenge: Simplifying a Multi-Channel Campaign</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Core User Problem:</strong> Sony&rsquo;s year-end campaign packs product discounts, mall roadshows, member points, and partner deals onto one page. Presenting that as plain copy overwhelms visitors fast.</li>
             <li><strong>Design Approach:</strong> Built a visual-storytelling microsite split into 8 distinct zones, each with its own color block and card shape.</li>
@@ -2150,7 +2150,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Above the Fold: Flat-Lay Hero &amp; Gift-Tag Roadshow Schedule</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Above the Fold: Flat-Lay Hero &amp; Gift-Tag Roadshow Schedule</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Flat-Lay Hero Scene:</strong> Pairs product photography with red ribbons and pine accents on a midnight-blue backdrop, anchored by two quick-action buttons (E-Catalogue and <em>Play &amp; Win $50</em>).</li>
             <li><strong>Gift-Tag Event Cards:</strong> Mall roadshow dates (Wisma Atria, Westgate, Sengkang, Jurong Point) sit inside hanging gold gift tags with an <code>IT'S OVER</code> stamp once a stop ends.</li>
@@ -2158,7 +2158,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Upper-Mid: My Sony Rewards &amp; Curated Gift Guide</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Upper-Mid: My Sony Rewards &amp; Curated Gift Guide</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Color Contrast on Member Cards:</strong> Places <em>My Sony Rewards</em> on a clean white canvas so the yellow, pink, and purple perk cards (and the <code>2X</code> points callout) stand out clearly.</li>
             <li><strong>Maroon Gift Guide Block:</strong> A deep holiday maroon band breaks up the scroll and frames floating hero products.</li>
@@ -2166,7 +2166,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Lower-Mid: In-Store Activities &amp; Sony x Trip.com</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Lower-Mid: In-Store Activities &amp; Sony x Trip.com</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Asymmetric Activity Split:</strong> Sets <em>Top Spender Rewards</em> (Mandai Rainforest trip) next to <em>Festive Workshops</em> alongside an interactive Christmas tree graphic.</li>
             <li><strong>Sony x Trip.com Coupon:</strong> Formats the <code>11% OFF</code> hotel and flight deal as a tilted physical ticket over Singapore skyline silhouettes.</li>
@@ -2174,7 +2174,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-semibold text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-2">Footer &amp; Design System: Bespoke Services &amp; After-Sales Trust</h4>
+          <h4 class="font-semibold text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-2">Footer &amp; Design System: Bespoke Services &amp; After-Sales Trust</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Staff &amp; Customer Photography:</strong> Uses a warm gold palette and real store photos in the <em>Bespoke Experiences</em> section.</li>
             <li><strong>Closing Trust Grid:</strong> Five staggered cards under <em>&ldquo;Just A Little More For You&rdquo;</em> cover gift wrapping and warranty perks, tied together with editorial display serif headings and coral-red CTAs.</li>
@@ -2183,7 +2183,7 @@
       </div>
 
       <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-        <button type="button" onclick="switchCasePreview('modal-yep-2025', 'full', true)" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+        <button type="button" onclick="switchCasePreview('modal-yep-2025', 'full', true)" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold inline-flex items-center gap-2">
           <span>Inspect Full Landing Page</span>
           <i class="ph-bold ph-arrows-out-simple"></i>
         </button>
@@ -2194,13 +2194,13 @@
 
   <!-- MODAL 1: Year End Promotion 2024 (Sony) -->
   <div id="modal-yep" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-yep')">
-    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#1E1A1D] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
-          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">SONY</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
         </div>
-        <button type="button" onclick="closeCaseModal('modal-yep')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+        <button type="button" onclick="closeCaseModal('modal-yep')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Close modal">
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
@@ -2214,17 +2214,17 @@
 
       <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Context &amp; Goal</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Context &amp; Goal</h4>
           <p>Designed Sony&rsquo;s year-end promotional microsite so shoppers can browse audio, camera, and TV deals without losing track of seasonal bundles.</p>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Design Challenge</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Design Challenge</h4>
           <p>Fitting multiple product categories and promo mechanics into one campaign page without crowding the layout or slowing down scanning.</p>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Decisions &amp; Execution</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Decisions &amp; Execution</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Visual Hierarchy:</strong> Anchored the hero with the campaign key visual, followed by structured product groups for quick scanning.</li>
             <li><strong>Guided Navigation:</strong> Ordered sections from the main promo hook down to category-level offers to keep exploration predictable.</li>
@@ -2232,13 +2232,13 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Deliverables</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Deliverables</h4>
           <p>Microsite Campaign UI Design, Visual Layout &amp; Presentation Deck.</p>
         </div>
       </div>
 
       <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-        <a href="https://docs.google.com/presentation/d/1Ne9_IF7vqySCto997TkEJO782SVlHx0S/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+        <a href="https://docs.google.com/presentation/d/1Ne9_IF7vqySCto997TkEJO782SVlHx0S/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold inline-flex items-center gap-2">
           <span>View Deck</span>
           <i class="ph-bold ph-arrow-up-right"></i>
         </a>
@@ -2249,13 +2249,13 @@
 
   <!-- MODAL 2: Mid Year Promotion 2025 (Sony) -->
   <div id="modal-myp" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-myp')">
-    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#1E1A1D] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
-          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">SONY</span>
+          <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">SONY</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX Designer</span>
         </div>
-        <button type="button" onclick="closeCaseModal('modal-myp')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+        <button type="button" onclick="closeCaseModal('modal-myp')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Close modal">
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
@@ -2269,17 +2269,17 @@
 
       <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Context &amp; Goal</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Context &amp; Goal</h4>
           <p>Campaign microsite for Sony&rsquo;s mid-year 2025 push, focused on clear offer tiers and smooth vertical navigation.</p>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Design Challenge</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Design Challenge</h4>
           <p>Keeping visual consistency across a tall scrolling page while giving each promo block enough breathing room on both desktop and mobile.</p>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Decisions &amp; Execution</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Decisions &amp; Execution</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Modular Sectioning:</strong> Broke the page into distinct visual blocks so visitors can scan offers in one pass.</li>
             <li><strong>Contrast &amp; Readability:</strong> Tuned type contrast and primary CTAs so buttons stay clear against campaign artwork.</li>
@@ -2287,7 +2287,7 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Deliverables</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Deliverables</h4>
           <p>Microsite Campaign UI Design &amp; Responsive Page Layout.</p>
         </div>
       </div>
@@ -2300,13 +2300,13 @@
 
   <!-- MODAL 3: Digital Product & Interactive UI Suite (The Loud Minority) -->
   <div id="modal-tlm" role="dialog" aria-modal="true" class="case-modal fixed inset-0 z-50 hidden justify-end bg-black/80" onclick="closeModalOnBackdrop(event, 'modal-tlm')">
-    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#12141C] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="drawer-panel w-full max-w-2xl bg-white dark:bg-[#1E1A1D] border-l border-black/10 dark:border-white/15 h-full overflow-y-auto p-6 sm:p-10 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
         <div class="flex flex-wrap gap-2 font-medium text-xs">
-          <span class="px-3 py-1 rounded-xl bg-[#4D7C0F]/15 dark:bg-[#C4F500]/15 text-[#4D7C0F] dark:text-[#C4F500] font-medium">THE LOUD MINORITY</span>
+          <span class="px-3 py-1 rounded-xl bg-[#C2410C]/15 dark:bg-[#FF6D29]/15 text-[#C2410C] dark:text-[#FF6D29] font-medium">THE LOUD MINORITY</span>
           <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/10">UI/UX &amp; Motion Designer</span>
         </div>
-        <button type="button" onclick="closeCaseModal('modal-tlm')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#4D7C0F] dark:hover:bg-[#C4F500] hover:text-white dark:hover:text-[#0A0B0E] flex items-center justify-center transition-colors" aria-label="Close modal">
+        <button type="button" onclick="closeCaseModal('modal-tlm')" class="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-[#C2410C] dark:hover:bg-[#FF6D29] hover:text-white dark:hover:text-[#161316] flex items-center justify-center transition-colors" aria-label="Close modal">
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
@@ -2320,17 +2320,17 @@
 
       <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Context &amp; Goal</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Context &amp; Goal</h4>
           <p>Digital product interface and interactive motion study for The Loud Minority, built to reflect the brand&rsquo;s direct visual tone.</p>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Design Challenge</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Design Challenge</h4>
           <p>Balancing expressive typography and motion with clear navigation and predictable component behavior.</p>
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Decisions &amp; Execution</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Decisions &amp; Execution</h4>
           <ul class="list-disc pl-5 space-y-1.5">
             <li><strong>Interface &amp; Layout:</strong> Structured an explicit grid to keep content organized across desktop and mobile viewports.</li>
             <li><strong>Interaction &amp; Motion:</strong> Added purposeful micro-interactions for visual feedback without slowing down reading flow.</li>
@@ -2338,13 +2338,13 @@
         </div>
 
         <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-obsidian/70 border border-black/10 dark:border-white/10">
-          <h4 class="font-medium font-medium text-[#4D7C0F] dark:text-[#C4F500] uppercase text-xs mb-1">Deliverables</h4>
+          <h4 class="font-medium font-medium text-[#C2410C] dark:text-[#FF6D29] uppercase text-xs mb-1">Deliverables</h4>
           <p>Interactive UI Design, Motion Exploration &amp; Presentation Deck.</p>
         </div>
       </div>
 
       <div class="mt-7 pt-5 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-        <a href="https://docs.google.com/presentation/d/1pkOPqYSdRl8oef2p651rDeomy4YfkRdY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold inline-flex items-center gap-2">
+        <a href="https://docs.google.com/presentation/d/1pkOPqYSdRl8oef2p651rDeomy4YfkRdY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold inline-flex items-center gap-2">
           <span>View Deck</span>
           <i class="ph-bold ph-arrow-up-right"></i>
         </a>
@@ -2440,13 +2440,13 @@
         view3d.classList.remove('hidden');
         viewPortrait.classList.add('hidden');
         if (disciplineTabs) disciplineTabs.classList.remove('opacity-40', 'pointer-events-none');
-        tab3d.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+        tab3d.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]';
         tabPortrait.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white';
       } else {
         view3d.classList.add('hidden');
         viewPortrait.classList.remove('hidden');
         if (disciplineTabs) disciplineTabs.classList.add('opacity-40', 'pointer-events-none');
-        tabPortrait.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+        tabPortrait.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]';
         tab3d.className = 'px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white';
       }
     }
@@ -2461,7 +2461,7 @@
       const tabFull = modal.querySelector('[data-tab-full]');
       if (!heroBox || !fullBox || !tabHero || !tabFull) return;
 
-      const activeClass = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+      const activeClass = 'px-3 py-1 rounded-full text-xs font-semibold transition-all bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]';
       const inactiveClass = 'px-3 py-1 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white';
 
       if (mode === 'full') {
@@ -2680,9 +2680,9 @@
 
       document.querySelectorAll('.mode-3d-btn').forEach((btn, idx) => {
         if (idx === index) {
-          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E]';
+          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]';
         } else {
-          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#C4F500] border border-transparent';
+          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent';
         }
       });
 
@@ -2724,24 +2724,24 @@
       mainGroup.add(sculptureGroup);
 
       // Shared Materials
-      const acidEdgeMat = new THREE.LineBasicMaterial({ color: 0xC4F500, transparent: true, opacity: 0.9 });
+      const acidEdgeMat = new THREE.LineBasicMaterial({ color: 0xFF6D29, transparent: true, opacity: 0.9 });
       const mutedEdgeMat = new THREE.LineBasicMaterial({ color: 0x94A3B8, transparent: true, opacity: 0.45 });
       const darkPanelMat = new THREE.MeshStandardMaterial({
-        color: 0x12151E,
+        color: 0x1E1A1D,
         roughness: 0.3,
         metalness: 0.8,
         transparent: true,
         opacity: 0.88
       });
       const accentSolidMat = new THREE.MeshStandardMaterial({
-        color: 0xC4F500,
-        emissive: 0xC4F500,
+        color: 0xFF6D29,
+        emissive: 0xFF6D29,
         emissiveIntensity: 0.35,
         roughness: 0.2,
         metalness: 0.5
       });
       const wireAccentMat = new THREE.MeshBasicMaterial({
-        color: 0xC4F500,
+        color: 0xFF6D29,
         wireframe: true,
         transparent: true,
         opacity: 0.75
@@ -3016,7 +3016,7 @@
       const pGeo = new THREE.BufferGeometry();
       pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
       const pMat = new THREE.PointsMaterial({
-        color: 0xC4F500,
+        color: 0xFF6D29,
         size: 0.038,
         transparent: true,
         opacity: 0.6
@@ -3028,7 +3028,7 @@
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
       scene.add(ambientLight);
 
-      const pointLight1 = new THREE.PointLight(0xC4F500, 2.4, 14);
+      const pointLight1 = new THREE.PointLight(0xFF6D29, 2.4, 14);
       pointLight1.position.set(3, 3, 4);
       scene.add(pointLight1);
 
@@ -3039,31 +3039,31 @@
       // Light / Dark theme palettes for the 3D stage (materials are shared, so updating colors restyles every shape live)
       applyThreeTheme = function (isDark) {
         if (isDark) {
-          acidEdgeMat.color.setHex(0xC4F500);
+          acidEdgeMat.color.setHex(0xFF6D29);
           acidEdgeMat.opacity = 0.9;
           mutedEdgeMat.color.setHex(0x94A3B8);
           mutedEdgeMat.opacity = 0.45;
-          darkPanelMat.color.setHex(0x12151E);
+          darkPanelMat.color.setHex(0x1E1A1D);
           darkPanelMat.roughness = 0.3;
           darkPanelMat.metalness = 0.8;
           darkPanelMat.opacity = 0.88;
-          accentSolidMat.color.setHex(0xC4F500);
-          accentSolidMat.emissive.setHex(0xC4F500);
+          accentSolidMat.color.setHex(0xFF6D29);
+          accentSolidMat.emissive.setHex(0xFF6D29);
           accentSolidMat.emissiveIntensity = 0.35;
           accentSolidMat.roughness = 0.2;
           accentSolidMat.metalness = 0.5;
-          wireAccentMat.color.setHex(0xC4F500);
+          wireAccentMat.color.setHex(0xFF6D29);
           wireAccentMat.opacity = 0.75;
           ringMat.color.setHex(0x94A3B8);
           ringMat.opacity = 0.3;
-          pMat.color.setHex(0xC4F500);
+          pMat.color.setHex(0xFF6D29);
           pMat.opacity = 0.6;
           ambientLight.intensity = 0.8;
-          pointLight1.color.setHex(0xC4F500);
+          pointLight1.color.setHex(0xFF6D29);
           pointLight1.intensity = 2.4;
           pointLight2.intensity = 1.2;
         } else {
-          acidEdgeMat.color.setHex(0x3F6212);
+          acidEdgeMat.color.setHex(0x9A3412);
           acidEdgeMat.opacity = 1;
           mutedEdgeMat.color.setHex(0x64748B);
           mutedEdgeMat.opacity = 0.75;
@@ -3071,16 +3071,16 @@
           darkPanelMat.roughness = 0.55;
           darkPanelMat.metalness = 0.05;
           darkPanelMat.opacity = 0.94;
-          accentSolidMat.color.setHex(0x4D7C0F);
-          accentSolidMat.emissive.setHex(0x4D7C0F);
+          accentSolidMat.color.setHex(0xC2410C);
+          accentSolidMat.emissive.setHex(0xC2410C);
           accentSolidMat.emissiveIntensity = 0.12;
           accentSolidMat.roughness = 0.35;
           accentSolidMat.metalness = 0.2;
-          wireAccentMat.color.setHex(0x3F6212);
+          wireAccentMat.color.setHex(0x9A3412);
           wireAccentMat.opacity = 0.85;
           ringMat.color.setHex(0x64748B);
           ringMat.opacity = 0.45;
-          pMat.color.setHex(0x4D7C0F);
+          pMat.color.setHex(0xC2410C);
           pMat.opacity = 0.65;
           ambientLight.intensity = 1.15;
           pointLight1.color.setHex(0xFFFFFF);

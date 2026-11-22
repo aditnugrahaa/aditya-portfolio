@@ -11,7 +11,7 @@
   <meta name="geo.region" content="ID-BT">
   <meta name="geo.placename" content="Tangerang, Indonesia">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#0A0B0E">
+  <meta name="theme-color" content="#161316">
   <link rel="canonical" href="https://adt-design.vercel.app/articles/customer-research.html">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
@@ -74,15 +74,15 @@
             sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
-          colors: { obsidian: '#0A0B0E', surface: '#12141C', alabaster: '#F5F6F8', acid: '#C4F500' }
+          colors: { obsidian: '#161316', surface: '#1E1A1D', alabaster: '#F5F6F8', acid: '#FF6D29' }
         }
       }
     }
   </script>
 
   <style>
-    :root { --bg-page: #F5F6F8; --bg-surface: #FFFFFF; --text-main: #0F1117; --border-subtle: rgba(15, 17, 23, 0.1); --accent: #4D7C0F; --accent-fg: #FFFFFF; }
-    html.dark { --bg-page: #0A0B0E; --bg-surface: #12141C; --text-main: #F5F6F8; --border-subtle: rgba(255, 255, 255, 0.09); --accent: #C4F500; --accent-fg: #0A0B0E; }
+    :root { --bg-page: #F5F6F8; --bg-surface: #FFFFFF; --text-main: #0F1117; --border-subtle: rgba(15, 17, 23, 0.1); --accent: #C2410C; --accent-fg: #FFFFFF; }
+    html.dark { --bg-page: #161316; --bg-surface: #1E1A1D; --text-main: #F5F6F8; --border-subtle: rgba(255, 255, 255, 0.09); --accent: #FF6D29; --accent-fg: #161316; }
     body { background-color: var(--bg-page); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
     .bg-grid-pattern { background-size: 64px 64px; background-image: linear-gradient(to right, var(--border-subtle) 1px, transparent 1px), linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px); }
     .glass-surface { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border: 1px solid var(--border-subtle); }
@@ -100,14 +100,14 @@
     .nav-pill:hover::before { transform: scaleX(1); }
   </style>
 </head>
-<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E]">
+<body class="antialiased selection:bg-[#FF6D29] selection:text-[#161316]">
   <!-- Reading Progress Bar Micro-Interaction -->
-  <div id="read-progress" class="fixed top-0 left-0 h-[3px] bg-[#4D7C0F] dark:bg-[#C4F500] z-50 transition-[width] duration-75" style="width: 0%"></div>
+  <div id="read-progress" class="fixed top-0 left-0 h-[3px] bg-[#C2410C] dark:bg-[#FF6D29] z-50 transition-[width] duration-75" style="width: 0%"></div>
   <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-45 z-0"></div>
 
   <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-10">
     <nav class="max-w-4xl mx-auto h-14 glass-surface rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
-      <a href="../articles.html" class="inline-flex items-center gap-2 text-xs font-semibold hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors group">
+      <a href="../articles.html" class="inline-flex items-center gap-2 text-xs font-semibold hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors group">
         <i class="ph-bold ph-arrow-left transition-transform group-hover:-translate-x-1"></i>
         <span>All Articles</span>
       </a>
@@ -117,7 +117,7 @@
           <i class="ph-bold ph-pen-nib"></i>
           <span>Graphic Design</span>
         </a>
-        <button id="theme-toggle" type="button" class="w-8 h-8 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors" aria-label="Toggle color theme">
+        <button id="theme-toggle" type="button" class="w-8 h-8 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#C2410C] dark:hover:border-[#FF6D29] transition-colors" aria-label="Toggle color theme">
           <i id="theme-icon" class="ph-bold ph-sun"></i>
         </button>
       </div>
@@ -126,8 +126,8 @@
 
   <main class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 pt-28 pb-20">
     <article>
-      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-4">
-        <span class="px-2.5 py-1 rounded-lg bg-[#4D7C0F]/10 dark:bg-[#C4F500]/10">UX Research</span>
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-4">
+        <span class="px-2.5 py-1 rounded-lg bg-[#C2410C]/10 dark:bg-[#FF6D29]/10">UX Research</span>
         <span>6 min read</span>
         <span class="text-slate-500 dark:text-slate-400">2026-02-05</span>
       </div>
@@ -138,7 +138,7 @@
 
       <div class="flex flex-wrap items-center justify-between gap-3 pb-6 mb-8 border-b border-black/10 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300">
         <span>By <strong class="text-slate-900 dark:text-white">Aditya Nugraha</strong> - UI/UX &amp; Motion Designer</span>
-        <button id="copy-link-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 dark:border-white/15 hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors font-medium">
+        <button id="copy-link-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 dark:border-white/15 hover:border-[#C2410C] dark:hover:border-[#FF6D29] transition-colors font-medium">
           <i class="ph-bold ph-link"></i>
           <span id="copy-link-text">Copy Link</span>
         </button>
@@ -178,15 +178,15 @@
     </article>
 
     <div class="mt-16 pt-8 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs">
-      <a href="../articles.html" class="inline-flex items-center gap-2 font-semibold hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors group">
+      <a href="../articles.html" class="inline-flex items-center gap-2 font-semibold hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors group">
         <i class="ph-bold ph-arrow-left transition-transform group-hover:-translate-x-1"></i>
         <span>Back to Articles</span>
       </a>
       <div class="flex items-center gap-3">
-        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="px-4 py-2.5 rounded-full border border-black/10 dark:border-white/15 font-semibold hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors">
+        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="px-4 py-2.5 rounded-full border border-black/10 dark:border-white/15 font-semibold hover:border-[#C2410C] dark:hover:border-[#FF6D29] transition-colors">
           Back to Top &uarr;
         </a>
-        <a href="../index.html#contact" class="px-5 py-2.5 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] font-bold">
+        <a href="../index.html#contact" class="px-5 py-2.5 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] font-bold">
           Work With Aditya
         </a>
       </div>

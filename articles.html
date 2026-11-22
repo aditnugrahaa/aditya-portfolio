@@ -12,7 +12,7 @@
   <meta name="geo.region" content="ID-BT">
   <meta name="geo.placename" content="Tangerang, Indonesia">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#0A0B0E">
+  <meta name="theme-color" content="#161316">
   <link rel="canonical" href="https://adt-design.vercel.app/articles.html">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
@@ -79,11 +79,11 @@
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            obsidian: '#0A0B0E',
-            surface: '#12141C',
-            surfaceElevated: '#181B26',
+            obsidian: '#161316',
+            surface: '#1E1A1D',
+            surfaceElevated: '#292222',
             alabaster: '#F5F6F8',
-            acid: '#C4F500',
+            acid: '#FF6D29',
           }
         }
       }
@@ -96,16 +96,16 @@
       --bg-surface: #FFFFFF;
       --text-main: #0F1117;
       --border-subtle: rgba(15, 17, 23, 0.1);
-      --accent: #4D7C0F;
+      --accent: #C2410C;
       --accent-fg: #FFFFFF;
     }
     html.dark {
-      --bg-page: #0A0B0E;
-      --bg-surface: #12141C;
+      --bg-page: #161316;
+      --bg-surface: #1E1A1D;
       --text-main: #F5F6F8;
       --border-subtle: rgba(255, 255, 255, 0.09);
-      --accent: #C4F500;
-      --accent-fg: #0A0B0E;
+      --accent: #FF6D29;
+      --accent-fg: #161316;
     }
     body {
       background-color: var(--bg-page);
@@ -135,7 +135,7 @@
     }
     .bento-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(196, 245, 0, 0.45);
+      border-color: rgba(255, 109, 41, 0.45);
       box-shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.35);
     }
 
@@ -210,14 +210,14 @@
     }
   </style>
 </head>
-<body class="antialiased selection:bg-[#C4F500] selection:text-[#0A0B0E]">
+<body class="antialiased selection:bg-[#FF6D29] selection:text-[#161316]">
 
   <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-10">
     <nav class="max-w-7xl mx-auto h-16 glass-surface rounded-full px-4 sm:px-6 flex items-center justify-between gap-4">
       <a href="./index.html" class="flex items-center gap-3 group rounded-full">
-        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#C4F500] transition-transform duration-300 group-hover:scale-105">
+        <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-white/20 group-hover:ring-[#FF6D29] transition-transform duration-300 group-hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="ADT Monogram">
-            <circle cx="250" cy="250" r="236" fill="#0A0B0E" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
+            <circle cx="250" cy="250" r="236" fill="#161316" stroke="rgba(196,245,0,0.45)" stroke-width="12"/>
             <g fill="#F5F6F8">
               <polygon points="241,63 250,63 216,177 241,177" />
               <rect x="214" y="177" width="53" height="4" />
@@ -234,9 +234,9 @@
       </a>
 
       <ul class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-500 dark:text-slate-300">
-        <li><a href="./index.html#work" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Selected Work</a></li>
-        <li><a href="./index.html#capabilities" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors whitespace-nowrap">Capabilities</a></li>
-        <li><a href="./articles.html" class="text-[#4D7C0F] dark:text-[#C4F500] font-semibold whitespace-nowrap">Articles</a></li>
+        <li><a href="./index.html#work" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors whitespace-nowrap">Selected Work</a></li>
+        <li><a href="./index.html#capabilities" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors whitespace-nowrap">Capabilities</a></li>
+        <li><a href="./articles.html" class="text-[#C2410C] dark:text-[#FF6D29] font-semibold whitespace-nowrap">Articles</a></li>
         <li>
           <a href="./graphic-design.html" class="nav-pill whitespace-nowrap" aria-label="Graphic Design portfolio">
             <i class="ph-bold ph-pen-nib nav-pill-icon"></i>
@@ -250,10 +250,10 @@
       </ul>
 
       <div class="flex items-center gap-2.5">
-        <button id="theme-toggle" type="button" class="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#4D7C0F] dark:hover:border-[#C4F500] transition-colors" aria-label="Toggle color theme">
+        <button id="theme-toggle" type="button" class="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 flex items-center justify-center text-sm hover:border-[#C2410C] dark:hover:border-[#FF6D29] transition-colors" aria-label="Toggle color theme">
           <i id="theme-icon" class="ph-bold ph-sun"></i>
         </button>
-        <a href="./index.html#contact" class="px-4 sm:px-5 py-2 rounded-full bg-[#4D7C0F] dark:bg-[#C4F500] text-white dark:text-[#0A0B0E] text-xs font-bold whitespace-nowrap">
+        <a href="./index.html#contact" class="px-4 sm:px-5 py-2 rounded-full bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316] text-xs font-bold whitespace-nowrap">
           Start a Conversation
         </a>
       </div>
@@ -262,7 +262,7 @@
 
   <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-32 pb-20">
     <div class="max-w-3xl mb-12">
-      <span class="font-mono text-xs uppercase tracking-widest text-[#4D7C0F] dark:text-[#C4F500]">Writing &amp; UI/UX Notes</span>
+      <span class="font-mono text-xs uppercase tracking-widest text-[#C2410C] dark:text-[#FF6D29]">Writing &amp; UI/UX Notes</span>
       <h1 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight mt-2">
         Articles &amp; Practical Frameworks
       </h1>
@@ -277,18 +277,18 @@
           <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
             <img src="./assets/article-estetika-vs-performa.jpg" alt="Estetika vs Performa Website Conversion" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-3">
             <span>UI/UX &amp; Conversion</span>
             <span>10 min read</span>
           </div>
-          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
             &ldquo;Estetika vs Performa&rdquo; Mengapa Banyak Website Cantik Gagal Menghasilkan Konversi?
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
             Membedah 5 penyebab utama website yang terlihat modern tetap rendah konversinya, mulai dari hierarchy, cognitive load, hingga animasi berlebihan.
           </p>
         </div>
-        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
           <span>Read Article</span>
           <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
         </span>
@@ -299,18 +299,18 @@
           <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
             <img src="./assets/article-lean-ux-lite.jpg" alt="Lean UX Lite Playbook Microsite" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-3">
             <span>Lean UX &amp; Analytics</span>
             <span>12 min read</span>
           </div>
-          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
             Lean UX &ldquo;Lite&rdquo; for Small Team: Playbook Microsite &amp; Pengukuran
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
             Panduan praktis dari workshop 2 jam, template hipotesis, guerrilla usability testing, hingga metrik GA4 dan heatmap untuk microsite kampanye.
           </p>
         </div>
-        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
           <span>Read Article</span>
           <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
         </span>
@@ -321,18 +321,18 @@
           <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
             <img src="./assets/article-ebook-uiux.jpg" alt="Menjadi UI/UX Designer Roadmap" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-3">
             <span>Career &amp; Product</span>
             <span>8 min read</span>
           </div>
-          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
             Menjadi UI/UX Designer: Roadmap, Design Thinking &amp; Product Thinking
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
             Panduan awal memahami prinsip UI/UX, metode desain, kolaborasi lintas tim dengan developer, dan pentingnya product thinking untuk naik level.
           </p>
         </div>
-        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
           <span>Read Article</span>
           <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
         </span>
@@ -343,18 +343,18 @@
           <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
             <img src="./assets/article-swot-scoring.jpg" alt="SWOT and Weighted Scoring Model" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-3">
             <span>Product Strategy</span>
             <span>5 min read</span>
           </div>
-          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
             How to Analyze Ideas with SWOT &amp; Weighted Scoring Model
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
             Cara memetakan pain point lewat analisis TOWS/SWOT lalu memberi bobot prioritas secara objektif menggunakan Weighted Scoring Matrix.
           </p>
         </div>
-        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
           <span>Read Article</span>
           <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
         </span>
@@ -365,18 +365,18 @@
           <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
             <img src="./assets/article-customer-research.jpg" alt="Customer Research &amp; Promo Effectiveness" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-3">
             <span>UX Research</span>
             <span>6 min read</span>
           </div>
-          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
             Customer Research: Mengukur Efektivitas Sumber Informasi Promo
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
             Kerangka riset pelanggan dari penentuan sampel, kuesioner kuantitatif, hingga pengolahan Skala Ketertarikan dan Frekuensi.
           </p>
         </div>
-        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
           <span>Read Article</span>
           <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
         </span>
@@ -387,18 +387,18 @@
           <div class="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 aspect-[16/10] mb-5 bg-obsidian">
             <img src="./assets/article-akurasi-data.jpg" alt="Mengukur Akurasi Data Secara Kuantitatif" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]" />
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-[#4D7C0F] dark:text-[#C4F500] mb-3">
+          <div class="flex items-center justify-between text-xs font-mono text-[#C2410C] dark:text-[#FF6D29] mb-3">
             <span>Data &amp; Research</span>
             <span>5 min read</span>
           </div>
-          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#4D7C0F] dark:group-hover:text-[#C4F500] transition-colors">
+          <h2 class="font-display font-bold text-xl leading-snug group-hover:text-[#C2410C] dark:group-hover:text-[#FF6D29] transition-colors">
             Cara Mengukur Akurasi Data Secara Kuantitatif
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
             Tiga metode menjaga validitas hasil riset: persentase kesalahan, cross-check dengan data penjualan/analytics, dan confidence interval.
           </p>
         </div>
-        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#4D7C0F] dark:text-[#C4F500]">
+        <span class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#C2410C] dark:text-[#FF6D29]">
           <span>Read Article</span>
           <i class="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1.5"></i>
         </span>
@@ -408,9 +408,9 @@
     <footer class="mt-20 pt-10 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
       <div><strong class="text-slate-900 dark:text-white font-display">Aditya Nugraha</strong>, UI/UX &amp; Motion Designer</div>
       <div class="flex flex-wrap items-center gap-6">
-        <a href="./index.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Home</a>
-        <a href="./graphic-design.html" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">Graphic Design</a>
-        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-[#4D7C0F] dark:hover:text-[#C4F500] transition-colors">LinkedIn</a>
+        <a href="./index.html" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Home</a>
+        <a href="./graphic-design.html" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">Graphic Design</a>
+        <a href="https://www.linkedin.com/in/aditya-nugraha-74816020a" target="_blank" rel="noopener noreferrer" class="hover:text-[#C2410C] dark:hover:text-[#FF6D29] transition-colors">LinkedIn</a>
       </div>
     </footer>
   </main>
