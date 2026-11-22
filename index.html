@@ -780,27 +780,31 @@
               </div>
 
               <span id="mesh-badge" class="font-medium text-[11px] px-2.5 py-1 rounded-md bg-[#C2410C]/10 dark:bg-[#FF6D29]/10 text-[#C2410C] dark:text-[#FF6D29]">
-                UI/UX Stack
+                ADT 3D Emblem
               </span>
             </div>
 
-            <!-- 4 Discipline 3D Selector Pills (UI/UX, Motion, Graphic, AI) -->
-            <div id="discipline-3d-tabs" data-depth="8" class="parallax-layer grid grid-cols-4 gap-1.5 mb-3 relative z-20">
-              <button type="button" onclick="select3DMode(0)" data-mode-btn="0" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
-                <i class="ph-bold ph-layout"></i>
+            <!-- 5 Discipline 3D Selector Pills (ADT 3D, UI/UX, Motion, Graphic, AI) -->
+            <div id="discipline-3d-tabs" data-depth="8" class="parallax-layer grid grid-cols-5 gap-1.5 mb-3 relative z-20">
+              <button type="button" onclick="select3DMode(0)" data-mode-btn="0" class="mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]">
+                <i class="ph-bold ph-cube hidden sm:inline"></i>
+                <span>ADT 3D</span>
+              </button>
+              <button type="button" onclick="select3DMode(1)" data-mode-btn="1" class="mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
+                <i class="ph-bold ph-layout hidden sm:inline"></i>
                 <span>UI/UX</span>
               </button>
-              <button type="button" onclick="select3DMode(1)" data-mode-btn="1" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
-                <i class="ph-bold ph-waveform"></i>
+              <button type="button" onclick="select3DMode(2)" data-mode-btn="2" class="mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
+                <i class="ph-bold ph-waveform hidden sm:inline"></i>
                 <span>Motion</span>
               </button>
-              <button type="button" onclick="select3DMode(2)" data-mode-btn="2" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
-                <i class="ph-bold ph-pen-nib"></i>
+              <button type="button" onclick="select3DMode(3)" data-mode-btn="3" class="mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
+                <i class="ph-bold ph-pen-nib hidden sm:inline"></i>
                 <span>Graphic</span>
               </button>
-              <button type="button" onclick="select3DMode(3)" data-mode-btn="3" class="mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
-                <i class="ph-bold ph-cpu"></i>
-                <span>AI Core</span>
+              <button type="button" onclick="select3DMode(4)" data-mode-btn="4" class="mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent">
+                <i class="ph-bold ph-cpu hidden sm:inline"></i>
+                <span>AI</span>
               </button>
             </div>
 
@@ -2682,9 +2686,9 @@
       });
     })();
 
-    // 6. Interactive Three.js 3D Discipline Sculptures (UI/UX, Motion, Graphic, AI)
+    // 6. Interactive Three.js 3D Emblem & Discipline Sculptures (ADT 3D, UI/UX, Motion, Graphic, AI)
     let currentShapeIndex = 0;
-    const shapeNames = ['UI/UX Stack', 'Motion Keyframes', 'Vector & Bezier', 'AI Neural Core'];
+    const shapeNames = ['ADT 3D Emblem', 'UI/UX Stack', 'Motion Keyframes', 'Vector & Bezier', 'AI Neural Core'];
     let rebuildMeshFn = null;
     let applyThreeTheme = null;
 
@@ -2696,9 +2700,9 @@
 
       document.querySelectorAll('.mode-3d-btn').forEach((btn, idx) => {
         if (idx === index) {
-          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]';
+          btn.className = 'mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-[#C2410C] dark:bg-[#FF6D29] text-white dark:text-[#161316]';
         } else {
-          btn.className = 'mode-3d-btn px-2 py-1.5 rounded-xl font-medium text-[11px] font-medium transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent';
+          btn.className = 'mode-3d-btn px-1.5 py-1.5 rounded-xl font-medium text-[11px] transition-all flex items-center justify-center gap-1 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:border-[#FF6D29] border border-transparent';
         }
       });
 
@@ -3001,11 +3005,82 @@
         animatedParts.push({ type: 'aiLattice', obj: nodesGroup });
       }
 
+      let cachedEmblemGeo = null;
+
+      function parseBinarySTL(buffer) {
+        const view = new DataView(buffer);
+        const faces = view.getUint32(80, true);
+        const positions = new Float32Array(faces * 9);
+        const normals = new Float32Array(faces * 9);
+        let offset = 84;
+        for (let i = 0; i < faces; i++) {
+          const nx = view.getFloat32(offset, true);
+          const ny = view.getFloat32(offset + 4, true);
+          const nz = view.getFloat32(offset + 8, true);
+          for (let v = 0; v < 3; v++) {
+            const vOff = offset + 12 + v * 12;
+            const idx = (i * 3 + v) * 3;
+            positions[idx] = view.getFloat32(vOff, true);
+            positions[idx + 1] = view.getFloat32(vOff + 4, true);
+            positions[idx + 2] = view.getFloat32(vOff + 8, true);
+            normals[idx] = nx;
+            normals[idx + 1] = ny;
+            normals[idx + 2] = nz;
+          }
+          offset += 50;
+        }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geo.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
+        geo.center();
+        geo.computeBoundingSphere();
+        if (geo.boundingSphere && geo.boundingSphere.radius > 0) {
+          const s = 1.48 / geo.boundingSphere.radius;
+          geo.scale(s, s, s);
+        }
+        return geo;
+      }
+
+      function mountEmblemMesh(geo) {
+        const emblemHolder = new THREE.Group();
+        const solidMesh = new THREE.Mesh(geo, darkPanelMat);
+        const accentRim = new THREE.Mesh(geo, accentSolidMat);
+        accentRim.scale.setScalar(1.012);
+        accentRim.position.z = -0.02;
+        emblemHolder.add(accentRim);
+        emblemHolder.add(solidMesh);
+        sculptureGroup.add(emblemHolder);
+        animatedParts.push({ type: 'adtEmblem', obj: emblemHolder });
+      }
+
+      function buildADTEmblem() {
+        if (cachedEmblemGeo) {
+          mountEmblemMesh(cachedEmblemGeo);
+          return;
+        }
+        fetch('./assets/apsi_emblem.stl')
+          .then(res => {
+            if (!res.ok) throw new Error('STL fetch failed');
+            return res.arrayBuffer();
+          })
+          .then(buf => {
+            cachedEmblemGeo = parseBinarySTL(buf);
+            if (currentShapeIndex === 0) {
+              clearSculpture();
+              mountEmblemMesh(cachedEmblemGeo);
+            }
+          })
+          .catch(() => {
+            if (currentShapeIndex === 0) buildUIUXStack();
+          });
+      }
+
       function buildGeometry(index) {
         clearSculpture();
-        if (index === 0) buildUIUXStack();
-        else if (index === 1) buildMotionWave();
-        else if (index === 2) buildGraphicVector();
+        if (index === 0) buildADTEmblem();
+        else if (index === 1) buildUIUXStack();
+        else if (index === 2) buildMotionWave();
+        else if (index === 3) buildGraphicVector();
         else buildAINeuralCore();
       }
 
@@ -3156,7 +3231,10 @@
 
           // Animate Discipline-Specific Internal Parts
           animatedParts.forEach(part => {
-            if (part.baseZ !== undefined) {
+            if (part.type === 'adtEmblem') {
+              part.obj.position.y = Math.sin(clockTime * 1.4) * 0.08;
+              part.obj.rotation.z = Math.sin(clockTime * 0.8) * 0.05;
+            } else if (part.baseZ !== undefined) {
               part.obj.position.z = part.baseZ + Math.sin(clockTime * part.speed + part.phase) * part.amp;
             } else if (part.type === 'waveBar') {
               part.obj.position.y = Math.sin(clockTime * 2.2 + part.index * 0.42) * 0.38;
