@@ -198,11 +198,11 @@
     const toggle = document.getElementById('theme-toggle');
     const icon = document.getElementById('theme-icon');
     function syncIcon() { icon.className = html.classList.contains('dark') ? 'ph-bold ph-sun' : 'ph-bold ph-moon'; }
-    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+    if (localStorage.getItem('adt-theme-v2') === 'dark') html.classList.add('dark');
     syncIcon();
     toggle.addEventListener('click', () => {
       html.classList.toggle('dark');
-      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+      localStorage.setItem('adt-theme-v2', html.classList.contains('dark') ? 'dark' : 'light');
       syncIcon();
     });
 
