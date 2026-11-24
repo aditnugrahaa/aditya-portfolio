@@ -12,7 +12,7 @@
   <meta name="geo.region" content="ID-BT">
   <meta name="geo.placename" content="Tangerang, Indonesia">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#E9EBEE">
+  <meta name="theme-color" content="#F5F6F8">
   <link rel="canonical" href="https://adt-design.vercel.app/graphic-design.html">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
@@ -121,13 +121,13 @@
             sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           },
           colors: {
-            paper: '#E9EBEE',
+            paper: '#F5F6F8',
             sheet: '#F7F8FA',
-            ink: '#000000',
+            ink: '#161316',
             inkMuted: '#525866',
-            cobalt: '#2340E8',
+            cobalt: '#C2410C',
             cobaltDeep: '#182CA8',
-            signal: '#EF3A2D',
+            signal: '#FF6D29',
           }
         }
       }
@@ -136,12 +136,12 @@
 
   <style>
     :root {
-      --bg-paper: #E9EBEE;
+      --bg-paper: #F5F6F8;
       --bg-sheet: #F7F8FA;
-      --ink: #000000;
+      --ink: #161316;
       --ink-muted: #525866;
-      --cobalt: #2340E8;
-      --signal: #EF3A2D;
+      --cobalt: #C2410C;
+      --signal: #FF6D29;
       --rule: rgba(0, 0, 0, 0.14);
     }
 
@@ -199,7 +199,7 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background-color: #000000;
+      background-color: #161316;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -393,7 +393,7 @@
       <a href="#top" class="flex items-center gap-3 group shrink-0 rounded-full">
         <div class="w-9 h-9 overflow-hidden flex-shrink-0 bg-ink border border-black">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full" aria-label="Monogram ADT">
-            <rect width="500" height="500" fill="#000000"/>
+            <rect width="500" height="500" fill="#161316"/>
             <g fill="#FFFFFF">
               <polygon points="241,63 250,63 216,177 241,177" />
               <rect x="214" y="177" width="53" height="4" />
@@ -1941,7 +1941,7 @@
 
           if (r === 2) {
             const pillW = Math.min(w * 0.76, ctx.measureText(word).width + 34);
-            ctx.fillStyle = '#2340E8';
+            ctx.fillStyle = '#C2410C';
             ctx.fillRect(cx - pillW * 0.5 + shift * 0.35, y - rowH * 0.42, pillW, rowH * 0.84);
             ctx.fillStyle = '#FFFFFF';
           } else {
@@ -1954,7 +1954,7 @@
         // Registration crosshair reactive to cursor
         const rx = cx + px * w * 0.4;
         const ry = cy + py * h * 0.4;
-        ctx.strokeStyle = '#EF3A2D';
+        ctx.strokeStyle = '#FF6D29';
         ctx.lineWidth = 1.4;
         ctx.beginPath();
         ctx.arc(rx, ry, 13, 0, Math.PI * 2);
@@ -1978,7 +1978,7 @@
           ctx.beginPath(); ctx.moveTo(0, g); ctx.lineTo(w, g); ctx.stroke();
         }
 
-        const palette = ['#94A3B8', '#000000', '#EF3A2D', '#2340E8'];
+        const palette = ['#94A3B8', '#161316', '#FF6D29', '#C2410C'];
         for (let l = 0; l < 4; l++) {
           const yBase = h * 0.32 + l * (h * 0.09);
           const cp1x = w * 0.32 + Math.sin(t * 1.1 + l) * (w * 0.09) + px * 28;
@@ -2004,7 +2004,7 @@
             ctx.stroke();
 
             ctx.fillStyle = '#FFFFFF';
-            ctx.strokeStyle = '#000000';
+            ctx.strokeStyle = '#161316';
             ctx.lineWidth = 2;
             ctx.fillRect(cp1x - 4, cp1y - 4, 8, 8);
             ctx.strokeRect(cp1x - 4, cp1y - 4, 8, 8);
@@ -2044,7 +2044,7 @@
         ctx.arc(0, 0, minD * 0.32, 0, Math.PI * 2);
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = '#EF3A2D';
+        ctx.fillStyle = '#FF6D29';
         ctx.beginPath(); ctx.arc(minD * 0.32, 0, 5, 0, Math.PI * 2); ctx.fill();
         ctx.restore();
 
@@ -2059,7 +2059,7 @@
         ctx.closePath();
         ctx.fill();
 
-        ctx.fillStyle = '#2340E8';
+        ctx.fillStyle = '#C2410C';
         ctx.fillRect(-s * 0.62, s * 0.18, s * 1.24, s * 0.16);
 
         ctx.fillStyle = '#FFFFFF';
@@ -2068,7 +2068,7 @@
 
       } else if (idx === 3) {
         // Study 4: Swiss Modular Grid Choreography
-        ctx.fillStyle = '#E9EBEE';
+        ctx.fillStyle = '#F5F6F8';
         ctx.fillRect(0, 0, w, h);
 
         const cols = 4;
@@ -2080,7 +2080,7 @@
         const cell = Math.min(cellW, cellH);
         const startX = cx - (cell * cols + gap * (cols - 1)) * 0.5;
         const startY = cy - (cell * rows + gap * (rows - 1)) * 0.5;
-        const colors = ['#000000', '#2340E8', '#EF3A2D', '#FFFFFF'];
+        const colors = ['#161316', '#C2410C', '#FF6D29', '#FFFFFF'];
 
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
@@ -2099,7 +2099,7 @@
             ctx.fill();
 
             if ((r + c) % 3 === 0) {
-              ctx.fillStyle = '#E9EBEE';
+              ctx.fillStyle = '#F5F6F8';
               ctx.beginPath(); ctx.arc(0, 0, cell * 0.18, 0, Math.PI * 2); ctx.fill();
             }
             ctx.restore();
@@ -2121,7 +2121,7 @@
         ctx.lineWidth = 1.5;
         ctx.strokeRect(startX, startY, stackW, h * 0.60);
 
-        const chipPalette = ['#2340E8', '#000000', '#EF3A2D', '#525866'];
+        const chipPalette = ['#C2410C', '#161316', '#FF6D29', '#525866'];
         const chipCount = 4;
         const chipR = Math.min(17, stackW * 0.08);
         const spacing = (stackW - 44) / chipCount;
@@ -2140,7 +2140,7 @@
         const swX = startX + stackW - swW - 22;
         const swY = startY + h * 0.31;
         roundedRectPath(ctx, swX, swY, swW, swH, swH * 0.5);
-        ctx.fillStyle = swProg > 0.5 ? '#2340E8' : '#000000';
+        ctx.fillStyle = swProg > 0.5 ? '#C2410C' : '#161316';
         ctx.fill();
         ctx.fillStyle = '#FFFFFF';
         const knobX = swX + swH * 0.5 + swProg * (swW - swH);
@@ -2149,14 +2149,14 @@
         const eqX = startX + 22;
         for (let b = 0; b < 5; b++) {
           const barH = (0.3 + (Math.sin(t * 3.5 + b * 0.85) * 0.5 + 0.5) * 0.7) * (swH * 1.1);
-          ctx.fillStyle = b === 2 ? '#EF3A2D' : '#2340E8';
+          ctx.fillStyle = b === 2 ? '#FF6D29' : '#C2410C';
           ctx.fillRect(eqX + b * 14, swY + swH - barH, 8, barH);
         }
 
         const barY = startY + h * 0.49;
         ctx.fillStyle = '#E2E8F0';
         ctx.fillRect(startX + 22, barY, stackW - 44, 8);
-        ctx.fillStyle = '#2340E8';
+        ctx.fillStyle = '#C2410C';
         ctx.fillRect(startX + 22, barY, (stackW - 44) * (0.25 + 0.65 * (Math.sin(t * 1.4) * 0.5 + 0.5)), 8);
 
       } else if (idx === 5) {
@@ -2165,8 +2165,8 @@
         ctx.fillRect(0, 0, w, h);
 
         const orbs = [
-          { col: '#2340E8', rx: w * 0.24, ry: h * 0.18, sp: 1.0, ph: 0 },
-          { col: '#EF3A2D', rx: w * 0.28, ry: h * 0.22, sp: -0.8, ph: 2.1 },
+          { col: '#C2410C', rx: w * 0.24, ry: h * 0.18, sp: 1.0, ph: 0 },
+          { col: '#FF6D29', rx: w * 0.28, ry: h * 0.22, sp: -0.8, ph: 2.1 },
           { col: '#60A5FA', rx: w * 0.18, ry: h * 0.26, sp: 1.3, ph: 4.2 }
         ];
 
@@ -2240,7 +2240,7 @@
             ctx.lineTo(isoX, topY + tileH);
             ctx.lineTo(isoX - tileW, topY);
             ctx.closePath();
-            ctx.fillStyle = wave > 0.62 ? '#2340E8' : (wave > 0.35 ? '#EF3A2D' : '#38415E');
+            ctx.fillStyle = wave > 0.62 ? '#C2410C' : (wave > 0.35 ? '#FF6D29' : '#38415E');
             ctx.fill();
           }
         }
@@ -2267,12 +2267,12 @@
         const c2x = padX + graphW * (0.35 - px * 0.12);
         const c2y = graphY;
 
-        ctx.strokeStyle = '#EF3A2D';
+        ctx.strokeStyle = '#FF6D29';
         ctx.lineWidth = 1.5;
         ctx.beginPath(); ctx.moveTo(padX, graphY + graphH); ctx.lineTo(c1x, c1y); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(padX + graphW, graphY); ctx.lineTo(c2x, c2y); ctx.stroke();
 
-        ctx.strokeStyle = '#2340E8';
+        ctx.strokeStyle = '#C2410C';
         ctx.lineWidth = 3.5;
         ctx.beginPath();
         ctx.moveTo(padX, graphY + graphH);
@@ -2287,7 +2287,7 @@
         ctx.lineWidth = 1.5;
         ctx.beginPath(); ctx.moveTo(playX, graphY - 8); ctx.lineTo(playX, graphY + graphH + 8); ctx.stroke();
 
-        ctx.fillStyle = '#EF3A2D';
+        ctx.fillStyle = '#FF6D29';
         ctx.fillRect(c1x - 4, c1y - 4, 8, 8);
         ctx.fillRect(c2x - 4, c2y - 4, 8, 8);
 
@@ -2296,7 +2296,7 @@
         ctx.fillRect(padX, railY - 3, graphW, 6);
 
         const objX = padX + ease * graphW;
-        ctx.fillStyle = '#2340E8';
+        ctx.fillStyle = '#C2410C';
         ctx.fillRect(objX - 11, railY - 11, 22, 22);
         ctx.fillStyle = '#FFFFFF';
         ctx.fillRect(objX - 4, railY - 4, 8, 8);
@@ -2591,7 +2591,7 @@
       scene.add(studioGroup);
 
       const prismMat = new THREE.MeshPhysicalMaterial({
-        color: 0x2340E8,
+        color: 0xC2410C,
         roughness: 0.16,
         metalness: 0.18,
         clearcoat: 1.0,
@@ -2606,13 +2606,13 @@
       });
 
       const darkAccentMat = new THREE.MeshStandardMaterial({
-        color: 0x090A0F,
+        color: 0x161316,
         roughness: 0.28,
         metalness: 0.6
       });
 
       const signalMat = new THREE.MeshStandardMaterial({
-        color: 0xEF3A2D,
+        color: 0xFF6D29,
         roughness: 0.3,
         metalness: 0.2
       });
@@ -2685,18 +2685,18 @@
       keyLight.position.set(4, 6, 5);
       scene.add(keyLight);
 
-      const cobaltLight = new THREE.PointLight(0x2340E8, 2.2, 12);
+      const cobaltLight = new THREE.PointLight(0xC2410C, 2.2, 12);
       cobaltLight.position.set(-3, -2, 4);
       scene.add(cobaltLight);
 
-      const rimLight = new THREE.PointLight(0xEF3A2D, 1.4, 12);
+      const rimLight = new THREE.PointLight(0xFF6D29, 1.4, 12);
       rimLight.position.set(3, -3, -2);
       scene.add(rimLight);
 
       const moods = [
-        { primary: 0x2340E8, accent: 0xEF3A2D },
-        { primary: 0xEF3A2D, accent: 0x2340E8 },
-        { primary: 0x090A0F, accent: 0x2340E8 }
+        { primary: 0xC2410C, accent: 0xFF6D29 },
+        { primary: 0xFF6D29, accent: 0xC2410C },
+        { primary: 0x161316, accent: 0xC2410C }
       ];
       setMoodFn = function (idx) {
         const cfg = moods[idx] || moods[0];
